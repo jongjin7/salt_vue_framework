@@ -1,0 +1,17 @@
+//컬러 클래스
+
+.text{
+  &-transcript{
+    color: $prd-transcription
+  }
+  
+  &-alert{
+    color: $warning-color;
+  }
+}
+
+.bg{
+  &-transcript{
+    background-color: $prd-transcription
+  }
+}

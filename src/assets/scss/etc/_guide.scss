@@ -1,0 +1,175 @@
+.s-guide{
+  .row{
+    &:not(:first-child){
+      margin-top: 20px;
+    }
+  }
+
+  h1{
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .toc{
+    position: relative;
+    position: sticky;
+    top:0;
+    left:0;
+    ul{
+      margin:0; padding:0;
+      list-style:none;
+    }
+     & > ul{
+       display: flex;
+       padding: 5px 10px;
+       background: #fafafa;
+       & > li{
+         margin-right: 20px;
+         & > a{
+           font-size: 14px;
+           font-weight: 500;
+         }
+         ul{
+           li{
+             &:before{
+               margin-right: 4px;
+               content:"-";
+             }
+             a{
+               font-size: 12px;
+               line-height: 1.4;
+               text-decoration: underline;
+             }
+           }
+         }
+
+         a:hover{
+           color: blue;
+         }
+       }
+     }
+
+    ul > li > ul{
+
+    }
+  }
+
+  h2{
+    position: relative;
+    font-size: 24px;
+    &:not(:first-child){
+      margin-top: 40px;
+    }
+
+    &:before{
+      display: none;
+      position: absolute; left:-14px; top:0;
+      content:'#'
+    }
+
+    &:after{
+      display: block;
+      margin-top: 10px;
+      border-bottom: 1px solid gray;
+      content:'';
+    }
+
+    &:hover{
+      &:before{
+        display: inline;
+      }
+    }
+  }
+
+  h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .container{
+    padding: 0 20px;
+    hr{
+      border-style: dotted;
+      border-color: #eaeaea;
+    }
+  }
+
+  //페이지리스트
+  .page-list{
+    padding: 0 0 100px;
+    counter-reset:title-number;
+
+    & > .list-item{
+      counter-increment:title-number;
+      h2:before{
+        display: inline;
+        position: static;
+        margin-right: 5px;
+        content:counter(title-number) ".";
+      }
+    }
+
+    .sub-menu{
+      margin-top: 10px;
+      counter-reset:list-number;
+      li{
+        counter-increment:list-number;
+        a{
+          display: flex;
+          align-items: center;
+          height: 30px;
+          color: #8a8a8a;
+          .text{
+            font-size: 16px;
+            padding: 0 5px;
+            &:before{
+              font-size: 12px;
+              margin-right: 3px;
+              color: #8a8a8a;
+              content:counter(title-number) "-" counter(list-number);
+            }
+          }
+          .status{
+            font-size: 14px;
+            &:before{
+              margin-right: 5px;
+              content: '/'
+            }
+            &:after{
+              margin-left: 5px;
+            }
+          }
+
+          &:hover{
+            background-color: #eaeaea;
+          }
+
+        }
+
+        &.work, &.modify, &.end {
+          a {
+            color: $dark-gray;
+          }
+        }
+
+        &.modify{
+          .status{
+            &:after{
+              display: inline;
+              color: $primary;
+              content:'변경'
+            }
+          }
+        }
+        &.end{
+          .status{
+            &:after{
+              display: inline;
+              color: $warning;
+              content:'완료'
+            }
+          }
+        }
+      }
+    }
+  }
+}

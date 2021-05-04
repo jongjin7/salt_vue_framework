@@ -1,0 +1,91 @@
+// 변수 정의
+// 크기
+$body-min-width: 1440px;
+$side-area-width: 278px;
+
+// 폰트 명 정의
+$font-name: "Noto Sans KR";
+
+// color
+$base-color: #292929;
+$primary: blue;
+$secondary: gray;
+$white: white;
+$light-gray: #eaeaea;
+$dark-gray: #101010;
+$warning: #ff5959;
+
+// typography
+// $font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
+// $font-size-base effects the font size of the body text
+$font-size-root:              null !default;
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-lg:                $font-size-base * 1.25 !default;
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+$font-weight-base:            $font-weight-normal !default;
+
+$line-height-base:            1.5 !default;
+$line-height-sm:              1.25 !default;
+$line-height-lg:              2 !default;
+
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 2 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+// Style anchor elements.
+
+$link-color:                              $primary !default;
+$link-decoration:                         underline !default;
+$link-shade-percentage:                   20% !default;
+//$link-hover-color:                        0;
+$link-hover-decoration:                   null !default;
+
+$stretched-link-pseudo-element:           after !default;
+$stretched-link-z-index:                  1 !default;
+
+// Z-Index
+$zindex-dropdown:                   1000;
+$zindex-sticky:                     1020;
+$zindex-fixed:                      1030;
+$zindex-offcanvas:                  1040;
+$zindex-modal-backdrop:             1050;
+$zindex-modal:                      1060;
+$zindex-popover:                    1070;
+$zindex-tooltip:                    1080;
+
+// Pagination
+$pagination-color:                  $link-color !default;
+$pagination-bg:                     $white !default;
+//$pagination-border-width:           $border-width !default;
+//$pagination-border-radius:          $border-radius !default;
+//$pagination-margin-start:           -$pagination-border-width !default;
+//$pagination-border-color:           $gray-300 !default;
+
+//$pagination-focus-color:            $link-hover-color !default;
+//$pagination-focus-bg:               $gray-200 !default;
+//$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+$pagination-focus-outline:          0 !default;
+
+//$pagination-hover-color:            $link-hover-color !default;
+//$pagination-hover-bg:               $gray-200 !default;
+//$pagination-hover-border-color:     $gray-300 !default;
+
+//$pagination-active-color:           $component-active-color !default;
+//$pagination-active-bg:              $component-active-bg !default;
+//$pagination-active-border-color:    $pagination-active-bg !default;
+
+//$pagination-disabled-color:         $gray-600 !default;
+//$pagination-disabled-bg:            $white !default;
+//$pagination-disabled-border-color:  $gray-300 !default;
+
+$pagination-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
