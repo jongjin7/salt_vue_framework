@@ -1,0 +1,58 @@
+.form-group{
+  margin-bottom: 16px;
+
+  label,
+  .form-label{
+    display: block;
+  }
+
+  .form-desc{
+    margin-top: 4px;
+  }
+}
+
+.form-inline{
+  &.form-group{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    label{
+      display: inline-block;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////
+// * error feedback
+
+.alert-feedback,
+.valid-feedback,
+.invalid-feedback {
+  display: none;
+  margin-top: 6px;
+  padding: 0 10px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.valid-feedback{
+  color: $primary;
+}
+
+.invalid-feedback{
+  color: $warning;
+}
+
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip,
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip{
+  display: block;
+}
+
+.is-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip,
+.was-validated :valid ~ .valid-feedback,
+.was-validated :valid ~ .valid-tooltip{
+  display: block;
+}

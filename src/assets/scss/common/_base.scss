@@ -1,5 +1,5 @@
 body {
-  min-width: 1280px;
+  min-width: $body-min-width;
   min-height: 600px;
   color: $base-color;
   font-family: $font-name;
@@ -32,7 +32,7 @@ label,
 dd,
 p,
 .table {
-  margin-bottom: 0;
+  margin:0;
 }
 
 b,

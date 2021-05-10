@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div ref="comlist">
     <section>
       <div class="container">
         <div class="row">
-          <h2 id="icons">1. 아이콘</h2>
+          <h2>1. 아이콘</h2>
           <div class="content">
-            <h3 id="icon-basic">기본 아이콘</h3>
+            <h3>기본 아이콘</h3>
             <s-svg-icon name="global"></s-svg-icon>
             <s-svg-icon name="book"></s-svg-icon>
           </div>
@@ -16,12 +16,12 @@
     <section>
       <div class="container">
         <div class="row">
-          <h2 id="badges">2. 벳지</h2>
+          <h2>2. 벳지</h2>
           <div class="content">
-            <h3 id="badge-basic">기본형 벳지</h3>
+            <h3>기본형 벳지</h3>
             <s-badge>기본 벳지</s-badge>
 
-            <h3 id="badge-icon">아이콘 포함</h3>
+            <h3>아이콘 포함</h3>
             <s-badge>기본 벳지</s-badge>
             <s-badge icon="global">기본 왼쪽 아이콘 벳지</s-badge>
             <s-badge icon="global, book">왼쪽 다중 아이콘 벳지</s-badge>
@@ -43,26 +43,21 @@
     <section>
       <div class="container">
         <div class="row">
-          <h2 id="buttons">3. 버튼</h2>
-          <h3 id="button-basic">기본형</h3>
+          <h2>3. 버튼</h2>
           <div class="content">
+            <h3>기본형</h3>
             <s-button>버튼</s-button>
             <s-button type="button">명시적 버튼</s-button>
             <s-button type="input">폼 인풋 버튼</s-button>
             <s-button type="submit">서브밋 버튼</s-button>
             <s-button type="link">링크형 버튼(A태그로 랜더링)</s-button>
-          </div>
 
-          <h3 id="button-icon">아이콘 포함</h3>
-          <div class="content">
+            <h3>아이콘 포함</h3>
             <s-button icon="global">아이콘 버튼</s-button>
             <s-button :icon="{right:'book'}">아이콘 버튼</s-button>
             <s-button :icon="{left:'global', right:'book'}">아이콘 버튼</s-button>
-          </div>
 
-          <hr>
-          <h3 id="button-group">버튼 그룹</h3>
-          <div class="content">
+            <h3>버튼 그룹</h3>
             <div class="btn-wrap">
               <s-button>기본 버튼</s-button>
               <s-button>백 버튼</s-button>
@@ -90,19 +85,33 @@
               <s-button>오른쪽 버튼</s-button>
             </div>
           </div>
+
         </div>
       </div>
     </section>
   </div>
 </template>
 <script>
+import tocLink from "../mixins/mixin_tocLink.js";
 export default {
   name: "ui-base",
-  created() {
-    this.$emit("updateStatus", { test:1111, });
+  mixins:[tocLink],
+  data() {
+    return{
+      frameData:{
+        pageTitle:"기본 UI 컴포넌트",
+        tocData:[],
+      },
+    };
+  },
+  mounted() {
+    this.$emit("updateStatus", this.frameData);
   },
   beforeDestroy() {
-    this.$emit("updateStatus", false);
+    console.log("base beforeDestroyed!!!!");
+  },
+  destroyed() {
+    console.log("bse destoryed");
   },
 };
 </script>

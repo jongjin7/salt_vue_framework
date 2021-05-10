@@ -1,3 +1,6 @@
+small, .small{
+  font-size: 12px;
+}
 .s-icon{
   position: relative;
   display: inline-block;
@@ -10,6 +13,7 @@
     height:100%;
   }
 }
+
 .badge{
   display: inline-block;
   padding:2px 5px;
@@ -64,3 +68,18 @@ hr{
   margin: 16px 0;
   border-width: 1px 0 0;
 }
+
+.list-group{
+  margin-top: 0;
+  &-item{
+
+  }
+}
+
+.alert{
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+}
+
+

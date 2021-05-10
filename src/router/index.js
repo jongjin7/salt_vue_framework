@@ -11,7 +11,7 @@ export const routerMap = [
   },
   {
     path: "*",
-    component: () => import("@/publishing/common/test.vue"),
+    component: () => import("@/publishing/common/error.vue"),
     // component: ()=>{
     //   return { template: "<div>none Page</div>", };
     // },
@@ -37,9 +37,22 @@ export const routerMap = [
         path: "form",
         name: "form-base",
         component: () => import("@/publishing/common/form.vue"),
-      }
+      },
+      {
+        path: "myform",
+        name: "my-form-base",
+        component: () => import("@/publishing/common/myForm.vue"),
+      },
     ],
-  }
+  },
+  {
+    path: "test",
+    name: "test",
+    props: (route) => ({
+      id: route.params.pageTitle + ":::test",
+    }),
+    component: () => import("@/publishing/common/error.vue"),
+  },
 ];
 
 let router = new VueRouter({

@@ -8,6 +8,7 @@
             <ul class="sub-menu">
               <li class="list-item work"><router-link :to="{name:'ui-base'}"><span class="text">기본 요소</span><span class="status">2021.05.04</span></router-link></li>
               <li class="list-item work"><router-link :to="{name:'form-base'}"><span class="text">Form 엘리먼트</span><span class="status">2021.05.04</span></router-link></li>
+              <li class="list-item"><router-link :to="{name:'my-form-base'}"><span class="text">개발중인 폼 컴포넌트</span><span class="status">2021.05.04</span></router-link></li>
             </ul>
           </li>
           <li class="list-item">
@@ -34,19 +35,29 @@
 <script>
 export default {
   name: "publishingList",
+
   data() {
     return {
-      pubData: {
-        title: "페이지리스트",
-        toc: null,
+      frameData:{
+        pageTitle:"퍼블리싱 페이지리스트",
+        tocData:false,
       },
     };
   },
   created() {
-
+    this.$emit("updateStatus", this.frameData);
+  },
+  beforeDestroy() {
+  },
+  destroyed() {
   },
   methods:{
 
   },
 };
 </script>
+<style lang="scss" scoped>
+h2{
+  margin-top: 30px;
+}
+</style>

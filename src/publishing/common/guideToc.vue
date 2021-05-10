@@ -1,23 +1,13 @@
 <template>
   <nav class="toc">
     <ul>
-      <li><a href="#icons">1. 아이콘</a>
+      <li v-for="toc in tocData" :key="toc.main.text">
+        <a :href="toc.main.link" class="title">{{ toc.main.text }}</a>
         <ul>
-          <li><a href="#icon-basic">기본 아이콘</a></li>
+          <li v-for="tocSub in toc.sub" :key="tocSub.text">
+            <a :href="tocSub.link">{{tocSub.text}}</a></li>
         </ul>
       </li>
-      <li><a href="#buttons">2. 버튼</a>
-        <ul>
-          <li><a href="#button-basic">기본형</a></li>
-          <li><a href="#button-icon">아이콘 포함</a></li>
-        </ul>
-      </li>
-      <li><a href="#badges">3. 벳지</a>
-        <ul>
-          <li><a href="#badge-basic">아이콘 포함</a></li>
-        </ul>
-      </li>
-      <li><a href="">4. 마지막 섹션</a></li>
     </ul>
   </nav>
 </template>
@@ -25,5 +15,10 @@
 <script>
 export default {
   name: "guideToc",
+  props: {
+    tocData: {
+      type: Array,
+    },
+  },
 };
 </script>

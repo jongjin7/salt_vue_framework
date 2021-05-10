@@ -1,17 +1,12 @@
-//컬러 클래스
-
-.text{
-  &-transcript{
-    color: $prd-transcription
-  }
-  
-  &-alert{
-    color: $warning-color;
-  }
+.d-block{
+  display: block;
 }
-
-.bg{
-  &-transcript{
-    background-color: $prd-transcription
-  }
+.d-none{
+  display: none;
+}
+.d-flex{
+  display: flex;
+}
+.d-grid{
+  display: grid;
 }

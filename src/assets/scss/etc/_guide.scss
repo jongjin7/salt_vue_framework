@@ -4,6 +4,13 @@
       margin-top: 20px;
     }
   }
+  .page-header{
+    position: sticky;
+    left:0; top:0;
+    z-index: 100;
+    margin-bottom: 30px;
+    background-color: rgba(white, 0.9);
+  }
 
   h1{
     font-size: 32px;
@@ -11,22 +18,19 @@
   }
 
   .toc{
-    position: relative;
-    position: sticky;
-    top:0;
-    left:0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(black, 0.1);
     ul{
       margin:0; padding:0;
       list-style:none;
     }
      & > ul{
        display: flex;
-       padding: 5px 10px;
-       background: #fafafa;
+       padding: 5px 10px 7px;
        & > li{
          margin-right: 20px;
-         & > a{
-           font-size: 14px;
+         .title{
+           font-size: 16px;
            font-weight: 500;
          }
          ul{
@@ -36,9 +40,11 @@
                content:"-";
              }
              a{
-               font-size: 12px;
+               font-size: 14px;
                line-height: 1.4;
-               text-decoration: underline;
+               &:hover{
+                 text-decoration: underline;
+               }
              }
            }
          }
@@ -81,12 +87,34 @@
     }
   }
 
-  h3{
-    font-size: 18px;
-    margin-bottom: 10px;
+
+  section{
+    &:not(:first-child){
+      margin-top: 40px;
+    }
   }
   .container{
     padding: 0 20px;
+    .content{
+      h3{
+        font-size: 18px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .list-group{
+        li{
+          margin-bottom: 5px;
+        }
+      }
+
+      .grid-col-2{
+        .form-group,
+        .custom-group{
+          margin:0 5px;
+        }
+      }
+    }
     hr{
       border-style: dotted;
       border-color: #eaeaea;

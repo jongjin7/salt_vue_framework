@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import mixinIcon from "../mixins/mixin_icons";
+import mixinIcon from "@/components/common/mixins/mixin_icons.js";
 
 export default {
   name: "compIconGroup",
