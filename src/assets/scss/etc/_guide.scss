@@ -4,12 +4,25 @@
       margin-top: 20px;
     }
   }
+
+  .side-container{
+    position: fixed;
+    left:0; right:0;
+    top:0;
+    z-index: 1000;
+    nav{
+      width:300px;
+      margin-left: 400px;
+      background-color: gray;
+
+    }
+  }
   .page-header{
-    position: sticky;
-    left:0; top:0;
+    left:0; right:0; top:0;
     z-index: 100;
     margin-bottom: 30px;
-    background-color: rgba(white, 0.9);
+    background-color: rgba(white, 0.8);
+    backdrop-filter: blur(20px);
   }
 
   h1{
@@ -34,7 +47,11 @@
            font-weight: 500;
          }
          ul{
+           display: flex;
+           max-width:600px;
+           flex-flow: row wrap;
            li{
+             margin-right: 10px;
              &:before{
                margin-right: 4px;
                content:"-";
@@ -70,7 +87,7 @@
     &:before{
       display: none;
       position: absolute; left:-14px; top:0;
-      content:'#'
+      content:'#';
     }
 
     &:after{

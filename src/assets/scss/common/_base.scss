@@ -7,6 +7,10 @@ body {
   line-height: 1.3;
 }
 
+*, :after, :before {
+  box-sizing: border-box;
+}
+
 ol,
 ul {
   list-style: none;
@@ -107,6 +111,16 @@ summary,
 textarea {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+}
+
+fieldset{
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+label{
+  display: inline-block;
 }
 
 a{

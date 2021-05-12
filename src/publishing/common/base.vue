@@ -50,12 +50,19 @@
             <s-button type="button">명시적 버튼</s-button>
             <s-button type="input">폼 인풋 버튼</s-button>
             <s-button type="submit">서브밋 버튼</s-button>
+            <s-button type="toggle" :addClass="'toggle jon onnk on onjon'">토글 버튼</s-button>
             <s-button type="link">링크형 버튼(A태그로 랜더링)</s-button>
 
             <h3>아이콘 포함</h3>
             <s-button icon="global">아이콘 버튼</s-button>
             <s-button :icon="{right:'book'}">아이콘 버튼</s-button>
             <s-button :icon="{left:'global', right:'book'}">아이콘 버튼</s-button>
+
+            <h3>Ajax 상태 버튼</h3>
+            <s-button icon="global" status="inactive">비활성 버튼</s-button>
+            <s-button icon="global" status="active">활성 버튼</s-button>
+            <s-button icon="global" status="on">준비</s-button>
+            <s-button icon="global" status="off">준비</s-button>
 
             <h3>버튼 그룹</h3>
             <div class="btn-wrap">
