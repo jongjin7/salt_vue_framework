@@ -8,7 +8,7 @@
             <ul class="sub-menu">
               <li class="list-item work"><router-link :to="{name:'ui-base'}"><span class="text">기본 요소</span><span class="status">2021.05.04</span></router-link></li>
               <li class="list-item work"><router-link :to="{name:'form-base'}"><span class="text">Form 엘리먼트</span><span class="status">2021.05.04</span></router-link></li>
-              <li class="list-item"><router-link :to="{name:'my-form-base'}"><span class="text">개발중인 폼 컴포넌트</span><span class="status">2021.05.04</span></router-link></li>
+              <li class="list-item work"><router-link :to="{name:'table-base'}"><span class="text">Table 컴포넌트</span><span class="status">2021.05.04</span></router-link></li>
             </ul>
           </li>
           <li class="list-item">

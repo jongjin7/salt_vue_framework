@@ -17,4 +17,29 @@
   &:after {
     vertical-align: middle;
   }
+
+
+}
+
+.btn-box{
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  border:1px solid $default;
+  padding: 0 11px 0 15px;
+  margin: 2px;
+  border-radius: 5px;
+  .badge{
+    margin:0;
+  }
+  .s-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .txt{
+    white-space: nowrap;
+  }
+  &:hover{
+    border-color: $dark-gray;
+  }
 }

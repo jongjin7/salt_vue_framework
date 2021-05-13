@@ -49,8 +49,8 @@
             <s-button>버튼</s-button>
             <s-button type="button">명시적 버튼</s-button>
             <s-button type="input">폼 인풋 버튼</s-button>
-            <s-button type="submit">서브밋 버튼</s-button>
-            <s-button type="toggle" :addClass="'toggle jon onnk on onjon'">토글 버튼</s-button>
+            <s-button type="submit" @onClick="testOnClick">서브밋 버튼</s-button>
+            <s-button type="toggle" @onChangeStatus="payload=>btnStatus=payload"><span>토글 버튼(토글 전용 클래스)==> <span v-if="btnStatus">on</span><span v-else>off</span></span></s-button>
             <s-button type="link">링크형 버튼(A태그로 랜더링)</s-button>
 
             <h3>아이콘 포함</h3>
@@ -99,7 +99,7 @@
   </div>
 </template>
 <script>
-import tocLink from "../mixins/mixin_tocLink.js";
+import tocLink from "@/publishing/mixins/mixinTocLink.js";
 export default {
   name: "ui-base",
   mixins:[tocLink],
@@ -109,6 +109,7 @@ export default {
         pageTitle:"기본 UI 컴포넌트",
         tocData:[],
       },
+      btnStatus:false,
     };
   },
   mounted() {
@@ -118,7 +119,12 @@ export default {
     console.log("base beforeDestroyed!!!!");
   },
   destroyed() {
-    console.log("bse destoryed");
+    console.log("base destroyed");
+  },
+  methods:{
+    testOnClick() {
+      console.log("버튼 일반 클릭!!!");
+    },
   },
 };
 </script>

@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ["eslint:recommended", "plugin:vue/essential", "prettier"],
+  extends: ["eslint:recommended", "plugin:vue/essential"],
   globals: {
     __static: true,
     Swal: true,
@@ -65,7 +65,7 @@ module.exports = {
     "object-curly-spacing": ["error", "always"],
     "no-console": "warn",
     quotes: ["error", "double"],
-    "arrow-parens": ["error", "always"],
+    "arrow-parens": ["error", "always"]
 
     // 'no-whitespace-before-property': "error",
   },

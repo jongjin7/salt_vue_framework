@@ -267,7 +267,7 @@
   </div>
 </template>
 <script>
-import tocLink from "../mixins/mixin_tocLink.js";
+import tocLink from "../mixins/mixinTocLink.js";
 import Multiselect from "vue-multiselect";
 
 export default {
@@ -295,7 +295,7 @@ export default {
             { text: "옵션#1", value: "1", },
             { text: "옵션#2", value: "2", },
             { text: "옵션 옵션 #3", value: "3", },
-            { text: "옵션#4", value: "4", }
+            { text: "옵션#4", value: "4", disabled: true, }
           ],
         },
         checkbox: {
@@ -304,7 +304,7 @@ export default {
             { text: "Orange", value: "orange", },
             { text: "Apple", value: "apple", },
             { text: "Pineapple Pineapple", value: "pineapple", },
-            { text: "Grape", value: "grape", }
+            { text: "Grape", value: "grape", disabled: true, }
           ],
         },
         select: {

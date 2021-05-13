@@ -1,0 +1,267 @@
+.table {
+  border-collapse: collapse;
+  color: $default;
+  width:100%;
+  thead,
+  tbody {
+    th,
+    td {
+      border-top: none;
+      border-bottom: none;
+      //padding: 16px 18px 18px;
+      vertical-align: middle;
+    }
+    & + tbody {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    .none-data {
+      display: table-row;
+      td {
+        padding: 160px 0 !important;
+        text-align: center !important;
+      }
+    }
+  }
+
+  &-hover {
+    tbody {
+      tr {
+        &:hover {
+          color: $default;
+          background-color: #fafbfc;
+        }
+        &.none-data:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &-fixed {
+    table-layout: fixed;
+  }
+
+  &-datatable {
+    tr {
+      th,
+      td {
+        height: 52px;
+        padding: 4px 8px;
+
+        &:first-child {
+          padding-left: 50px;
+        }
+
+        &:last-child {
+          padding-right: 50px;
+        }
+      }
+    }
+    thead {
+      tr {
+        background-color: #f5f6f9;
+        th {
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+    }
+    tbody {
+      tr {
+        th,
+        td {
+          border-bottom: 1px solid $light-gray;
+          font-size: 13px;
+          font-weight: 400;
+        }
+
+        th {
+          font-weight: 500;
+        }
+        td {
+          .text-link {
+            .txt {
+              font-size: 13px;
+              vertical-align: middle;
+            }
+            .vs-icon {
+              opacity: 0;
+              width: 0;
+              overflow: hidden;
+              transition: opacity 0.1s ease-in-out;
+              &:before {
+                display: none;
+              }
+              svg {
+                width: 12px;
+                height: 12px;
+              }
+            }
+            & + .btn {
+              &.btn-icons {
+                position: relative;
+                top: 2px;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          td {
+            a.text-overflow {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      &.table-plain {
+        tr {
+          th,
+          td {
+            padding: 0 !important;
+            border: none !important;
+          }
+        }
+      }
+    }
+
+    // 사각버튼
+    .btn-select {
+      min-width: auto;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      padding: 0 12px;
+
+      &.btn-ok {
+      }
+      &.btn-reject {
+        &:hover {
+          border-color: $warning !important;
+        }
+      }
+    }
+
+    // 포함되는 셀렉트 박스
+    .custom-select,
+    .form-control {
+      font-size: 13px;
+      border-color: $secondary;
+      border-radius: 5px;
+
+      &:focus {
+        border-color: $apply;
+      }
+    }
+
+    &.table-detail {
+      border-top: 1px solid $light-gray;
+      tr {
+        th,
+        td {
+          &:first-child {
+            padding-left: 18px;
+          }
+        }
+        th {
+          background-color: #f5f6f9;
+          text-align: center;
+        }
+        td {
+          text-align: left;
+        }
+      }
+    }
+
+    &.dl-detail {
+      display: flex;
+      flex-wrap: wrap;
+      border-top: 1px solid $light-gray;
+      & > dt,
+      & > dd {
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        padding: 4px 18px;
+        border-bottom: 1px solid $light-gray;
+      }
+
+      & > dt {
+        width: 20%;
+        background-color: #f5f6f9;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      & > dd {
+        width: 30%;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 400;
+
+        &.wide-column {
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  &-grid {
+    tr {
+      th,
+      td {
+        padding: 4px 50px !important;
+      }
+    }
+
+    thead {
+      tr {
+        th {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &-checkable {
+    tr {
+      th,
+      td {
+        &:first-child {
+          width: 86px;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &-bordered {
+    border: none;
+    tr {
+      th,
+      td {
+        border-color: $light-gray;
+      }
+      th,
+      td {
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+    thead {
+      tr {
+        th {
+        }
+      }
+    }
+  }
+
+
+}

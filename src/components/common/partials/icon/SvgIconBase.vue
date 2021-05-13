@@ -23,7 +23,7 @@ import UI from "./iconsList/svgUI";
 
 const iconList = { ...UI, };
 export default {
-  name: "iconsBase",
+  name: "SvgIconsBase",
   computed: {
     svgIcons: () => {
       return iconList;

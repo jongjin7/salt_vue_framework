@@ -1,25 +1,40 @@
-.d-block{
+.d-block {
   display: block;
 }
-.d-none{
+
+.d-none {
   display: none;
 }
-.d-flex{
+
+.d-flex {
   display: flex;
 }
-.d-grid{
+
+.d-grid {
   display: grid;
 }
 
+.text {
+  &-left {
+    text-align: left;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
 .blind,
-.sr-only{
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }

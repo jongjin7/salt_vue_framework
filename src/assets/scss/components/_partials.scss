@@ -76,6 +76,30 @@ hr{
   }
 }
 
+.cell-list {
+  li {
+    position: relative;
+    padding-left: 10px;
+    line-height: 1.1;
+    &:before {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 2px;
+      height: 2px;
+      background-color: $default;
+      border-radius: 50%;
+      vertical-align: middle;
+      content: "";
+    }
+
+    &:not(:first-child) {
+      margin-top: 2px;
+    }
+  }
+}
+
 .alert{
   padding: 10px;
   margin-bottom: 10px;

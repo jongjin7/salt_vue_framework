@@ -20,14 +20,10 @@ Vue.use(VeeValidate, {
 // Vue.use(VueLoading);
 // Vue.use(VueToast);
 
-import { sSvgIcon, sButton, sBadge } from "@/components/common/partials/partialElements";
-Vue.component("s-button", sButton);
-Vue.component("s-badge", sBadge);
-Vue.component("s-svg-icon", sSvgIcon);
-
-import { formGroup, formInputField } from "@/components/common/forms/formComponents";
-Vue.component("form-group", formGroup);
-Vue.component("input-field", formInputField);
+import { SsvgIcon, Sbutton, Sbadge } from "@/components/common/partials/partialElements";
+Vue.component("s-svg-icon", SsvgIcon);
+Vue.component("s-button", Sbutton);
+Vue.component("s-badge", Sbadge);
 
 Vue.config.productionTip = false;
 
