@@ -19,7 +19,7 @@
           <h2>2. 벳지</h2>
           <div class="content">
             <h3>기본형 벳지</h3>
-            <s-badge>기본 벳지</s-badge>
+            <s-badge @click="()=> console.log('test')">기본 벳지</s-badge>
 
             <h3>아이콘 포함</h3>
             <s-badge>기본 벳지</s-badge>
@@ -47,29 +47,51 @@
           <div class="content">
             <h3>기본형</h3>
             <s-button>버튼</s-button>
-            <s-button type="button">명시적 버튼</s-button>
+            <s-button type="button">명시적 타입 버튼</s-button>
             <s-button type="input">폼 인풋 버튼</s-button>
-            <s-button type="submit" @onClick="testOnClick">서브밋 버튼</s-button>
-            <s-button type="toggle" @onChangeStatus="payload=>btnStatus=payload"><span>토글 버튼(토글 전용 클래스)==> <span v-if="btnStatus">on</span><span v-else>off</span></span></s-button>
-            <s-button type="link">링크형 버튼(A태그로 랜더링)</s-button>
+            <s-button type="submit" @onClick="clickBtn" class="new-class-name">서브밋 버튼</s-button>
+            <s-button type="toggle" class="custom-class-name" @onChangeStatus="clickToggleBtn"><span>토글 버튼(토글 전용 클래스)==> <span v-if="btnStatus">on</span><span v-else>off</span></span></s-button>
+            <s-button type="link" href="form" title="form-link">링크형 버튼(A태그로 랜더링)</s-button>
+            <s-button type="link" href="http://www.naver.com" target="_blank">일반링크</s-button>
+
+            <h3>버튼 스타일: 형태</h3>
+            <b-form @submit.prevent="onSubmit">
+              <s-button type="submit">기본형 버튼</s-button>
+              <s-button outline>아웃라인 버튼</s-button>
+              <s-button pill>알약 버튼</s-button>
+              <s-button rounded>라운드 버튼</s-button>
+              <s-button squared>사각 버튼</s-button>
+              <s-button pill color="primary">알약 Primary 채움 버튼</s-button>
+              <s-button pill outline color="primary">알약 Primary Outline 채움 버튼</s-button>
+              <s-button pill color="warning">알약 Warning 채움 버튼</s-button>
+              <s-button pill outline color="warning">알약 Warning Outline 버튼</s-button>
+            </b-form>
+
+            <h3>버튼 스타일: 색상</h3>
+            <s-button>기본 컬러 버튼(secondary 컬러)</s-button>
+            <s-button color="primary">메인 컬러 버튼</s-button>
+            <s-button color="dark">실행 버튼</s-button>
+            <s-button color="success">실행 성공 버튼</s-button>
+            <s-button color="warning">삭제나 경고 버튼</s-button>
 
             <h3>아이콘 포함</h3>
-            <s-button icon="global">아이콘 버튼</s-button>
-            <s-button :icon="{right:'book'}">아이콘 버튼</s-button>
-            <s-button :icon="{left:'global', right:'book'}">아이콘 버튼</s-button>
+            <s-button icon="global">버튼: 좌측 아이콘</s-button>
+            <s-button :icon="{right:'book'}">버튼: 우측 아이콘</s-button>
+            <s-button :icon="{left:'global', right:'book'}">좌우 아이콘 버튼</s-button>
 
             <h3>Ajax 상태 버튼</h3>
-            <s-button icon="global" status="inactive">비활성 버튼</s-button>
-            <s-button icon="global" status="active">활성 버튼</s-button>
+            <s-button icon="global" color="apply" disabled>비활성 버튼</s-button>
+            <s-button icon="global" color="warning" disabled>비활성 버튼</s-button>
+            <s-button icon="global">활성 버튼</s-button>
             <s-button icon="global" status="on">준비</s-button>
             <s-button icon="global" status="off">준비</s-button>
-
             <h3>버튼 그룹</h3>
-            <div class="btn-wrap">
+            <div class="btn-group">
               <s-button>기본 버튼</s-button>
               <s-button>백 버튼</s-button>
             </div>
-            <br>
+
+            <h3>버튼 정렬</h3>
             <div class="btn-wrap align-left">
               <s-button>버튼</s-button>
               <s-button>버튼</s-button>
@@ -122,8 +144,16 @@ export default {
     console.log("base destroyed");
   },
   methods:{
-    testOnClick() {
-      console.log("버튼 일반 클릭!!!");
+    clickBtn() {
+      console.log("일반 클릭!!");
+    },
+
+    clickToggleBtn(payload) {
+      console.log("토글버튼 클릭:=>", payload);
+      this.btnStatus = !this.btnStatus;
+    },
+    onSubmit() {
+      console.log("onsubmit");
     },
   },
 };

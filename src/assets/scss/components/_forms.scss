@@ -95,12 +95,9 @@
       }
     }
     &:before {
+      background-color: white;
       border: 1px solid $default;
       pointer-events: none;
-    }
-
-    &:after{
-
     }
   }
 

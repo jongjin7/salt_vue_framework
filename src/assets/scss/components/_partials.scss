@@ -39,30 +39,25 @@ small, .small{
   }
 }
 
-.btn-wrap {
-  display: flex;
-  align-items: center;
 
-  .btn {
-    margin: 0 5px;
-  }
 
-  &.align-left {
-    justify-content: flex-start;
-  }
-
-  &.align-center {
-    justify-content: center;
-  }
-
-  &.align-right {
-    justify-content: flex-end;
-  }
-
-  &.align-between{
-    justify-content: space-between;
-  }
+// 정렬
+.align-left {
+  justify-content: flex-start;
 }
+
+.align-center {
+  justify-content: center;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+.align-between{
+  justify-content: space-between;
+}
+
 
 hr{
   margin: 16px 0;

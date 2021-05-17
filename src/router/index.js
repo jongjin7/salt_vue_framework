@@ -29,6 +29,11 @@ export const routerMap = [
         component: () => import("@/publishing/publishingList.vue"),
       },
       {
+        path: "content",
+        name: "content-base",
+        component: () => import("@/publishing/common/content.vue"),
+      },
+      {
         path: "base",
         name: "ui-base",
         component: () => import("@/publishing/common/base.vue"),
@@ -42,6 +47,11 @@ export const routerMap = [
         path: "table",
         name: "table-base",
         component: () => import("@/publishing/common/table.vue"),
+      },
+      {
+        path: "popup",
+        name: "boot-popup",
+        component: () => import("@/publishing/common/Popups.vue"),
       },
       // {
       //   path: "myform",

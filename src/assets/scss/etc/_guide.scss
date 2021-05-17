@@ -1,190 +1,274 @@
-.s-guide{
-  .row{
-    &:not(:first-child){
+.s-guide {
+  h1, h2, h3, h4, h5 {
+    color: $dark-gray;
+  }
+
+  .row {
+    &:not(:first-child) {
       margin-top: 20px;
     }
   }
 
-  .side-container{
+  .side-container {
     position: fixed;
-    left:0; right:0;
-    top:0;
+    left: 0;
+    right: 0;
+    top: 0;
     z-index: 1000;
-    nav{
-      width:300px;
+
+    nav {
+      width: 300px;
       margin-left: 400px;
       background-color: gray;
-
     }
   }
-  .page-header{
-    left:0; right:0; top:0;
+
+  .page-header {
+    left: 0;
+    right: 0;
+    top: 0;
     z-index: 100;
     margin-bottom: 30px;
     background-color: rgba(white, 0.8);
     backdrop-filter: blur(20px);
   }
 
-  h1{
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-
-  .toc{
+  .toc {
     padding-bottom: 10px;
     border-bottom: 1px solid rgba(black, 0.1);
-    ul{
-      margin:0; padding:0;
-      list-style:none;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
-     & > ul{
-       display: flex;
-       padding: 5px 10px 7px;
-       & > li{
-         margin-right: 20px;
-         .title{
-           font-size: 16px;
-           font-weight: 500;
-         }
-         ul{
-           display: flex;
-           max-width:600px;
-           flex-flow: row wrap;
-           li{
-             margin-right: 10px;
-             &:before{
-               margin-right: 4px;
-               content:"-";
-             }
-             a{
-               font-size: 14px;
-               line-height: 1.4;
-               &:hover{
-                 text-decoration: underline;
-               }
-             }
-           }
-         }
 
-         a:hover{
-           color: blue;
-         }
-       }
-     }
+    & > ul {
+      display: flex;
+      padding: 5px 10px 7px;
 
-    ul > li > ul{
+      & > li {
+        margin-right: 20px;
+
+        .title {
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        ul {
+          display: flex;
+          max-width: 600px;
+          flex-flow: row wrap;
+
+          li {
+            margin-right: 10px;
+
+            &:before {
+              margin-right: 4px;
+              content: "-";
+            }
+
+            a {
+              font-size: 14px;
+              line-height: 1.4;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        a:hover {
+          color: blue;
+        }
+      }
+    }
+
+    ul > li > ul {
 
     }
   }
 
-  h2{
-    position: relative;
-    font-size: 24px;
-    &:not(:first-child){
+  section {
+    &:not(:first-child) {
       margin-top: 40px;
     }
+    .row{
+      & > h2 {
+        position: relative;
+        font-size: 24px;
 
-    &:before{
-      display: none;
-      position: absolute; left:-14px; top:0;
-      content:'#';
-    }
+        &:not(:first-child) {
+          margin-top: 40px;
+        }
 
-    &:after{
-      display: block;
-      margin-top: 10px;
-      border-bottom: 1px solid gray;
-      content:'';
-    }
+        &:before {
+          display: none;
+          position: absolute;
+          left: -14px;
+          top: 0;
+          content: '#';
+        }
 
-    &:hover{
-      &:before{
-        display: inline;
+        &:after {
+          display: block;
+          margin-top: 10px;
+          border-bottom: 1px solid gray;
+          content: '';
+        }
+
+        &:hover {
+          &:before {
+            display: inline;
+          }
+        }
       }
     }
   }
 
-
-  section{
-    &:not(:first-child){
-      margin-top: 40px;
-    }
-  }
-  .container{
+  .container {
     padding: 0 20px;
-    .content{
-      h3{
+
+    .content {
+      & > h3 {
         font-size: 18px;
         margin-top: 10px;
         margin-bottom: 10px;
       }
 
-      .list-group{
-        li{
+      .list-group {
+        li {
           margin-bottom: 5px;
         }
       }
 
-      .grid-col-2{
+      .grid-col-2 {
         .form-group,
-        .custom-group{
-          margin:0 5px;
+        .custom-group {
+          margin: 0 5px;
+        }
+      }
+
+      .color-list {
+        display: flex;
+
+        li {
+          width: 100px;
+          height: 100px;
+          border: 1px solid #eaeaea;
+          margin-right: 10px;
+        }
+      }
+
+      .font-list {
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #eaeaea;
+
+          .list-title{
+            font-weight: 500;
+            color: black;
+            margin-right: 4px;
+            &:after{
+              content:':'
+            }
+          }
+
+          & > *{
+            color: $default;
+            line-height: 2;
+          }
+
+          h2:after {
+            display: none;
+          }
+
+          .name{
+            display: block;
+            .size{
+              &:before{
+                content:'FontSize: '
+              }
+              &:after{
+                margin: 0 4px;
+                content:'/'
+              }
+            }
+            .weight{
+              &:before{
+                content:'weight: '
+              }
+            }
+
+          }
         }
       }
     }
-    hr{
+
+    hr {
       border-style: dotted;
       border-color: #eaeaea;
     }
   }
 
   //페이지리스트
-  .page-list{
+  .page-list {
     padding: 0 0 100px;
-    counter-reset:title-number;
+    counter-reset: title-number;
 
-    & > .list-item{
-      counter-increment:title-number;
-      h2:before{
+    & > .list-item {
+      counter-increment: title-number;
+
+      h2:before {
         display: inline;
         position: static;
         margin-right: 5px;
-        content:counter(title-number) ".";
+        content: counter(title-number) ".";
       }
     }
 
-    .sub-menu{
+    .sub-menu {
       margin-top: 10px;
-      counter-reset:list-number;
-      li{
-        counter-increment:list-number;
-        a{
+      counter-reset: list-number;
+
+      li {
+        counter-increment: list-number;
+
+        a {
           display: flex;
           align-items: center;
           height: 30px;
           color: #8a8a8a;
-          .text{
+
+          .text {
             font-size: 16px;
             padding: 0 5px;
-            &:before{
+
+            &:before {
               font-size: 12px;
               margin-right: 3px;
               color: #8a8a8a;
-              content:counter(title-number) "-" counter(list-number);
+              content: counter(title-number) "-" counter(list-number);
             }
           }
-          .status{
+
+          .status {
             font-size: 14px;
-            &:before{
+
+            &:before {
               margin-right: 5px;
               content: '/'
             }
-            &:after{
+
+            &:after {
               margin-left: 5px;
             }
           }
 
-          &:hover{
+          &:hover {
             background-color: #eaeaea;
           }
 
@@ -196,21 +280,22 @@
           }
         }
 
-        &.modify{
-          .status{
-            &:after{
+        &.modify {
+          .status {
+            &:after {
               display: inline;
               color: $primary;
-              content:'변경'
+              content: '변경'
             }
           }
         }
-        &.end{
-          .status{
-            &:after{
+
+        &.end {
+          .status {
+            &:after {
               display: inline;
               color: $warning;
-              content:'완료'
+              content: '완료'
             }
           }
         }
