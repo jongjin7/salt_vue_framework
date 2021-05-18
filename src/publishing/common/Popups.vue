@@ -2,12 +2,13 @@
   <div>
     <b-button variant="apply" size="lg" @click="open">사이드 팝업열기</b-button>
     <b-button variant="apply" size="lg" @click="showModal">모달 팝업 열기</b-button>
+    <div style="height:500px; border: 2px solid blue; margin: 50px 30px"></div>
     <!-- 사이드용 팝업 -->
-    <b-sidebar v-model="isSidebarOpen" no-header backdrop shadow right>
+    <b-sidebar v-model="isSidebarOpen" no-header backdrop shadow right bg-variant="white" >
       <template>
         <div class="pop-content-header">
           <h2>타이틀 출력</h2>
-          <s-button icon="global" addClass="btn-close" title="닫기" @onClick="closeSidebar"></s-button>
+          <s-button icon="global" class="btn-close" title="닫기" @onClick="closeSidebar"></s-button>
         </div>
         <div class="pop-content-body">
           <div>
@@ -16,9 +17,7 @@
           </div>
         </div>
         <div class="pop-content-footer">
-          <b-button variant="apply">
-            <span class="txt">확인</span>
-          </b-button>
+          <s-button color="apply" @onClick="closeSidebar">확인</s-button>
         </div>
       </template>
     </b-sidebar>
@@ -85,9 +84,7 @@
         </div>
       </template>
       <template v-slot:modal-footer>
-        <b-button @click="hideModal()" variant="apply">
-          <span class="txt">저장</span>
-        </b-button>
+        <s-button color="apply" @onClick="hideModal">확인</s-button>
       </template>
     </b-modal>
   </div>
@@ -98,9 +95,16 @@ export default {
   name: "Popups",
   data() {
     return {
+      frameData: {
+        pageTitle: "팝업 컴포넌트",
+        tocData: [],
+      },
       isModalShow: false,
       isSidebarOpen: false,
     };
+  },
+  mounted() {
+    this.$emit("updateStatus", this.frameData);
   },
   methods: {
     closeSidebar() {

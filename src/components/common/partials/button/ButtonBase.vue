@@ -54,7 +54,7 @@ export default {
   render(createElement) {
     let isLink = (this.type === "link") ? true : false;
     let btnAttrs = isLink ? { href : this.href, } : { type: this.type === "toggle" ? "button" : this.type, };
-    let btnColor = this.color ? ` btn-${this.color}` : " btn-secondary";
+    let btnColor = this.color ? ` btn-${this.color}` : " btn-default";
     let btnPill = this.pill ? " btn-pill" : "";
     let btnRounded = this.rounded ? " btn-rounded" : "";
     let btnSquared = this.squared ? " btn-squared" : "";

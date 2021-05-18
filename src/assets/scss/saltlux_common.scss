@@ -2,14 +2,21 @@
 // 외부망이 잠겼을때 사용하는 로컬용 웹 폰트
 // @import './common/webfonts';
 @import "./vendor/rfs";
-@import './utils/helper';
-@import './common/variables';
 @import "./mixins/__index.scss";
+@import './common/variables';
 @import './common/normalize';
 @import './common/base';
 @import './common/typography';
 @import './common/grid';
+@import './utils/helper';
+@import './utils/background';
+/////////////////////////////////////
+// components
 @import './components/partials';
 @import './components/buttons';
 @import './components/forms';
 @import './components/tables';
+/////////////////////////////////////
+// layout
+@import 'layout/sidebar';
+@import 'layout/modal';

@@ -1,0 +1,151 @@
+.b-sidebar-outer {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  overflow: visible;
+  z-index: $b-sidebar-zindex;
+
+  &-size-600 {
+    .b-sidebar{
+      width: 630px;
+    }
+  }
+}
+
+.b-sidebar-backdrop {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.6;
+}
+
+.b-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed !important;
+  top: 0;
+  height: 100vh;
+  width: $b-sidebar-width;
+  max-width: 100% !important;
+  margin: 0 !important;
+  outline: 0;
+  transform: translateX(0);
+
+  &.slide {
+    transition: transform $b-sidebar-transition-duration ease-in-out;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &:not(.b-sidebar-right) {
+    left: 0;
+    right: auto;
+
+    &.slide:not(.show) {
+      transform: translateX(-100%);
+    }
+
+    > .b-sidebar-header .close {
+      margin-left: auto;
+    }
+  }
+
+  &.b-sidebar-right {
+    left: auto;
+    right: 0;
+
+    &.slide:not(.show) {
+      transform: translateX(100%);
+    }
+
+    > .b-sidebar-header .close {
+      margin-right: auto;
+    }
+  }
+
+  > .b-sidebar-header {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    align-items: center;
+
+    @at-root {
+      // Keep the buttons on the correct end when in RTL mode
+      [dir="rtl"] & {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .close {
+
+    }
+  }
+
+  > .b-sidebar-body {
+    flex-grow: 1;
+    height: 100%;
+    padding: 80px 52px 40px;
+    overflow-y: auto;
+
+    .pop-content-header {
+      .title, h2 {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .btn-close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 30px 40px;
+
+        .vs-icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+    .pop-content-body {
+      padding-top: 42px;
+
+      h3 {
+        font-size: 18px;
+        & + .table {
+          margin-top: 18px;
+        }
+      }
+
+      .form-group + h3 {
+        margin-top: 27px;
+      }
+    }
+    .pop-content-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 30px;
+
+      .btn {
+        &:not(:first-child) {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  > .b-sidebar-footer {
+    flex-grow: 0;
+  }
+}
+
+
+
+
+

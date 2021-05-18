@@ -1,4 +1,5 @@
 // 변수 정의
+
 // 크기
 $body-min-width: 1440px;
 $side-area-width: 278px;
@@ -11,16 +12,61 @@ $default: #434343;
 $primary: #3647ff;
 $secondary: #edeeee;
 $white: white;
-$gray: gray;
 $black: black;
 $white: white;
 $light-gray: #eaeaea;
 $dark-gray: #101010;
 $warning: #ff5959;
 $success: #93e593;
-$error: red;
-$apply:#434343;
+$danger: red;
+$apply: #434343;
 
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (
+                ("<", "%3c"),
+                (">", "%3e"),
+                ("#", "%23"),
+                ("(", "%28"),
+                (")", "%29"),
+) !default;
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-caret: true !default;
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-prefers-reduced-motion-media-query: true !default;
+$enable-grid-classes: true !default;
+$enable-pointer-cursor-for-buttons: true !default;
+$enable-print-styles: true !default;
+$enable-responsive-font-sizes: false !default;
+$enable-validation-icons: true !default;
+
+// Body
+$body-bg: $white !default;
+$body-color: $default !default;
+
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+                (
+                        "default":$default,
+                        "primary": $primary,
+                        "secondary": $secondary,
+                        "success": $success,
+                        "warning": $warning,
+                        "danger": $danger,
+                        "light": $light-gray,
+                        "dark": $dark-gray,
+                        "black": $black,
+                        "white": $white
+                ),
+                $theme-colors
+);
 // Spacing
 //
 // Control the default styling of most Bootstrap elements by modifying these
@@ -45,17 +91,17 @@ $spacers: map-merge(
 //
 // Define common padding and border radius sizes and more.
 
-$line-height-lg:              1.5 !default;
-$line-height-sm:              1.5 !default;
+$line-height-lg: 1.5 !default;
+$line-height-sm: 1.5 !default;
 
-$border-width:                1px !default;
-$border-color:                $gray !default;
+$border-width: 1px !default;
+$border-color: $default !default;
 
-$border-radius:               .25rem !default;
-$border-radius-lg:            .3rem !default;
-$border-radius-sm:            .2rem !default;
+$border-radius: .25rem !default;
+$border-radius-lg: .3rem !default;
+$border-radius-sm: .2rem !default;
 
-$rounded-pill:                50rem !default;
+$rounded-pill: 50rem !default;
 
 
 // Typography
@@ -63,74 +109,74 @@ $rounded-pill:                50rem !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$font-family-base:            $font-family-sans-serif !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
-$font-size-lg:                $font-size-base * 1.25 !default;
-$font-size-sm:                $font-size-base * .875 !default;
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25 !default;
+$font-size-sm: $font-size-base * .875 !default;
 
-$font-weight-lighter:         lighter !default;
-$font-weight-light:           300 !default;
-$font-weight-normal:          400 !default;
-$font-weight-bold:            500 !default;
-$font-weight-bolder:          bolder !default;
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 500 !default;
+$font-weight-bolder: bolder !default;
 
-$font-weight-base:            $font-weight-normal !default;
-$line-height-base:            1.5 !default;
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
 
-$headings-margin-bottom:      $spacer / 2 !default;
-$headings-font-family:        null !default;
-$headings-font-weight:        500 !default;
-$headings-line-height:        1.2 !default;
-$headings-color:              null !default;
+$headings-margin-bottom: $spacer / 2 !default;
+$headings-font-family: null !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
 
-$display1-size:               6rem !default;
-$display2-size:               5.5rem !default;
-$display3-size:               4.5rem !default;
-$display4-size:               3.5rem !default;
+$display1-size: 6rem !default;
+$display2-size: 5.5rem !default;
+$display3-size: 4.5rem !default;
+$display4-size: 3.5rem !default;
 
-$display1-weight:             300 !default;
-$display2-weight:             300 !default;
-$display3-weight:             300 !default;
-$display4-weight:             300 !default;
-$display-line-height:         $headings-line-height !default;
+$display1-weight: 300 !default;
+$display2-weight: 300 !default;
+$display3-weight: 300 !default;
+$display4-weight: 300 !default;
+$display-line-height: $headings-line-height !default;
 
-$lead-font-size:              $font-size-base * 1.25 !default;
-$lead-font-weight:            300 !default;
+$lead-font-size: $font-size-base * 1.25 !default;
+$lead-font-weight: 300 !default;
 
-$small-font-size:             80% !default;
+$small-font-size: 80% !default;
 
-$text-muted:                  $gray !default;
+$text-muted: $default !default;
 
-$blockquote-small-color:      $gray !default;
-$blockquote-small-font-size:  $small-font-size !default;
-$blockquote-font-size:        $font-size-base * 1.25 !default;
+$blockquote-small-color: $default !default;
+$blockquote-small-font-size: $small-font-size !default;
+$blockquote-font-size: $font-size-base * 1.25 !default;
 
-$hr-border-color:             rgba($black, .1) !default;
-$hr-border-width:             $border-width !default;
+$hr-border-color: rgba($black, .1) !default;
+$hr-border-width: $border-width !default;
 
-$mark-padding:                .2em !default;
+$mark-padding: .2em !default;
 
-$dt-font-weight:              $font-weight-bold !default;
+$dt-font-weight: $font-weight-bold !default;
 
-$kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
-$nested-kbd-font-weight:      $font-weight-bold !default;
+$kbd-box-shadow: inset 0 -.1rem 0 rgba($black, .25) !default;
+$nested-kbd-font-weight: $font-weight-bold !default;
 
-$list-inline-padding:         .5rem !default;
+$list-inline-padding: .5rem !default;
 
-$mark-bg:                     #fcf8e3 !default;
+$mark-bg: #fcf8e3 !default;
 
-$hr-margin-y:                 $spacer !default;
+$hr-margin-y: $spacer !default;
 
 // formCheck
 $custom-control-gutter: 16px;
@@ -193,5 +239,23 @@ $user-selects: all, auto, none !default;
 
 // Printing
 
-$print-page-size:                   a3 !default;
+$print-page-size: a3 !default;
 //$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+$modal-dialog-margin: .5rem !default;
+$modal-inner-padding: 0 38px 38px !default;
+$modal-content-bg: $white !default;
+$modal-content-box-shadow: 0 .25rem .5rem rgba($black, .5) !default;
+$modal-content-color: $default !default;
+$modal-content-border-radius: 8px !default;
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: .5 !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              none !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
+
+$b-sidebar-width: 570px !default;
+$b-sidebar-transition-duration: 0.3s !default;
+$b-sidebar-zindex: $zindex-fixed + 5 !default;
