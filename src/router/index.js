@@ -49,6 +49,11 @@ export const routerMap = [
         component: () => import("@/publishing/common/table.vue"),
       },
       {
+        path: "ui",
+        name: "comp-ui",
+        component: () => import("@/publishing/common/compUI.vue"),
+      },
+      {
         path: "popup",
         name: "boot-popup",
         component: () => import("@/publishing/common/Popups.vue"),

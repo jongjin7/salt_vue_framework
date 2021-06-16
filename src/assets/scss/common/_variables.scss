@@ -3,22 +3,28 @@
 // 크기
 $body-min-width: 1440px;
 $side-area-width: 278px;
+$breakpoints-unit: xs,sm,md,lg,xl;
+$font-size: 10px, 13px, 14px, 20px, 24px;
+$button-height: 18px, 24px, 31px,  43px, 52px;
 
-// 폰트 명 정의
+// 폰트명 정의
 $font-name: "Noto Sans KR";
 
 // color
-$default: #434343;
-$primary: #3647ff;
-$secondary: #edeeee;
-$white: white;
+$default: #686868;
+$brand-primary: #0097f6;
+$brand-secondary: #0ed058;
+
+$primary: $brand-primary;
+$secondary: $brand-secondary;
+$tertiary: #830ed0;
 $black: black;
 $white: white;
-$light-gray: #eaeaea;
+$light-gray: #f2f2f2;
 $dark-gray: #101010;
 $warning: #ff5959;
-$success: #93e593;
-$danger: red;
+$success: #28a745;
+$danger: #dc3545;
 $apply: #434343;
 
 // Characters which are escaped by the escape-svg function
@@ -57,6 +63,7 @@ $theme-colors: map-merge(
                         "default":$default,
                         "primary": $primary,
                         "secondary": $secondary,
+                        "tertiary": $tertiary,
                         "success": $success,
                         "warning": $warning,
                         "danger": $danger,
@@ -67,6 +74,12 @@ $theme-colors: map-merge(
                 ),
                 $theme-colors
 );
+
+$caret-width: .3em !default;
+$caret-vertical-align: $caret-width * .85 !default;
+$caret-spacing: $caret-width * .85 !default;
+
+
 // Spacing
 //
 // Control the default styling of most Bootstrap elements by modifying these
@@ -206,28 +219,7 @@ $zindex-tooltip: 1080;
 // Pagination
 $pagination-color: $link-color !default;
 $pagination-bg: $white !default;
-//$pagination-border-width:           $border-width !default;
-//$pagination-border-radius:          $border-radius !default;
-//$pagination-margin-start:           -$pagination-border-width !default;
-//$pagination-border-color:           $gray-300 !default;
-
-//$pagination-focus-color:            $link-hover-color !default;
-//$pagination-focus-bg:               $gray-200 !default;
-//$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
 $pagination-focus-outline: 0 !default;
-
-//$pagination-hover-color:            $link-hover-color !default;
-//$pagination-hover-bg:               $gray-200 !default;
-//$pagination-hover-border-color:     $gray-300 !default;
-
-//$pagination-active-color:           $component-active-color !default;
-//$pagination-active-bg:              $component-active-bg !default;
-//$pagination-active-border-color:    $pagination-active-bg !default;
-
-//$pagination-disabled-color:         $gray-600 !default;
-//$pagination-disabled-bg:            $white !default;
-//$pagination-disabled-border-color:  $gray-300 !default;
-
 $pagination-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
 // Utilities
@@ -242,7 +234,7 @@ $user-selects: all, auto, none !default;
 $print-page-size: a3 !default;
 //$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
 
-$modal-dialog-margin: .5rem !default;
+$modal-dialog-margin: 1rem !default;
 $modal-inner-padding: 0 38px 38px !default;
 $modal-content-bg: $white !default;
 $modal-content-box-shadow: 0 .25rem .5rem rgba($black, .5) !default;
@@ -251,11 +243,20 @@ $modal-content-border-radius: 8px !default;
 $modal-backdrop-bg: $black !default;
 $modal-backdrop-opacity: .5 !default;
 
-$modal-fade-transform:              translate(0, -50px) !default;
-$modal-show-transform:              none !default;
-$modal-transition:                  transform .3s ease-out !default;
-$modal-scale-transform:             scale(1.02) !default;
+$modal-fade-transform: translate(0, -50px) !default;
+$modal-show-transform: none !default;
+$modal-transition: transform .3s ease-out !default;
+$modal-scale-transform: scale(1.02) !default;
 
 $b-sidebar-width: 570px !default;
 $b-sidebar-transition-duration: 0.3s !default;
 $b-sidebar-zindex: $zindex-fixed + 5 !default;
+
+// transition
+$transition-base: all .2s ease-in-out !default;
+$transition-fade: opacity .15s linear !default;
+$transition-collapse: height .35s ease !default;
+$transition-button:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+
+//프로젝트용 재설정 변수
+@import "../customize/custom_variables";

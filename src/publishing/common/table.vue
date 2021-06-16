@@ -134,6 +134,16 @@
               </tr>
               </tbody>
             </table>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination-content">
+              <div class="page-count">
+                <span>총</span>
+                <strong>1003</strong>
+                <span>건</span>
+              </div>
+              <b-pagination pills align="center" :hide-goto-end-buttons="true" v-model="currentPage" :total-rows="100"></b-pagination>
+            </div>
           </div>
         </div>
       </div>
@@ -142,7 +152,7 @@
 </template>
 
 <script>
-import tocLink from "@/publishing/mixins/mixinTocLink";
+import tocLink from "@/publishing/pub-only/mixinTocLink";
 
 export default {
   name: "pubTable",
@@ -153,6 +163,8 @@ export default {
         pageTitle: "테이블 컴포넌트",
         tocData: [],
       },
+
+      currentPage:1,
 
       myData:{
         select: {

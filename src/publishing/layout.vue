@@ -28,7 +28,7 @@
   </div>
 </template>
 <script>
-import guideToc from "./common/guideToc";
+import guideToc from "./pub-only/guideToc";
 export default {
   name: "publishingLayout",
   components:{

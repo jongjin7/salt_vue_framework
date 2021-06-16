@@ -1,0 +1,55 @@
+.tabs {
+  & > div:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-tabs {
+    display: flex;
+    flex-shrink: 0;
+    background-color: #f5f6f9;
+    border-radius: 6px;
+
+    .nav-item {
+      &:first-child {
+        .nav-link {
+          border-radius: 3px 0 0 3px;
+        }
+      }
+      &:last-child {
+        .nav-link {
+          border-radius: 0 3px 3px 0;
+        }
+      }
+    }
+
+    .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 130px;
+      height: 35px;
+      padding: 0 10px;
+      margin:0;
+      border: none;
+      color: #434343;
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+
+      &.on,
+      &[aria-selected="true"] {
+        background-color: white;
+        color: $dark-gray;
+        box-shadow: 0 0 2px rgba(black, 0.16), 2px 2px 3px rgba(black, 0.16);
+        border-radius: 3px !important;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .tab-content {
+    padding-top: 20px;
+  }
+}

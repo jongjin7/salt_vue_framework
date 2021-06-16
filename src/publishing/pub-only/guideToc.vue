@@ -1,5 +1,5 @@
 <template>
-  <nav class="toc">
+  <nav class="toc" v-if="tocData.length > 0">
     <ul>
       <li v-for="toc in tocData" :key="toc.main.text">
         <a :href="toc.main.link" class="title">{{ toc.main.text }}</a>

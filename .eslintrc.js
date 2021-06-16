@@ -10,6 +10,7 @@ module.exports = {
     __static: true,
     Swal: true,
     $: true,
+    jQuery: true,
     moment: true,
     CommonUtil: true,
     VueUtil: true,
@@ -65,7 +66,7 @@ module.exports = {
     "object-curly-spacing": ["error", "always"],
     "no-console": "warn",
     quotes: ["error", "double"],
-    "arrow-parens": ["error", "always"]
+    "arrow-parens": ["error", "always"],
 
     // 'no-whitespace-before-property': "error",
   },

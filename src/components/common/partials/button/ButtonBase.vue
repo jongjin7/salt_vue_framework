@@ -41,6 +41,10 @@ export default {
     outline:{
       type: Boolean,
     },
+    size:{
+      type: String,
+      default: "md",
+    },
   },
   components: {
     compIconGroup,
@@ -54,13 +58,13 @@ export default {
   render(createElement) {
     let isLink = (this.type === "link") ? true : false;
     let btnAttrs = isLink ? { href : this.href, } : { type: this.type === "toggle" ? "button" : this.type, };
-    let btnColor = this.color ? ` btn-${this.color}` : " btn-default";
+    let btnColor = this.color ? ` btn-${this.color}` : (!isLink ? " btn-default" : "");
     let btnPill = this.pill ? " btn-pill" : "";
     let btnRounded = this.rounded ? " btn-rounded" : "";
     let btnSquared = this.squared ? " btn-squared" : "";
     let btnOutline = this.outline ? " btn-outline" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${btnColor}${btnPill}${btnRounded}${btnSquared}${btnOutline}`,
+      class: `btn${btnColor}${btnPill}${btnRounded}${btnSquared}${btnOutline}${" btn-size-" + this.size}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,

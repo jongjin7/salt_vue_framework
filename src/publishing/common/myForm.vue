@@ -71,7 +71,7 @@
   </div>
 </template>
 <script>
-import tocLink from "../mixins/mixinTocLink.js";
+import tocLink from "../pub-only/mixinTocLink.js";
 import Multiselect from "vue-multiselect";
 export default {
   name: "my-ui-form",

@@ -42,7 +42,6 @@
                   <span class="color-value"></span>
                 </span>
               </li>
-
             </ul>
 
             <h3>Color Chips</h3>
@@ -142,7 +141,7 @@
 </template>
 
 <script>
-import tocLink from "@/publishing/mixins/mixinTocLink";
+import tocLink from "@/publishing/pub-only/mixinTocLink";
 
 export default {
   name: "Content",
@@ -159,11 +158,11 @@ export default {
     this.$emit("updateStatus", this.frameData);
   },
   mounted() {
-    this.getInfoTextStyle();
-    this.getInfoColorStyle();
+    this.insertInfoTextStyle();
+    this.insertInfoColorStyle();
   },
   methods:{
-    getInfoTextStyle() {
+    insertInfoTextStyle() {
       let listItem = document.querySelectorAll(".font-list");
       listItem.forEach((item) =>{
         item.querySelectorAll("li").forEach((childItem) =>{
@@ -175,7 +174,7 @@ export default {
         });
       });
     },
-    getInfoColorStyle() {
+    insertInfoColorStyle() {
       let listItem = document.querySelectorAll(".color-list");
       listItem.forEach((item) =>{
         item.querySelectorAll("li").forEach((childItem) =>{

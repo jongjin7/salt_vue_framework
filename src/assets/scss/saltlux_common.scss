@@ -10,13 +10,20 @@
 @import './common/grid';
 @import './utils/helper';
 @import './utils/background';
+@import './utils/transitions';
+
 /////////////////////////////////////
 // components
 @import './components/partials';
 @import './components/buttons';
 @import './components/forms';
 @import './components/tables';
+@import './components/pagination';
+@import './components/tabs';
+@import './components/sidebar';
+@import './components/modal';
+
 /////////////////////////////////////
-// layout
-@import 'layout/sidebar';
-@import 'layout/modal';
+// etc
+@import './etc/guide';
+

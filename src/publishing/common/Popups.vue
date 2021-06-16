@@ -2,6 +2,22 @@
   <div>
     <b-button variant="apply" size="lg" @click="open">사이드 팝업열기</b-button>
     <b-button variant="apply" size="lg" @click="showModal">모달 팝업 열기</b-button>
+
+    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+
+    <b-modal id="modal-1" centered  title="BootstrapVue">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
+
+    <b-button v-b-modal.modal-tall>Launch overflowing modal</b-button>
+
+    <b-modal id="modal-tall" title="Overflowing Content">
+      <p class="my-4" v-for="i in 20" :key="i">
+        Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
+        in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      </p>
+    </b-modal>
+
     <div style="height:500px; border: 2px solid blue; margin: 50px 30px"></div>
     <!-- 사이드용 팝업 -->
     <b-sidebar v-model="isSidebarOpen" no-header backdrop shadow right bg-variant="white" >

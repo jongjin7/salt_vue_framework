@@ -6,6 +6,11 @@ Vue.use(Fragment.Plugin);
 import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
 
+import "expose-loader?$!expose-loader?jQuery!jquery";
+// calendar
+import VCalendar from "v-calendar";
+Vue.use(VCalendar);
+
 import VeeValidate from "vee-validate";
 import language from "vee-validate/dist/locale/ko";
 Vue.use(VeeValidate, {
@@ -27,6 +32,7 @@ Vue.component("s-badge", Sbadge);
 
 Vue.config.productionTip = false;
 
+// style
 import "@/assets/scss/saltlux_common.scss";
 import "@/assets/scss/site_contents.scss";
 

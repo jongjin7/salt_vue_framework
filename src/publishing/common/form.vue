@@ -163,10 +163,10 @@
             </div>
 
             <h3>커스텀 셀렉트박스(플러그인)</h3>
-            <ul class="list-group">
-              <li><b>도큐먼트: </b><a target="_blank" href="https://vue-multiselect.js.org/#sub-single-select">https://vue-multiselect.js.org/#sub-single-select</a>
-              </li>
-            </ul>
+            <div class="alert">
+              <p><b>도큐먼트: </b><a target="_blank" href="https://vue-multiselect.js.org/#sub-single-select">https://vue-multiselect.js.org/#sub-single-select</a>
+              </p>
+            </div>
             <div class="d-grid grid-col-2">
               <div class="form-group">
                 <span class="form-label">값 변경 셀렉트</span>
@@ -175,6 +175,68 @@
               </div>
             </div>
 
+            <h3>캘린더 플러그인</h3>
+            <div class="alert">
+              <p><b>도큐먼트: </b><a target="_blank" href="https://vcalendar.io/">V-Calendar https://vcalendar.io</a>
+              </p>
+            </div>
+            <div class="d-grid grid-col-2">
+              <div class="form-group">
+                <span class="form-label">캘린더</span>
+                <v-date-picker v-model="calendarSelectedDate" mode="dateTime" is24hr>
+                  <template #default="{ inputValue, inputEvents }">
+                    <input
+                        class="form-control focus:outline-none focus:border-blue-300"
+                        :value="inputValue"
+                        v-on="inputEvents"
+                    />
+                  </template>
+                </v-date-picker>
+              </div>
+
+              <div class="form-group">
+                <span class="form-label">특수한 캘린더</span>
+                <div>
+                  <div v-if="mode !== 'date'">
+                    <div class="custom-control custom-control-inline custom-radio">
+                      <input type="radio" class="custom-control-input" value="" v-model="timezone">
+                      <label class="custom-control-label">Local</label>
+                    </div>
+                    <div class="custom-control custom-control-inline custom-radio">
+                      <input type="radio" class="custom-control-input" value="utc" v-model="timezone">
+                      <label class="custom-control-label">UTC</label>
+                    </div>
+                  </div>
+                  <v-date-picker mode="time" v-model="calendarSelectedDate" :timezone="timezone"/>
+                  <div class="flex items-baseline mt-2">
+                    <span class="text-gray-600 font-semibold tracking-wide">Date (ISO):</span>
+                    <span class="text-gray-800 ml-2">{{ calendarSelectedDate.toISOString() }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-grid">
+              <div class="form-group">
+                <span class="form-label">기간 캘린더</span>
+                <v-date-picker v-model="range" is-range>
+                  <template v-slot="{ inputValue, inputEvents }">
+                    <div class="flex justify-center items-center">
+                      <input
+                          :value="inputValue.start"
+                          v-on="inputEvents.start"
+                          class="form-control"
+                      />
+                      ~
+                      <input
+                          :value="inputValue.end"
+                          v-on="inputEvents.end"
+                          class="form-control"
+                      />
+                    </div>
+                  </template>
+                </v-date-picker>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -264,10 +326,11 @@
       </div>
     </section>
 
+
   </div>
 </template>
 <script>
-import tocLink from "../mixins/mixinTocLink.js";
+import tocLink from "../pub-only/mixinTocLink.js";
 import Multiselect from "vue-multiselect";
 
 export default {
@@ -327,6 +390,13 @@ export default {
       },
       value: null,
       options: ["list", "of", "options"],
+      mode: "date",
+      calendarSelectedDate: new Date(),
+      timezone: "",
+      range: {
+        start: new Date(2020, 9, 12),
+        end: new Date(2020, 9, 16),
+      },
     };
   },
   mounted() {

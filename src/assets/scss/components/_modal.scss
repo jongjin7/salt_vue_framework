@@ -3,11 +3,6 @@
 // .modal-dialog    - positioning shell for the actual modal
 // .modal-content   - actual modal w/ bg and corners and stuff
 
-
-.modal-backdrop {
-  opacity: $modal-backdrop-opacity;
-}
-
 .modal-open {
   // Kill the scroll on the body
   overflow: hidden;
@@ -41,13 +36,13 @@
   position: relative;
   width: calc(100% - 30px);
   max-width: 800px;
-  margin: $modal-dialog-margin;
+  margin: $modal-dialog-margin auto;
   // allow clicks to pass through for custom click handling to close modal
   pointer-events: none;
 
   // When fading in the modal, animate it to slide down
   .modal.fade & {
-    // @include transition($modal-transition);
+    @include transition($modal-transition);
     transform: $modal-fade-transform;
   }
   .modal.show & {
@@ -61,10 +56,6 @@
 
   &.full-content {
     max-width: 1920px - 30px;
-  }
-
-  &.export-collection{
-    max-width: 856px + 72px;
   }
 
   &.w1000-1{
@@ -151,6 +142,7 @@
   width: 100vw;
   height: 100vh;
   background-color: $modal-backdrop-bg;
+  opacity: $modal-backdrop-opacity;
 
   // Fade for backdrop
   &.fade { opacity: 0; }

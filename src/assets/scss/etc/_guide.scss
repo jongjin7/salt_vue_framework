@@ -10,14 +10,13 @@
   }
 
   .side-container {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    z-index: 1000;
+
 
     nav {
-      width: 300px;
+      position: fixed;
+      left: 300px;
+      top: 0;
+      z-index: 1000;
       margin-left: 400px;
       background-color: gray;
     }
@@ -91,10 +90,11 @@
     & {
       margin-bottom: 40px;
     }
-    .row{
+
+    .row {
       & > h2 {
         position: relative;
-        width:100%;
+        width: 100%;
         font-size: 24px;
 
         &:not(:first-child) {
@@ -128,8 +128,10 @@
   .container {
     padding-left: 50px;
     padding-right: 50px;
+
     .content {
-      width:100%;
+      width: 100%;
+
       & > h3 {
         font-size: 18px;
         margin-top: 10px;
@@ -158,25 +160,33 @@
           height: 100px;
           border: 1px solid #eaeaea;
           margin-right: 10px;
-          &.dark{
-            .info-style{
+
+          &.dark {
+            .info-style {
               background-color: rgba(#6c757d, 0.2);
               color: #eaeaea;
             }
           }
-          .chip{
+
+          .chip {
             display: block;
             height: 100%;
           }
-          .info-style{
-            position: absolute; left:0; right:0; bottom:0;
-            padding:2px 0 0;
+
+          .info-style {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 2px 0 0;
             text-align: center;
             background-color: rgba(white, 0.2);
-            span{
+
+            span {
 
             }
-            .class-name{
+
+            .class-name {
               display: block;
               font-size: 14px;
               padding: 0 0 2px;
@@ -187,7 +197,8 @@
               //}
 
             }
-            .color-value{
+
+            .color-value {
               display: block;
               font-size: 11px;
               background-color: rgba(white, 0.2);
@@ -209,16 +220,17 @@
           align-items: center;
           border-bottom: 1px solid #eaeaea;
 
-          .list-title{
+          .list-title {
             font-weight: 500;
             color: black;
             margin-right: 4px;
-            &:after{
-              content:':'
+
+            &:after {
+              content: ':'
             }
           }
 
-          & > *{
+          & > * {
             color: $default;
             line-height: 2;
           }
@@ -227,20 +239,23 @@
             display: none;
           }
 
-          .info-style{
+          .info-style {
             display: block;
-            .size{
-              &:before{
-                content:'FontSize: '
+
+            .size {
+              &:before {
+                content: 'FontSize: '
               }
-              &:after{
+
+              &:after {
                 margin: 0 4px;
-                content:'/'
+                content: '/'
               }
             }
-            .weight{
-              &:before{
-                content:'Weight: '
+
+            .weight {
+              &:before {
+                content: 'Weight: '
               }
             }
 
@@ -257,17 +272,43 @@
 
   //페이지리스트
   .page-list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    width: 100%;
     padding: 0 0 100px;
     counter-reset: title-number;
 
     & > .list-item {
       counter-increment: title-number;
+      margin-bottom: 30px;
 
-      h2:before {
-        display: inline;
-        position: static;
-        margin-right: 5px;
-        content: counter(title-number) ".";
+      &:nth-child(1) {
+      }
+
+      &:nth-child(2) {
+      }
+
+      &:nth-child(3) {
+        grid-column: 1 / 3;
+
+        .sub-menu {
+          display: grid;
+          grid-auto-flow: column;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(10, 1fr);
+        }
+      }
+
+      h2 {
+        font-size: 24px;
+
+        &:before {
+          display: inline;
+          position: static;
+          margin-right: 5px;
+          content: counter(title-number) ".";
+        }
       }
     }
 
@@ -277,12 +318,13 @@
 
       li {
         counter-increment: list-number;
+        opacity: 0.2;
 
         a {
           display: flex;
           align-items: center;
           height: 30px;
-          color: #8a8a8a;
+          cursor: default;
 
           .text {
             font-size: 16px;
@@ -291,7 +333,6 @@
             &:before {
               font-size: 12px;
               margin-right: 3px;
-              color: #8a8a8a;
               content: counter(title-number) "-" counter(list-number);
             }
           }
@@ -312,16 +353,18 @@
           &:hover {
             background-color: #eaeaea;
           }
-
         }
 
-        &.work, &.modify, &.end {
+        &.w, &.m, &.e {
+          opacity: 1;
+
           a {
             color: $dark-gray;
+            cursor: pointer;
           }
         }
 
-        &.modify {
+        &.m {
           .status {
             &:after {
               display: inline;
@@ -331,12 +374,22 @@
           }
         }
 
-        &.end {
+        &.e {
           .status {
             &:after {
               display: inline;
               color: $warning;
               content: '완료'
+            }
+          }
+        }
+
+        &.w {
+          .status {
+            &:after {
+              display: inline;
+              color: $success;
+              content: '진행중'
             }
           }
         }
