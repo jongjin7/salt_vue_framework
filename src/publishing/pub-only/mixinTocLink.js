@@ -18,10 +18,9 @@ export default {
           });
         }
       });
-
       this.frameData.tocData.push(temp);
     });
 
-    console.log("roof end::", this.frameData.tocData);
+    console.log("mixinTocLink::", this.frameData.tocData);
   },
 };

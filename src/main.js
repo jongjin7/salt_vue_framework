@@ -1,10 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index.js";
+import EventBus from "./utils/eventbus";
+
 import Fragment from "vue-fragment";
 Vue.use(Fragment.Plugin);
 import BootstrapVue from "bootstrap-vue";
 Vue.use(BootstrapVue);
+
+Vue.prototype.$eventBus = EventBus;
 
 import "expose-loader?$!expose-loader?jQuery!jquery";
 // calendar

@@ -148,7 +148,7 @@ export default {
     };
   },
   mounted() {
-    this.$emit("updateStatus", this.frameData);
+    this.$eventBus.guideTitleToc(this.frameData);
   },
   beforeDestroy() {
     console.log("base beforeDestroyed!!!!");

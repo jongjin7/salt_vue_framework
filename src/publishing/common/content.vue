@@ -155,7 +155,7 @@ export default {
     };
   },
   created() {
-    this.$emit("updateStatus", this.frameData);
+    this.$eventBus.guideTitleToc(this.frameData);
   },
   mounted() {
     this.insertInfoTextStyle();
