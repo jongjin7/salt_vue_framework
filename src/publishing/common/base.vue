@@ -18,7 +18,7 @@
           <h2>2. 벳지</h2>
           <div class="content">
             <h3>기본형 벳지</h3>
-            <s-badge @click="clickBtn">기본 벳지</s-badge>
+            <s-badge>기본 벳지</s-badge>
 
             <h3>아이콘 포함</h3>
             <s-badge>기본 벳지</s-badge>
@@ -77,6 +77,7 @@
             <s-button color="warning">삭제나 경고 버튼</s-button>
 
             <h3>아이콘 포함</h3>
+            <s-button icon="global" only-icon>아이콘만...</s-button>
             <s-button icon="global">버튼: 좌측 아이콘</s-button>
             <s-button :icon="{right:'book'}">버튼: 우측 아이콘</s-button>
             <s-button :icon="{left:'global', right:'book'}">좌우 아이콘 버튼</s-button>

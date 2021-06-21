@@ -10,6 +10,7 @@
 <!--</template>-->
 
 <script>
+import compIconGroup from "../icon/CompIconGroup.vue";
 export default {
   name: "ButtonBase",
   props: {
@@ -41,6 +42,10 @@ export default {
     outline:{
       type: Boolean,
     },
+    onlyIcon:{
+      type: Boolean,
+      default: false,
+    },
     size:{
       type: String,
       default: "md",
@@ -63,8 +68,9 @@ export default {
     let btnRounded = this.rounded ? " btn-rounded" : "";
     let btnSquared = this.squared ? " btn-squared" : "";
     let btnOutline = this.outline ? " btn-outline" : "";
+    let btnIcon = this.onlyIcon ? " btn-only-icon" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${btnColor}${btnPill}${btnRounded}${btnSquared}${btnOutline}${" btn-size-" + this.size}`,
+      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnOutline}${btnIcon}${" btn-size-" + this.size}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,
@@ -73,6 +79,7 @@ export default {
     [createElement(compIconGroup, {
       props: {
         icon: this.icon,
+        onlyIcon: this.onlyIcon,
       },
     }, this.$slots.default)]);
   },
@@ -111,5 +118,4 @@ export default {
   },
 };
 
-import compIconGroup from "../icon/CompIconGroup.vue";
 </script>

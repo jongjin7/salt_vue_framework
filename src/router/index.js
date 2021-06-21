@@ -19,7 +19,7 @@ export const routerMap = [
 
   {
     path: "/publishing",
-    component: () => import("@/publishing/layout.vue"),
+    component: () => import("@/publishing/layout/BaseLayout.vue"),
     redirect: "/publishing/list",
     name: "publishing",
     children: [

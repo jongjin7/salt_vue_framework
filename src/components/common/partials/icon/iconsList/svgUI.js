@@ -1,4 +1,9 @@
 export default {
+  arrow: {
+    viewBox: "0 0 22 12",
+    code: `
+        <path d="M9.141,18.282,0,9.141,9.141,0" transform="translate(1.414 10.555) rotate(-90)" fill="none" stroke="#848484" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />`,
+  },
   global: {
     viewBox: "0 0 32 32",
     code: `

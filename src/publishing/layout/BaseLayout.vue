@@ -6,9 +6,9 @@
  </comp-frame>
 </template>
 <script>
-import "./pub-only/mixinTocLink.js";
+import "../pub-only/mixinTocLink.js";
 import CompFrame from "@/components/layout/CompFrame";
-import guideToc from "./pub-only/guideToc";
+import guideToc from "../pub-only/guideToc";
 export default {
   name: "publishingLayout",
   components:{
@@ -38,4 +38,4 @@ export default {
   },
 };
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src="../../../node_modules/vue-multiselect/dist/vue-multiselect.min.css"></style>

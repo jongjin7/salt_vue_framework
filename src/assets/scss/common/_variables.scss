@@ -2,10 +2,11 @@
 
 // 크기
 $body-min-width: 1440px;
-$side-area-width: 278px;
+$side-content-width: 240px + 16px;
+$main-container-gap: 40px;
 $breakpoints-unit: xs,sm,md,lg,xl;
 $font-size: 10px, 13px, 14px, 20px, 24px;
-$button-height: 18px, 24px, 31px,  43px, 52px;
+$button-height: 18px, 24px, 31px, 43px, 52px;
 
 // 폰트명 정의
 $font-name: "Noto Sans KR";

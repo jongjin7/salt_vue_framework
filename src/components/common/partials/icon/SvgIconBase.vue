@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <span class="s-icon" :class="`icon-${dirClass}`" v-if="Array.isArray(name)">
+    <span class="s-icon" v-if="Array.isArray(name)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
@@ -19,23 +19,25 @@
   </fragment>
 </template>
 <script>
+import Products from "./iconsList/svgProducts";
 import UI from "./iconsList/svgUI";
 
-const iconList = { ...UI, };
+const iconList = { ...Products, ...UI, };
 export default {
   name: "SvgIconsBase",
-  computed: {
-    svgIcons: () => {
-      return iconList;
-    },
+  props: {
+    name: { type: [String, Array], required: true, },
+
+    dirClass: { type: String, default: "left", },
+    viewBox: { type: String, default: "0 0 24 24", },
   },
   data() {
     return {};
   },
-  props: {
-    name: { type: [String, Array], required: true, },
-    dirClass: { type: String, default: "left", },
-    viewBox: { type: String, default: "0 0 24 24", },
+  computed: {
+    svgIcons: () => {
+      return iconList;
+    },
   },
 };
 </script>

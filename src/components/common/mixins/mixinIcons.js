@@ -3,9 +3,6 @@ export default {
     icon: {
       type: [String, Object],
     },
-    text: {
-      type: [String, Object],
-    },
   },
   data() {
     return {
