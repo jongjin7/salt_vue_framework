@@ -19,6 +19,9 @@
       background-color: white;
       border: 1px solid #DBDBDB;
       border-radius: 16px;
+      overflow: hidden;
+      overflow-y: auto;
+      @include scrollbar;
     }
     .site-logo{
       text-align: center;
@@ -35,17 +38,33 @@
     height: 100%;
     min-height: 600px;
     padding:16px 0;
-    $page-header-height: 112px;
+    $page-header-height: 88px;
     .inner-wrap{
       height: 100%;
       .page-header{
-        height:$page-header-height;
+        position: relative;
+        position:sticky;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 100;
+        background-color: $body-bg;
+        //backdrop-filter: blur(20px);
+        min-height:$page-header-height;
         padding: 0 #{$main-container-gap};
       }
 
       .page-body{
-        // @min-height: 100% - headerHeight + footer + top,bottom gap
+        /**
+         * min-height: 100% - headerHeight + footer + top,bottom gap
+         */
         min-height: calc(100% - #{ $page-header-height + 77px + 32px });
+
+        &-contents{
+          & > section{
+            padding: 0 #{$main-container-gap};
+          }
+        }
       }
       .page-footer{
         margin-top: 40px;

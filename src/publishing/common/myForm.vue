@@ -1,5 +1,5 @@
 <template>
-  <div ref="comlist">
+  <div class="page-body-contents" ref="comlist">
     <section>
       <div class="container">
         <div class="row">

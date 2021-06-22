@@ -2,6 +2,7 @@ html, body, #app, .wrapper{
   height: 100%;
 }
 body {
+  background-color: $body-bg;
   min-width: $body-min-width;
   min-height: 600px;
   color: $default;

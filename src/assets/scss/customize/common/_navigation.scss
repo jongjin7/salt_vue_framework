@@ -1,8 +1,6 @@
-.nav-gnb{
-  padding: 24px 0 0;
-
+.side-container {
   .nav-title {
-    padding: 0 16px;
+    padding: 24px 16px 0;
 
     .title {
       display: flex;
@@ -13,17 +11,18 @@
       background-color: rgba($default, 0.09);
       border-radius: 5px;
 
-      .text{
+      .text {
         font-size: 20px;
         line-height: 1.2;
-        letter-spacing: 0.4em;
+        letter-spacing: 0.04em;
         font-weight: 500;
       }
     }
   }
 
-  .nav-list {
-    padding: 24px 16px 0;
+  .nav-gnb {
+    .nav-list {
+      padding: 24px 16px 0;
 
       .nav-link {
         display: flex;
@@ -33,7 +32,7 @@
         transition: color 0.15s ease-in-out;
 
         &:hover {
-          color: $dark-gray;
+          color: $primary;
         }
 
         &:focus {
@@ -41,257 +40,305 @@
         }
       }
 
-    // 1depth
-    & > .nav-item {
-      padding: 10px 0;
+      // 1depth
+      & > .nav-item {
+        padding: 10px 0;
 
-      .depth-1-link {
-        position: relative;
-        height: 34px;
-        padding: 6px 16px 5px 60px;
-        font-size: 16px;
-        line-height: 1.3;
-        font-weight: 500;
-        letter-spacing: 0.04em;
+        .depth-1-link {
+          position: relative;
+          height: 34px;
+          padding: 6px 16px 5px 60px;
+          font-size: 16px;
+          line-height: 1.3;
+          font-weight: 500;
+          letter-spacing: 0.04em;
 
-        .s-icon{
-          position: absolute;
-          left: 16px;
-          top: 6px;
-          width: 24px;
-          height: 24px;
-          &:before {
-            display: none;
+          .s-icon {
+            position: absolute;
+            left: 16px;
+            top: 6px;
+            width: 24px;
+            height: 24px;
+
+            &:before {
+              display: none;
+            }
+
+            svg * {
+              transition: all 0.15s ease-in-out;
+            }
           }
-          svg * {
-            transition: all 0.15s ease-in-out;
-          }
 
-          [aria-labelledby="global"] {
-            width: 20px;
-            height: 20px;
-          }
-        }
-
-        .text ~ .s-icon {
-          left: auto;
-          right: 8px;
-          top: 50%;
-          width: 12px;
-          height: 6px;
-          transform: rotate(0deg);
-        }
-
-        &.on {
-          background-color: #f5f6f9;
           .text ~ .s-icon {
-            transform: rotate(180deg);
+            left: auto;
+            right: 8px;
+            top: 50%;
+            width: 12px;
+            height: 6px;
+            transform: rotate(0deg);
+          }
+
+          &.on {
+            .text{
+              color: $primary;
+            }
+            .text ~ .s-icon {
+              transform: rotate(180deg);
+              path{
+                stroke: $primary;
+              }
+            }
+
+            + .sub-menu-wrap {
+              max-height: none;
+            }
+          }
+        }
+
+        .sub-menu-wrap {
+          position: relative;
+          height: 100%;
+          max-height: 0;
+          transition: max-height 0.2s ease-in-out;
+          overflow: hidden;
+
+          .pointer-group {
+            position: absolute;
+            left: 35px;
+            top: 3px;
+            z-index: 1;
+            height: calc(100% - 12px);
+            padding: 3px 0;
+
+            .bg {
+              display: block;
+              width: 1px;
+              @include hdLine(width);
+              height: 100%;
+              background-color: #DBDBDB;
+            }
+
+            .pointer,
+            .hover-pointer{
+              position: absolute; left: 0px; top:0;
+              width: 2px;
+              height: 24px;
+              border-radius: 2px;
+              background-color: $primary;
+            }
+            .pointer{
+              transition: transform 0.15s ease;
+            }
+            .hover-pointer{
+              opacity: 0;
+              transition: opacity 0.15s ease, transform 0.15s ease;
+            }
+          }
+
+          .sub-menu {
+            position: relative;
+            height: 100%;
+            margin: 3px 0 9px;
+
+            & > .nav-item {
+              & > .nav-link {
+                padding: 6px 10px 6px 30px;
+                margin-left: 34px;
+                font-size: 14px;
+                &.on {
+                  color: $primary;
+                }
+              }
+            }
+          }
+
+          &:hover{
+            .pointer-group{
+              .hover-pointer{
+                opacity: 1;
+              }
+            }
           }
         }
       }
     }
-  }
 
-  .sub-menu-wrap {
-    max-height: 0;
-    transition: max-height 0.2s ease-in-out;
-    overflow: hidden;
 
-    @include scrollbar;
+    //.gnb-nav {
+    //  width: 100%;
+    //  margin-top: 46px;
 
-    //.sub-menu-wrap {
-    //  display: flex;
-    //  flex-flow: row wrap;
-    //  align-content: space-between;
-    //  height: calc(100% - 40px);
-    //  padding-bottom: 90px;
+    //
+    //
+    //
+    //        &.on,
+    //        &:hover {
+    //          .vs-icon {
+    //            [aria-labelledby="chart"] {
+    //              line {
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //
+    //            [aria-labelledby="edit"] {
+    //              path {
+    //                fill: $dark-color;
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //
+    //            [aria-labelledby="multi_check"] {
+    //              path {
+    //                fill: $dark-color;
+    //              }
+    //            }
+    //
+    //            [aria-labelledby="person"] {
+    //              circle,
+    //              path {
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //
+    //            [aria-labelledby="arrow"],
+    //            [aria-labelledby="book"],
+    //            [aria-labelledby="gear"],
+    //            [aria-labelledby="layer"] {
+    //              path {
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //
+    //            [aria-labelledby="box_chart"],
+    //            [aria-labelledby="monitor"] {
+    //              line,
+    //              rect {
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //            [aria-labelledby="db_layer"] {
+    //              path,
+    //              rect {
+    //                stroke: $dark-color;
+    //              }
+    //            }
+    //            [aria-labelledby="disk"] {
+    //              rect {
+    //                fill: $dark-color;
+    //                stroke: $dark-color;
+    //              }
+    //
+    //              g + path {
+    //                stroke: $dark-color;
+    //
+    //                & + path {
+    //                  fill: $dark-color;
+    //                  stroke: $dark-color;
+    //                }
+    //              }
+    //            }
+    //          }
+    //        }
+    //
+    //        .vs-icon {
+    //          display: flex;
+    //          justify-content: center;
+    //          align-items: center;
+    //          position: absolute;
+    //          left: 40px;
+    //          top: 6px;
+    //          width: 22px;
+    //          height: 22px;
+    //
+    //
+    //
+    //
+    //          [aria-labelledby="gear"] {
+    //            width: 20px;
+    //            height: 20px;
+    //          }
+    //          [aria-labelledby="disk"] {
+    //            width: 22px;
+    //            height: 21px;
+    //          }
+    //          [aria-labelledby="edit"] {
+    //            width: 21px;
+    //            height: 21px;
+    //            path {
+    //              fill: #686868;
+    //              stroke: #686868;
+    //            }
+    //          }
+    //          [aria-labelledby="person"] {
+    //            width: 19px;
+    //            height: 19px;
+    //            circle,
+    //            path {
+    //              stroke: #686868;
+    //            }
+    //          }
+    //          [aria-labelledby="layer"] {
+    //            width: 19px;
+    //            height: 19px;
+    //            path {
+    //              stroke: #686868;
+    //            }
+    //          }
+    //          [aria-labelledby="db_layer"] {
+    //            width: 18px;
+    //            height: 18px;
+    //          }
+    //          [aria-labelledby="book"] {
+    //            width: 19px;
+    //            height: 21px;
+    //          }
+    //          [aria-labelledby="monitor"] {
+    //            width: 19px;
+    //            height: 19px;
+    //          }
+    //          [aria-labelledby="multi_check"] {
+    //            width: 20px;
+    //            height: 19px;
+    //          }
+    //          [aria-labelledby="chart"] {
+    //            width: 16px;
+    //            height: 15px;
+    //          }
+    //          [aria-labelledby="box_chart"] {
+    //            width: 20px;
+    //            height: 20px;
+    //          }
+    //        }
+    //        .txt {
+    //          height: 22px;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+
+    //
+    //  .sub-menu-wrap {
+    //    //max-height: 0;
+    //    transition: max-height 0.2s ease-in-out;
+    //    overflow: hidden;
+    //    .depth-2 {
+    //      background-color: #fafbfc;
+    //      //opacity: 0;
+    //      transition: opacity 0.3s ease-in-out;
+    //    }
+    //
+    //    &.show {
+    //      .depth-2 {
+    //        opacity: 1;
+    //      }
+    //    }
+    //  }
+    //
+    //  &.gnb-setting {
+    //    height: 54px;
+    //  }
     //}
   }
-
-
-
-  //.gnb-nav {
-  //  width: 100%;
-  //  margin-top: 46px;
-
-  //
-  //
-  //
-  //        &.on,
-  //        &:hover {
-  //          .vs-icon {
-  //            [aria-labelledby="chart"] {
-  //              line {
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //
-  //            [aria-labelledby="edit"] {
-  //              path {
-  //                fill: $dark-color;
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //
-  //            [aria-labelledby="multi_check"] {
-  //              path {
-  //                fill: $dark-color;
-  //              }
-  //            }
-  //
-  //            [aria-labelledby="person"] {
-  //              circle,
-  //              path {
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //
-  //            [aria-labelledby="arrow"],
-  //            [aria-labelledby="book"],
-  //            [aria-labelledby="gear"],
-  //            [aria-labelledby="layer"] {
-  //              path {
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //
-  //            [aria-labelledby="box_chart"],
-  //            [aria-labelledby="monitor"] {
-  //              line,
-  //              rect {
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //            [aria-labelledby="db_layer"] {
-  //              path,
-  //              rect {
-  //                stroke: $dark-color;
-  //              }
-  //            }
-  //            [aria-labelledby="disk"] {
-  //              rect {
-  //                fill: $dark-color;
-  //                stroke: $dark-color;
-  //              }
-  //
-  //              g + path {
-  //                stroke: $dark-color;
-  //
-  //                & + path {
-  //                  fill: $dark-color;
-  //                  stroke: $dark-color;
-  //                }
-  //              }
-  //            }
-  //          }
-  //        }
-  //
-  //        .vs-icon {
-  //          display: flex;
-  //          justify-content: center;
-  //          align-items: center;
-  //          position: absolute;
-  //          left: 40px;
-  //          top: 6px;
-  //          width: 22px;
-  //          height: 22px;
-  //
-  //
-  //
-  //
-  //          [aria-labelledby="gear"] {
-  //            width: 20px;
-  //            height: 20px;
-  //          }
-  //          [aria-labelledby="disk"] {
-  //            width: 22px;
-  //            height: 21px;
-  //          }
-  //          [aria-labelledby="edit"] {
-  //            width: 21px;
-  //            height: 21px;
-  //            path {
-  //              fill: #686868;
-  //              stroke: #686868;
-  //            }
-  //          }
-  //          [aria-labelledby="person"] {
-  //            width: 19px;
-  //            height: 19px;
-  //            circle,
-  //            path {
-  //              stroke: #686868;
-  //            }
-  //          }
-  //          [aria-labelledby="layer"] {
-  //            width: 19px;
-  //            height: 19px;
-  //            path {
-  //              stroke: #686868;
-  //            }
-  //          }
-  //          [aria-labelledby="db_layer"] {
-  //            width: 18px;
-  //            height: 18px;
-  //          }
-  //          [aria-labelledby="book"] {
-  //            width: 19px;
-  //            height: 21px;
-  //          }
-  //          [aria-labelledby="monitor"] {
-  //            width: 19px;
-  //            height: 19px;
-  //          }
-  //          [aria-labelledby="multi_check"] {
-  //            width: 20px;
-  //            height: 19px;
-  //          }
-  //          [aria-labelledby="chart"] {
-  //            width: 16px;
-  //            height: 15px;
-  //          }
-  //          [aria-labelledby="box_chart"] {
-  //            width: 20px;
-  //            height: 20px;
-  //          }
-  //        }
-  //        .txt {
-  //          height: 22px;
-  //        }
-  //      }
-  //    }
-  //  }
-  //
-  //  .depth-2 {
-  //    padding: 3px 0 9px;
-  //    &-item {
-  //      padding-left: 40px;
-  //      & > .nav-link {
-  //        padding: 6px 10px 6px 44px;
-  //        font-size: 14px;
-  //      }
-  //    }
-  //  }
-  //
-  //  .sub-menu-wrap {
-  //    //max-height: 0;
-  //    transition: max-height 0.2s ease-in-out;
-  //    overflow: hidden;
-  //    .depth-2 {
-  //      background-color: #fafbfc;
-  //      //opacity: 0;
-  //      transition: opacity 0.3s ease-in-out;
-  //    }
-  //
-  //    &.show {
-  //      .depth-2 {
-  //        opacity: 1;
-  //      }
-  //    }
-  //  }
-  //
-  //  &.gnb-setting {
-  //    height: 54px;
-  //  }
-  //}
 }
+

@@ -1,0 +1,15 @@
+<template>
+  <div class="page-body-contents">
+   <!-- 페이지 내용 -->
+  </div>
+</template>
+<script>
+export default{
+  name:'',
+  data(){
+    return{
+
+    }
+  }
+}
+</script>

@@ -25,6 +25,16 @@ export default {
       pageTitle:"",
     };
   },
+  watch:{
+    $route(to, from) {
+      if (to.path != from.path) {
+        this.$eventBus.$emit("activeGnb", "watch");
+      }
+    },
+  },
+  created() {
+    this.$eventBus.$emit("activeGnb", this.$route.name);
+  },
   methods:{
     setPageFrame(frameData) {
       console.log("setPageFrame::", frameData, frameData.pageTitle);

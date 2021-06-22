@@ -15,6 +15,7 @@ $font-name: "Noto Sans KR";
 $default: #686868;
 $brand-primary: #0097f6;
 $brand-secondary: #0ed058;
+$body-background-color: #f6f6f6;
 
 $primary: $brand-primary;
 $secondary: $brand-secondary;
@@ -27,6 +28,8 @@ $warning: #ff5959;
 $success: #28a745;
 $danger: #dc3545;
 $apply: #434343;
+
+
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (
@@ -54,7 +57,7 @@ $enable-responsive-font-sizes: false !default;
 $enable-validation-icons: true !default;
 
 // Body
-$body-bg: $white !default;
+$body-bg: $body-background-color !default;
 $body-color: $default !default;
 
 

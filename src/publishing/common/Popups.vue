@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-body-contents">
     <b-button variant="apply" size="lg" @click="open">사이드 팝업열기</b-button>
     <b-button variant="apply" size="lg" @click="showModal">모달 팝업 열기</b-button>
 
