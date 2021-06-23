@@ -21,6 +21,6 @@ export default {
       this.frameData.tocData.push(temp);
     });
 
-    console.log("mixinTocLink::", this.frameData.tocData);
+    // console.log("mixinTocLink::", this.frameData.tocData);
   },
 };

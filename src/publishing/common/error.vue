@@ -9,5 +9,8 @@
 export default {
   props:["id", "name"],
   name: "error",
+  created() {
+
+  },
 };
 </script>

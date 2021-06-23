@@ -10,7 +10,7 @@ export default {
     };
   },
   created() {
-    console.log("mixin icon created!");
+    // console.log("mixin icon created!");
     this.cratedIcons();
   },
   computed: {},
@@ -42,7 +42,7 @@ export default {
           }
         }
 
-        console.log("최종 계산된 아이콘 리스트:", temp);
+        // console.log("최종 계산된 아이콘 리스트:", temp);
         this.useIcon = temp;
       }
     },

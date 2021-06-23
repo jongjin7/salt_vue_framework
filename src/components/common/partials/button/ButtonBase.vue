@@ -84,7 +84,7 @@ export default {
     }, this.$slots.default)]);
   },
   created() {
-    console.log("button base created!");
+    // console.log("button base created!");
   },
   methods:{
     onClick(e) {

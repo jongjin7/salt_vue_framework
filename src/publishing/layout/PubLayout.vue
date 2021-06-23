@@ -22,12 +22,10 @@ export default {
   },
   data() {
     return {
-      pageTitle:"페이지 타이틀",
       guideTocData: [],
     };
   },
   created() {
-    console.log("layout created");
     this.$eventBus.$on("setGuideToc", this.setGuideToc);
   },
   methods:{

@@ -16,6 +16,11 @@ export default {
     FrameNavigation,
     FrameMain,
   },
+  data() {
+    return{
+
+    };
+  },
   methods:{
 
   },

@@ -22,23 +22,23 @@ export default {
 
   data() {
     return{
-      pageTitle:"",
+
     };
   },
   watch:{
-    $route(to, from) {
-      if (to.path != from.path) {
-        this.$eventBus.$emit("activeGnb", "watch");
-      }
-    },
+    // $route(to, from) {
+    //   if (to.path != from.path) {
+    //
+    //   }
+    // },
   },
   created() {
-    this.$eventBus.$emit("activeGnb", this.$route.name);
+
   },
   methods:{
     setPageFrame(frameData) {
       console.log("setPageFrame::", frameData, frameData.pageTitle);
-      this.pageTitle = frameData.pageTitle;
+      // this.$eventBus.$emit("setGnb");
     },
   },
 };
