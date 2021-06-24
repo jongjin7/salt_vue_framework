@@ -41,4 +41,10 @@ export default {
             <circle id="타원_1543" data-name="타원 1543" cx="1.019" cy="1.019" r="1.019" transform="translate(9.848 52.627)" fill="#ff5959"/>
           </g>`,
   },
+  fill_person: {
+    viewBox: "0 0 19 19",
+    code: `<g transform="translate(0.11 -0.204)">
+          <path d="M0,19V16.625c0-2.613,4.275-4.751,9.5-4.751S19,14.012,19,16.625V19ZM4.749,4.751A4.75,4.75,0,1,1,9.5,9.5,4.75,4.75,0,0,1,4.749,4.751Z" transform="translate(-0.11 0.204)" fill="#A0A0A0" />
+        </g>`,
+  },
 };

@@ -73,8 +73,8 @@ export default {
       },
     };
   },
-  mounted() {
-    this.$emit("updateStatus", this.frameData);
+  created() {
+    this.$eventBus.guideTitleToc(this.frameData);
   },
 };
 </script>

@@ -60,6 +60,7 @@
               <s-button pill>알약 버튼</s-button>
               <s-button rounded>라운드 버튼</s-button>
               <s-button squared>사각 버튼</s-button>
+              <s-button circle>서클형 버튼</s-button>
               <s-button pill color="primary">알약 Primary 채움 버튼</s-button>
               <s-button pill outline color="primary">알약 Primary Outline 버튼</s-button>
               <s-button pill color="warning">알약 Warning 채움 버튼</s-button>

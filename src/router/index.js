@@ -7,15 +7,16 @@ export const routerMap = [
   {
     path: "/",
     name: "main",
-    redirect: "/publishing",
-    // component: () => import("@/publishing/layout/BasicLayout.vue"),
-    // children: [
-    //   {
-    //     path: "sample",
-    //     name: "sample",
-    //     component: () => import("@/pages/sample.vue"),
-    //   },
-    // ],
+    // redirect: "/publishing",
+    redirect: "sample",
+    component: () => import("@/publishing/layout/BasicLayout.vue"),
+    children: [
+      {
+        path: "sample",
+        name: "sample",
+        component: () => import("@/pages/sample.vue"),
+      },
+    ],
   },
   {
     path: "*",
@@ -66,11 +67,11 @@ export const routerMap = [
         name: "boot-popup",
         component: () => import("@/publishing/common/Popups.vue"),
       },
-      // {
-      //   path: "myform",
-      //   name: "my-form-base",
-      //   component: () => import("@/publishing/common/myForm.vue"),
-      // },
+      {
+        path: "other",
+        name: "other",
+        component: () => import("@/publishing/pages/BasicContent.vue"),
+      },
     ],
   },
   {

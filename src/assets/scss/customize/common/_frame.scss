@@ -1,31 +1,44 @@
 // header, footer를 포함하는 화면 프레임용 스타일 정의
-.wrapper{
-
-
-  .side-container{
-    display: flex;
+.wrapper {
+  .side-container {
+    //display: flex;
     position: fixed;
     z-index: 100;
     left: 0;
     top: 0;
     bottom: 0;
-    width: $side-content-width; height: 100%;
+    width: $side-content-width;
+    height: 100%;
+    min-height: 500px;
     padding: 16px 0 16px 16px;
 
-    .inner-wrap{
-      width:100%;
+    &:after {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      display: block;
+      width: $side-content-width;
+      height: 100%;
+      background-color: rgba(#f6f6f6, 0.95);
+      content: '';
+    }
+
+    .inner-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
       height: 100%;
       padding: 24px 0;
       background-color: white;
       border: 1px solid #DBDBDB;
       border-radius: 16px;
-      overflow: hidden;
-      overflow-y: auto;
-      @include scrollbar;
     }
-    .site-logo{
+
+    .site-logo {
       text-align: center;
-      .btn{
+
+      .btn {
         width: 140px;
         height: 40px;
         margin: 0 auto;
@@ -33,42 +46,91 @@
     }
   }
 
-  .main-container{
+  .main-container {
     margin-left: $side-content-width;
     height: 100%;
     min-height: 600px;
-    padding:16px 0;
+    padding: 16px 0;
     $page-header-height: 88px;
-    .inner-wrap{
+
+    .inner-wrap {
       height: 100%;
-      .page-header{
+
+      .page-header {
         position: relative;
-        position:sticky;
+        position: sticky;
         left: 0;
         right: 0;
         top: 0;
-        z-index: 100;
+        z-index: 50;
         background-color: $body-bg;
         //backdrop-filter: blur(20px);
-        min-height:$page-header-height;
-        padding: 0 #{$main-container-gap};
+        min-height: $page-header-height;
+        padding: 8px #{$main-container-gap} 0;
+
+        .first-content {
+
+        }
+
+        .second-content {
+          flex-shrink: 1;
+
+          .command {
+            display: flex;
+
+            .type-pill, .user{
+              border:1px solid #DBDBDB;
+              background: white;
+              border-radius: 20px;
+            }
+
+            .info-holder{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+
+            .type-pill{
+              width: 136px;
+              height: 40px;
+            }
+
+            .custom-select{
+              .btn{
+                justify-content: space-between;
+                .icon-left{
+                  width: 24px; height: 24px;
+                }
+              }
+            }
+
+            .user{
+              width: 40px;
+              height: 40px;
+              .s-icon{
+                width: 19px; height: 19px;
+              }
+            }
+          }
+        }
       }
 
-      .page-body{
+      .page-body {
         /**
          * min-height: 100% - headerHeight + footer + top,bottom gap
          */
         min-height: calc(100% - #{ $page-header-height + 77px + 32px });
 
-        &-contents{
-          & > section{
+        &-contents {
+          & > section {
             padding: 0 #{$main-container-gap};
           }
         }
       }
-      .page-footer{
+
+      .page-footer {
         margin-top: 40px;
-        height:37px;
+        height: 37px;
         padding: 0 #{$main-container-gap};
       }
     }

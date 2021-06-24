@@ -36,6 +36,9 @@ export default {
     rounded:{
       type: Boolean,
     },
+    circle:{
+      type: Boolean,
+    },
     squared:{
       type: Boolean,
     },
@@ -67,10 +70,11 @@ export default {
     let btnPill = this.pill ? " btn-pill" : "";
     let btnRounded = this.rounded ? " btn-rounded" : "";
     let btnSquared = this.squared ? " btn-squared" : "";
+    let btnCircle = this.circle ? " btn-circle" : "";
     let btnOutline = this.outline ? " btn-outline" : "";
     let btnIcon = this.onlyIcon ? " btn-only-icon" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnOutline}${btnIcon}${" btn-size-" + this.size}`,
+      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnIcon}${!btnCircle ? " btn-size-" + this.size : ""}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,

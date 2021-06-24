@@ -9,37 +9,42 @@
         <div class="title"><span class="text">{{ currentMenus.menuTitle }}</span></div>
       </div>
 
-      <nav class="nav-gnb nav-common">
-        <ul class="nav-list">
-          <li class="nav-item depth-1" v-for="item in currentMenus.menuItems" :key="item.primary.text">
-            <a href="#" class="nav-link depth-1-link" :class="{ on : item.primary.selected}" @click.stop="onClickMenu($event, item.primary)">
-              <s-svg-icon :name="item.primary.icon"></s-svg-icon>
-              <span class="text">{{ item.primary.text}}</span>
-              <s-svg-icon name="arrow" v-if="item.primary.children.length > 0"></s-svg-icon>
-            </a>
+      <div class="nav-wrap">
+        <nav class="nav-gnb nav-common">
+          <ul class="nav-list">
+            <li class="nav-item depth-1" v-for="item in currentMenus.menuItems" :key="item.primary.text">
+              <a href="#" class="nav-link depth-1-link" :class="{ on : item.primary.selected}" @click="onClickPrimaryMenu($event, item.primary)">
+                <s-svg-icon :name="item.primary.icon"></s-svg-icon>
+                <span class="text">{{ item.primary.text}}</span>
+                <s-svg-icon name="arrow" v-if="item.primary.children.length > 0"></s-svg-icon>
+              </a>
 
-            <div class="sub-menu-wrap" v-if="item.primary.children.length > 0" >
-              <div class="pointer-group">
-                <div class="bg"></div>
-                <div class="pointer"></div>
-                <div class="hover-pointer"></div>
+              <div class="sub-menu-wrap" v-if="item.primary.children.length > 0" >
+                <ul class="sub-menu depth-2">
+                  <li class="nav-item" v-for="submenu in item.primary.children" :key="submenu.text">
+                    <router-link :to="{name: submenu.link }" class="nav-link depth-2-link" :class="{ on : submenu.selected }">
+                      <span class="text">{{ submenu.text }}</span>
+                    </router-link>
+                  </li>
+                </ul>
+
+                <div class="pointer-group">
+                  <div class="bg"></div>
+                  <div class="pointer"></div>
+                  <div class="hover-pointer"></div>
+                </div>
               </div>
-              <ul class="sub-menu depth-2">
-                <li class="nav-item" v-for="submenu in item.primary.children" :key="submenu.text">
-                  <router-link :to="{name: submenu.link }" class="nav-link depth-2-link" :class="{ on : submenu.selected }">
-                    <span class="text">{{ submenu.text }}</span>
-                  </router-link>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 </template>
 
 <script>
+import VueRouter from "vue-router";
+const { isNavigationFailure, NavigationFailureType, } = VueRouter;
 export default {
   name: "GlobalNavigation",
   data() {
@@ -96,16 +101,16 @@ export default {
                 icon:"book",
                 children:[
                   {
-                    text:"서브메뉴#1-1",
-                    link:"link#1-1",
+                    text:"다른페이지",
+                    link:"other",
                   },
                   {
-                    text:"서브메뉴#1-2",
-                    link:"link#1-2",
+                    text:"기본 UI 컴포넌트",
+                    link:"ui-base",
                   },
                   {
-                    text:"서브메뉴#1-3",
-                    link:"link#1-4",
+                    text:"Form 컴포넌트",
+                    link:"form-base",
                   }
                 ],
               },
@@ -143,8 +148,9 @@ export default {
     $route(to, from) {
       if (to.path != from.path) {
         this.setGnb();
+        this.resetGnb();
         setTimeout(()=>{
-          this.activeMenu();
+          this.activateSubMenu();
         }, 0);
       }
     },
@@ -158,7 +164,7 @@ export default {
   mounted() {
     this.$nextTick(()=>{
       this.domGnb = $(".nav-gnb");
-      this.activeMenu();
+      this.activateSubMenu();
       this.addEvent();
     });
   },
@@ -169,28 +175,15 @@ export default {
     init() {
       this.setGnb();
     },
-    resetGnb() {
-      console.log("resetGnb");
-      // this.domGnb.find("a").removeClass("on");
-    },
-    addEvent() {
-      let self = this;
-      this.domGnb.on("mouseenter", ".depth-2-link", function(e) {
-        self.onMouseOverSubMenu($(this));
-      });
-      this.domGnb.on("mouseleave", ".depth-2-link", function(e) {
-        self.onMouseOutSubMenu($(this));
-      });
-    },
+
     setGnb() {
       const rootPathName = this.$route.matched[0].path.replace("/", "");
       this.currentMenus = $.extend(true, {}, this.menuData[rootPathName]);
-      this.selectedMenu(this.currentMenus.menuItems, this.$route.name);
-      // console.log("this.menuData", this.currentMenus.menuItems[0].primary);
+      this.matchCurrentMenu(this.currentMenus.menuItems, this.$route.name);
     },
 
-    selectedMenu(arrData, name) {
-      console.log("arrData", arrData);
+    matchCurrentMenu(arrData, name) {
+      // console.log("arrData", arrData);
       for (let i = 0; i < arrData.length; i++) {
         if (arrData[i].primary) {
           if (arrData[i].primary.link === name) {
@@ -199,7 +192,7 @@ export default {
             break;
           }
           else if (arrData[i].primary.children.length > 0) {
-            this.selectedMenu(arrData[i].primary.children, name);
+            this.matchCurrentMenu(arrData[i].primary.children, name);
           } else {
             console.log("1뎁스만 존재", arrData[i]);
           }
@@ -214,80 +207,90 @@ export default {
               arrData[i].children &&
               arrData[i].children.length > 0
           ) {
-            this.selectedMenu(arrData[i].children, name);
+            this.matchCurrentMenu(arrData[i].children, name);
           }
           // else console.log("children이 미정의 또는 없을때", arrData[i]);
         }
       }
     },
 
-    activeMenu() {
-      console.log("activeMenu");
-      let selectedMenu = this.domGnb.find(".depth-2 .on");
-      // if(!selectedMenu.hasClass("depth-1-link")) {
-      console.log("asaaaa", selectedMenu);
-      let depth1_menu = selectedMenu.closest(".depth-1").children(".nav-link");
-      if(!depth1_menu.hasClass("on")) {
-        selectedMenu.closest(".depth-1").children(".nav-link").addClass("on");
-        this.toggleSubMenu(depth1_menu);
-      }else{
-        this.movePointer(selectedMenu);
-
-      }
-      console.log("현재 투뎁스 아이템", selectedMenu);
-      // }else{
-      //   console.log("1뎁스 메뉴 이벤트");
-      //
-      // }
-
+    resetGnb() {
+      this.domGnb.find("a").removeClass("open").removeClass("on");
+      this.domGnb.find(".sub-menu-wrap").removeAttr("style");
     },
 
-    // changeMenu(selectedMenu) {
-    //   if(!selectedMenu.hasClass("depth-1-link")) {
-    //     // console.log("asaaaa", selectedMenu.closest(".depth-1").children(".nav-link"));
-    //     selectedMenu.closest(".depth-1").children(".nav-link").addClass("on");
-    //     this.movePointer(selectedMenu);
-    //     this.toggleSubMenu(selectedMenu.closest(".depth-1").children(".nav-link"));
-    //   }
-    // },
+    activateSubMenu() {
+      let hadChildPrimaryBtn;
+      if(this.domGnb.find(".depth-2 .on").length > 0) {
+        // 현재 페이지가 서브메뉴
+        let selectedMenu = this.domGnb.find(".depth-2 .on");
+        hadChildPrimaryBtn = selectedMenu.closest(".depth-1").children(".nav-link");
 
-    onClickMenu(e, menu) {
-
-      if(menu.children.length > 0) {
-        let target = $(e.currentTarget);
-
-        this.toggleSubMenu(target);
-        console.log("토글용 버튼", menu);
-
+        if(!hadChildPrimaryBtn.hasClass("on")) {
+          selectedMenu.closest(".depth-1").children(".nav-link").addClass("on open");
+          this.showSubMenu(hadChildPrimaryBtn.next());
+        }
+        this.movePointer(selectedMenu, ".pointer");
       }else{
-        console.log("link menu", menu.link, this.$router);
-        this.$router.push({ name: menu.link, });
+        // hadChildPrimaryBtn = this.domGnb.find(".depth-1-link.on");
+      }
+    },
+
+    // //////////////////////////////////////////////////////////////////////////////////
+    // define Events
+    addEvent() {
+      this.domGnb.find(".depth-2-link").on({
+        mouseenter: this.onMouseOverSubMenu,
+        mouseleave: this.onMouseOutSubMenu,
+      });
+    },
+
+    onMouseOverSubMenu(e) {
+      this.movePointer($(e.currentTarget), ".hover-pointer");
+    },
+
+    onMouseOutSubMenu(e) {
+      $(e.currentTarget).closest(".sub-menu-wrap").find(".hover-pointer").css("transform", "");
+    },
+
+    onClickPrimaryMenu(e, menu) {
+      e.preventDefault();
+      if(menu.children.length > 0) {
+        this.toggleSubMenu($(e.currentTarget));
+        console.log("토글용 버튼", menu);
+      }else{
+        console.log("link menu", menu.link);
+        this.$router.push({ name: menu.link, }).catch((failure) => {
+          if (isNavigationFailure(failure)) {
+            // show a small notification to the user
+            console.warn("error", NavigationFailureType, failure);
+          }
+        });
       }
     },
 
     toggleSubMenu(target) {
-      let subWrap = target.next();
       if(!target.hasClass("open")) {
         target.addClass("open");
-        subWrap.css("max-height", subWrap.find(".sub-menu").outerHeight(true));
+        this.showSubMenu(target.next());
       }else{
         target.removeClass("open");
-        subWrap.css("max-height", "");
+        this.hideSubMenu(target.next());
       }
     },
 
-    movePointer(menu) {
-      console.log("pointer", menu);
-      menu.closest(".sub-menu-wrap").find(".pointer").css({ transform: `translate(0, ${menu.position().top + 3}px)`, });
+    showSubMenu(target) {
+      target.css("max-height", target.find(".sub-menu").outerHeight(true));
     },
 
-    onMouseOverSubMenu(menu) {
-      menu.closest(".sub-menu-wrap").find(".hover-pointer").css({ transform: `translate(0, ${menu.position().top + 3}px)`, });
+    hideSubMenu(target) {
+      target.css("max-height", "");
     },
 
-    onMouseOutSubMenu() {
-      $(".nav-gnb").find(".hover-pointer").css("transform", "");
+    movePointer(menu, pointer) {
+      menu.closest(".sub-menu-wrap").find(pointer).css({ transform: `translate(0, ${menu.position().top + 3}px)`, });
     },
+
   },
 };
 </script>
