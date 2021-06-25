@@ -43,6 +43,15 @@
                 </span>
               </li>
             </ul>
+            <ul class="color-list" style="margin-top:8px">
+              <li v-for="(color, index) in new Array(11)" :key="index" :class="{dark: index > 4}">
+                <span class="chip" :class="`bg-${ index > 0 && index <= 9 ? `gray-${index*100}` : (index === 0? 'white' :'black') }`"></span>
+                <span class="info-style">
+                  <span class="class-name"></span>
+                  <span class="color-value"></span>
+                </span>
+              </li>
+            </ul>
 
             <h3>Color Chips</h3>
             <ul class="color-list">
@@ -152,14 +161,17 @@ export default {
         pageTitle:"기본 스타일",
         tocData:[],
       },
+
     };
   },
   created() {
     this.$eventBus.guideTitleToc(this.frameData);
   },
   mounted() {
-    this.insertInfoTextStyle();
-    this.insertInfoColorStyle();
+    this.$nextTick(()=>{
+      this.insertInfoTextStyle();
+      this.insertInfoColorStyle();
+    });
   },
   methods:{
     insertInfoTextStyle() {

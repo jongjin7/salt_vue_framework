@@ -35,3 +35,21 @@
     @content;
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// @hover Color
+
+@mixin hover-color($type){
+  $text-color: white, black;
+  @each $key, $color in $theme-colors{
+      &.btn-#{ $key }{
+        @include hover-focus-active() {
+          @if($type == outline){
+            border-color: $color;
+          }
+        }
+      }
+  }
+
+}

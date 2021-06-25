@@ -29,10 +29,9 @@ Vue.use(VeeValidate, {
 // Vue.use(VueLoading);
 // Vue.use(VueToast);
 
-import { SsvgIcon, Sbutton, Sbadge } from "@/components/common/partials/partialElements";
-Vue.component("s-svg-icon", SsvgIcon);
-Vue.component("s-button", Sbutton);
-Vue.component("s-badge", Sbadge);
+// custom Components
+import "@/components/common/partials/partialElements";
+import "@/components/common/forms/formComponents";
 
 Vue.config.productionTip = false;
 

@@ -7,21 +7,14 @@
 
         </div>
         <div class="second-content">
-          <ul class="command">
-            <li>
+          <ul class="util-list">
+            <li class="list-item">
               <div class="info-holder type-pill"><span class="text">저장소명 출력</span></div>
             </li>
-            <li>
-              <div class="custom-select">
-                <s-button pill outline :icon="{left:'global', right:'book'}" class="type-pill">텍스트</s-button>
-                <ul class="opt-list">
-                  <li><button type="button">한국어</button></li>
-                  <li><button type="button">일본어</button></li>
-                  <li><button type="button">영어</button></li>
-                </ul>
-              </div>
+            <li class="list-item">
+              <custom-select @onChange ="changeLanguage" :options="[{text:'언어 선택', value: null},{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', disabled: true},{text:'영어', value:'en'}]"></custom-select>
             </li>
-            <li>
+            <li class="list-item">
               <s-button title="내정보 수정" icon="fill_person" circle only-icon class="user"></s-button>
             </li>
           </ul>
@@ -49,6 +42,9 @@ export default {
   methods: {
     setTitle(param) {
       this.title = param;
+    },
+    changeLanguage(value) {
+      console.log("언어변경: ==>", value);
     },
   },
 };

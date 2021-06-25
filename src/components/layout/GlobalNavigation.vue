@@ -96,7 +96,7 @@ export default {
             },
             {
               primary:{
-                text:"1뎁스메뉴메뉴메뉴메뉴#2",
+                text:"개발용 페이지",
                 link:"",
                 icon:"book",
                 children:[
@@ -117,7 +117,7 @@ export default {
             },
             {
               primary:{
-                text:"1뎁스메뉴#3",
+                text:"1뎁스메뉴메뉴메뉴메뉴#2",
                 link:"",
                 icon:"warning",
                 children:[

@@ -68,6 +68,11 @@
         min-height: $page-header-height;
         padding: 8px #{$main-container-gap} 0;
 
+        .row{
+          justify-content: space-between;
+          align-items: center;
+        }
+
         .first-content {
 
         }
@@ -75,8 +80,11 @@
         .second-content {
           flex-shrink: 1;
 
-          .command {
+          .util-list {
             display: flex;
+            .list-item{
+              margin-left: 16px;
+            }
 
             .type-pill, .user{
               border:1px solid #DBDBDB;
@@ -88,6 +96,9 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              .text{
+                margin-top: -2px;
+              }
             }
 
             .type-pill{
@@ -96,10 +107,75 @@
             }
 
             .custom-select{
+              position: relative;
               .btn{
                 justify-content: space-between;
+                margin: 0;
+                padding-left: 8px;
+                padding-right: 18px;
+
                 .icon-left{
                   width: 24px; height: 24px;
+                  path{
+                    transition: fill 0.3s ease-out;
+                  }
+                }
+                .icon-right{
+                  width: 10px; height: 8px;
+                }
+
+                @include hover-focus(){
+                  border-color: $dark-gray;
+                  .icon-left{
+                    path{
+                      fill: $dark-gray;
+                    }
+                  }
+                  .icon-right{
+                    path{
+                      stroke: $dark-gray;
+                    }
+                  }
+                }
+              }
+              .opt-list{
+                display: none;
+                position: absolute;
+                left:0; top:0; z-index: 1;
+                width: 100%;
+                background: white;
+                border: 1px solid gray;
+                padding:10px 10px;
+                border-radius: 20px;
+                opacity: 0;
+                transition: opacity 0.15s ease-in-out;
+
+                &.fade-in{
+                  opacity: 1;
+                }
+
+                .option-item-link{
+                  display: block;
+                  padding:5px 0;
+                  &.option-selected{
+                    background: gray;
+                    color: white;
+                  }
+                  &.disabled{
+                    opacity:0.3;
+                  }
+                  &.disabled,
+                  &.placeholder{
+                    cursor: default;
+                    pointer-events: none;
+                  }
+
+                }
+              }
+
+              &.select-active{
+                .opt-list{
+                  display: block;
                 }
               }
             }
@@ -107,10 +183,24 @@
             .user{
               width: 40px;
               height: 40px;
+              margin: 0;
               .s-icon{
                 width: 19px; height: 19px;
+                path{
+                  transition: fill 0.3s ease-out;
+                }
+              }
+
+              @include hover-focus(){
+                border-color: $dark-gray;
+                .s-icon{
+                  path{
+                    fill: $dark-gray;
+                  }
+                }
               }
             }
+
           }
         }
       }

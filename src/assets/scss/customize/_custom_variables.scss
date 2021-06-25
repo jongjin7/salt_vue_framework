@@ -1,1 +1,41 @@
 // 프로젝트를 위한 변수 재설정
+$font-size-base: 14px; //body-font-size
+
+
+$h1-font-size: 26px;
+$h2-font-size: 20px;
+$h3-font-size: 18px;
+$h4-font-size: 16px;
+$h5-font-size: 14px;
+$h6-font-size: 12px;
+$small: 10px;
+
+
+// 컬러정의
+$gray-100: #FCFCFC;
+$gray-200: #F6F6F6;
+$gray-300: #ECECEC;
+$gray-400: #DBDBDB;
+$gray-100: #C1C1C1;
+$gray-500: #A0A0A0;
+$gray-600: #808080;
+$gray-700: #686868;
+$gray-800: #646464;
+$gray-900: #404040;
+
+$theme-colors: $theme-colors;
+$theme-colors: map-merge(
+                (
+                        "gray-100":$gray-100,
+                        "gray-200":$gray-200,
+                        "gray-300":$gray-300,
+                        "gray-400":$gray-400,
+                        "gray-500":$gray-500,
+                        "gray-600":$gray-600,
+                        "gray-700":$gray-700,
+                        "gray-800":$gray-800,
+                        "gray-900":$gray-900
+                ),
+                $theme-colors
+);
+

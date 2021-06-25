@@ -1,3 +1,4 @@
+
 html, body, #app, .wrapper{
   height: 100%;
 }
@@ -7,7 +8,7 @@ body {
   min-height: 600px;
   color: $default;
   font-family: $font-name;
-  font-size: 13px;
+  font-size: $font-size-base;
   line-height: 1.3;
 }
 
