@@ -118,6 +118,12 @@
         margin-bottom: 10px;
       }
 
+      & > h3 + h4, & > .color-list + h4{
+        font-size: 14px;
+        color: #9a9a9a;
+      }
+
+
       .list-group {
         li {
           margin-bottom: 5px;
@@ -168,7 +174,7 @@
 
             .class-name {
               display: block;
-              font-size: 14px;
+              font-size: 10px;
               padding: 0 0 2px;
               //&:before{
               //  display: block;
@@ -180,7 +186,7 @@
 
             .color-value {
               display: block;
-              font-size: 11px;
+              font-size: 12px;
               background-color: rgba(white, 0.2);
               padding: 2px 0;
               //&:before{
@@ -194,6 +200,12 @@
       }
 
       .font-list {
+        &.text-element{
+          & > li > div{
+            display: flex;
+          }
+        }
+
         li {
           display: flex;
           justify-content: space-between;

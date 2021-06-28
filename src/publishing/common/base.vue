@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <h2>1. 아이콘</h2>
-          <div class="content">
+          <div class="content t">
             <h3>기본 아이콘</h3>
             <s-svg-icon :name="icon" v-for="icon in svgIconList" :key="icon"></s-svg-icon>
           </div>
@@ -71,11 +71,11 @@
             <s-button>기본 컬러 버튼</s-button>
             <s-button color="primary">메인 컬러(테마#1) 버튼</s-button>
             <s-button color="secondary">테마#2 컬러 버튼</s-button>
-            <s-button color="thirdly">테마#3 컬러 버튼</s-button>
+            <s-button color="special">테마#3 컬러 버튼</s-button>
 <!--            <s-button color="light">밝은 버튼</s-button>-->
             <s-button color="apply">실행 버튼</s-button>
             <s-button color="success">실행 성공 버튼</s-button>
-            <s-button color="warning">삭제나 경고 버튼</s-button>
+            <s-button color="danger">삭제나 경고 버튼</s-button>
 
             <h3>아이콘 포함</h3>
             <s-button icon="global" only-icon>아이콘만...</s-button>
@@ -173,3 +173,8 @@ export default {
   },
 };
 </script>
+<style>
+.t .s-icon{
+  margin: 0 2px;
+}
+</style>

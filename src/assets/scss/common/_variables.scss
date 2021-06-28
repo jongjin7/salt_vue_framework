@@ -6,17 +6,18 @@ $side-content-width: 240px + 16px;
 $main-container-gap: 40px;
 $breakpoints-unit: xs,sm,md,lg,xl;
 $font-size: 10px, 13px, 14px, 20px, 24px;
-$button-height: 18px, 24px, 31px, 43px, 52px;
+$button-height: 18px, 24px, 32px, 40px, 52px;
 
 // 폰트명 정의
 $font-name: "Noto Sans KR";
 
-// color
-$default: #686868;
+// colors
 $brand-primary: #0097f6;
 $brand-secondary: #0ed058;
-$body-background-color: #f6f6f6;
+$body-background-color: #fff;
 
+// color-chips
+$default: #686868;
 $primary: $brand-primary;
 $secondary: $brand-secondary;
 $special: #830ed0;
@@ -142,6 +143,11 @@ $border-radius-lg: .3rem !default;
 $border-radius-sm: .2rem !default;
 
 $rounded-pill: 50rem !default;
+
+// 버튼 정의
+$button-min-width: 88px;
+$button-x-padding: 8px;
+
 
 
 // Typography

@@ -12,6 +12,19 @@ $small: 10px;
 
 
 // 컬러정의
+$default: #686868;
+$primary: #0097f6;
+
+$primary-100: #c9eaff;
+$primary-200: #75c7fd;
+$primary-300: #35afff;
+
+$secondary-100: #dbfde7;
+$secondary-200: #67fda1;
+$secondary-300: #2bff77;
+
+$special: #39D893;
+
 $gray-100: #FCFCFC;
 $gray-200: #F6F6F6;
 $gray-300: #ECECEC;
@@ -23,9 +36,27 @@ $gray-700: #686868;
 $gray-800: #646464;
 $gray-900: #404040;
 
-$theme-colors: $theme-colors;
+$info: #006BF6;
+$warning: #FFDEDE;
+$success: #09BE88;
+$danger: #FF2727;
+$danger-100: #ffe0e0;
+
 $theme-colors: map-merge(
+                $theme-colors,
                 (
+                        "primary-100":$primary-100,
+                        "primary-200":$primary-200,
+                        "primary-300":$primary-300,
+                        "secondary-100":$secondary-100,
+                        "secondary-200":$secondary-200,
+                        "secondary-300":$secondary-300,
+                        "danger": $danger,
+                        "danger-100": $danger-100,
+                        "special":$special,
+                        "success": $success,
+                        "info":$info,
+                        "warning": $warning,
                         "gray-100":$gray-100,
                         "gray-200":$gray-200,
                         "gray-300":$gray-300,
@@ -34,8 +65,12 @@ $theme-colors: map-merge(
                         "gray-600":$gray-600,
                         "gray-700":$gray-700,
                         "gray-800":$gray-800,
-                        "gray-900":$gray-900
-                ),
-                $theme-colors
+                        "gray-900":$gray-900,
+                )
 );
+
+//버튼 정의
+$border-radius: 4px;
+$button-x-padding: 16px;
+
 

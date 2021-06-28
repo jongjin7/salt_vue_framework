@@ -72,9 +72,10 @@ export default {
     let btnSquared = this.squared ? " btn-squared" : "";
     let btnCircle = this.circle ? " btn-circle" : "";
     let btnOutline = this.outline ? " btn-outline" : "";
-    let btnIcon = this.onlyIcon ? " btn-only-icon" : "";
+    let btnHasIcon = this.icon ? " btn-has-icon" : "";
+    let btnIconType = this.onlyIcon ? " btn-only-icon" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnIcon}${!btnCircle ? " btn-size-" + this.size : ""}`,
+      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnHasIcon}${btnIconType}${!btnCircle ? " btn-size-" + this.size : ""}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,
