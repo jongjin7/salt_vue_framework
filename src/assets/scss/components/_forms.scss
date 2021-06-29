@@ -43,6 +43,107 @@
 
 }
 
+///////////////////////////////////////////////////////////////////
+// * custom select
+.custom-select{
+  display: inline-block;
+  position: relative;
+  min-width: 120px;
+  .btn-select{
+    justify-content: start;
+    width: 100%;
+    margin: 0;
+    padding-right: 18px;
+    border-color: $gray-400;
+    background-color: white;
+    color: $gray-600;
+
+    .icon-right {
+      position: absolute;
+      right: 8px;
+      top: 0;
+      width: 10px;
+      height: 100%;
+      margin-left: 0;
+      transition: transform 0.15s ease-in-out;
+    }
+
+    @include hover-focus(){
+    }
+  }
+  .option-list{
+    display: none;
+    position: absolute;
+    left:0; top:map-get($arr-item-height, md); z-index: 1;
+    margin-top: -1px;
+    width: 100%;
+    background: white;
+    border: 1px solid $gray-400;
+    border-radius: 0 0 4px 4px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+
+    &.fade-in{
+      opacity: 1;
+    }
+    .option-item{
+      position: relative;
+      &-link{
+        display: block;
+        height: map-get($arr-item-height, md);
+        padding:0 10px 0 16px;
+        line-height: 2.7;
+
+        &.option-selected{
+          background: $gray-300;
+        }
+        @include hover-focus(){
+          &:not(.option-selected){
+            background: $gray-400;
+          }
+        }
+        &.disabled{
+          opacity:0.3;
+        }
+        &.disabled,
+        &.placeholder{
+          cursor: default;
+          pointer-events: none;
+        }
+      }
+    }
+
+  }
+
+  &.select-lg{
+    .option-list{
+      top:map-get($arr-item-height, lg);
+      .option-item-link{
+        height: map-get($arr-item-height, lg);
+      }
+    }
+  }
+
+  &.select-active{
+    .btn-select{
+      border-bottom-left-radius:0;
+      border-bottom-right-radius:0;
+      border-color: $gray-600 !important;
+      border-bottom-color: $gray-400 !important;
+
+      .icon-right{
+        transform: rotate(180deg);
+      }
+    }
+    .option-list{
+      display: block;
+      border-color: $gray-600;
+      border-top-color: $gray-400;
+    }
+  }
+}
+
 /////////////////////////////////////////////////////////////////////
 // * checkbox, radio
 
@@ -227,4 +328,6 @@
 .was-validated :valid ~ .valid-tooltip{
   display: block;
 }
+
+
 

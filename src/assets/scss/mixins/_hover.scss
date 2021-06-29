@@ -13,11 +13,18 @@
   &:hover { @content; }
 }
 
+@mixin focus() {
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(black, 0.15);
+  }
+}
+
 @mixin hover-focus() {
   &:hover,
   &:focus {
     @content;
   }
+  @include focus;
 }
 
 @mixin plain-hover-focus() {
@@ -26,6 +33,7 @@
   &:focus {
     @content;
   }
+  @include focus;
 }
 
 @mixin hover-focus-active() {
@@ -34,6 +42,7 @@
   &:active {
     @content;
   }
+  @include focus;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -51,5 +60,4 @@
         }
       }
   }
-
 }

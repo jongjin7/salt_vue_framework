@@ -75,7 +75,7 @@ export default {
     let btnHasIcon = this.icon ? " btn-has-icon" : "";
     let btnIconType = this.onlyIcon ? " btn-only-icon" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnHasIcon}${btnIconType}${!btnCircle ? " btn-size-" + this.size : ""}`,
+      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnHasIcon}${btnIconType}${!btnCircle ? " item-size-" + this.size : ""}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,

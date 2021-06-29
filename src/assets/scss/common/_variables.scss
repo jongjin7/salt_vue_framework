@@ -4,9 +4,13 @@
 $body-min-width: 1440px;
 $side-content-width: 240px + 16px;
 $main-container-gap: 40px;
-$breakpoints-unit: xs,sm,md,lg,xl;
+$breakpoints-unit: xs, sm, md, lg, xl;
 $font-size: 10px, 13px, 14px, 20px, 24px;
 $button-height: 18px, 24px, 32px, 40px, 52px;
+
+$arr-item-height: () !default;
+
+
 
 // 폰트명 정의
 $font-name: "Noto Sans KR";
@@ -34,7 +38,7 @@ $gray-600: #555 !default;
 $gray-700: #444 !default;
 $gray-800: #333 !default;
 $gray-900: #222 !default;
-$gray-1000:#111 !default;
+$gray-1000: #111 !default;
 
 $light-gray: #f2f2f2;
 $dark-gray: #101010;
@@ -42,7 +46,6 @@ $warning: #ff5959;
 $success: #28a745;
 $danger: #dc3545;
 $apply: #434343;
-
 
 
 // Characters which are escaped by the escape-svg function
@@ -147,7 +150,6 @@ $rounded-pill: 50rem !default;
 // 버튼 정의
 $button-min-width: 88px;
 $button-x-padding: 8px;
-
 
 
 // Typography
@@ -289,7 +291,7 @@ $b-sidebar-zindex: $zindex-fixed + 5 !default;
 $transition-base: all .2s ease-in-out !default;
 $transition-fade: opacity .15s linear !default;
 $transition-collapse: height .35s ease !default;
-$transition-button:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+$transition-button: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
 
 //프로젝트용 재설정 변수
 @import "../customize/custom_variables";

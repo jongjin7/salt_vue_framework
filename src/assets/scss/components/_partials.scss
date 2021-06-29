@@ -102,3 +102,15 @@ hr{
 }
 
 
+// 아이템 높이
+@for $i from 1 through length($breakpoints-unit) {
+  $arr-item-height:map-merge((
+    #{nth($breakpoints-unit, $i)}: nth($button-height, $i)
+  ), $arr-item-height);
+
+  .item-size-#{nth($breakpoints-unit, $i)} {
+    height: #{nth($button-height, $i)};
+    font-size: #{nth($font-size, $i)};
+  }
+}
+

@@ -12,12 +12,15 @@
               <div class="info-holder type-pill"><span class="text">저장소명 출력</span></div>
             </li>
             <li class="list-item">
-              <custom-select @onChange ="changeLanguage" :options="[{text:'언어 선택', value: null},{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', disabled: true},{text:'영어', value:'en'}]"></custom-select>
+              <custom-select pill size="lg" btnIcon="global" @onChange="changeLanguage" :options="[{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', disabled: true},{text:'영어', value:'en'}]"></custom-select>
             </li>
             <li class="list-item">
               <s-button title="내정보 수정" icon="fill_person" circle only-icon class="user"></s-button>
             </li>
           </ul>
+              <custom-select class="abc" @onChange ="changeLanguage" :options="[{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', },{text:'영어', value:'en'}]"></custom-select>
+              <custom-select class="abc" @onChange ="changeLanguage" size="lg" :options="[{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', },{text:'영어', value:'en'}]"></custom-select>
+              <custom-select class="abc jongjin" @onChange ="changeLanguage" size="lg" :options="[{text:'한국어', value:'kr',},{text:'일본어', value:'jp', selected: true },{text:'영어', value:'en'}]"></custom-select>
         </div>
       </div>
       <!-- 추가적 컨텐츠 -->

@@ -63,8 +63,8 @@
               <s-button circle>서클형 버튼</s-button>
               <s-button pill color="primary">알약 Primary 채움 버튼</s-button>
               <s-button pill outline color="primary">알약 Primary Outline 버튼</s-button>
-              <s-button pill color="warning">알약 Warning 채움 버튼</s-button>
-              <s-button pill outline color="warning">알약 Warning Outline 버튼</s-button>
+              <s-button pill color="danger">알약 Warning 채움 버튼</s-button>
+              <s-button pill outline color="danger">알약 Warning Outline 버튼</s-button>
             </b-form>
 
             <h3>버튼 스타일: 색상</h3>

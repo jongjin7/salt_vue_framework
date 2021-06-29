@@ -1,9 +1,9 @@
 <template>
-  <div class="custom-select" ref="select">
-    <s-button pill outline :icon="{left:'global', right:'arrow'}" class="type-pill" @onClick="onShow">
+  <div class="custom-select" :class="size ? `select-${size}` : ''" ref="select">
+    <s-button class="btn-select" outline :pill="pill" :size="size" :icon="selectIcons" @onClick="onToggle">
       {{ selected }}
     </s-button>
-    <ul class="opt-list">
+    <ul class="option-list">
       <li class="option-item" v-for="item in optionsData" :key="item.text">
         <a href="#"
            class="option-item-link"
@@ -25,8 +25,17 @@
 export default {
   name: "SelectBox",
   props: {
+    btnIcon:{
+      type: String,
+    },
     options: {
       type: Array,
+    },
+    pill: {
+      type: Boolean,
+    },
+    size: {
+      type: String,
     },
   },
   data() {
@@ -35,15 +44,26 @@ export default {
       selectOptionList:"",
       selected: "",
       optionsData: "",
+      selectIcons:"",
     };
+  },
+  computed:{
+
+  },
+  created() {
+    this.setIcon();
   },
   mounted() {
     this.init();
   },
   methods: {
+    setIcon() {
+      let def = { right: "arrow", };
+      this.selectIcons = this.btnIcon ? { left: this.btnIcon, ...def, } : def;
+    },
     init() {
       this.selectBox = this.$refs.select;
-      this.selectOptions = this.selectBox.querySelector(".opt-list");
+      this.selectOptions = this.selectBox.querySelector(".option-list");
       const hasSelectedItem = this.options.some((item) => item.selected);
       this.optionsData = this.options.map((item) => {
         if (item.value === null) {
@@ -67,22 +87,24 @@ export default {
     },
 
     onClickDocument(e) {
-      console.log("eeeeeee", e.target.closest(".custom-select"));
       if(e.target.closest(".custom-select") === null) {
         this.hide();
       }
     },
-    onShow() {
-      console.log("onShow!");
+    onToggle() {
+      console.log("onToggle!");
       document.addEventListener("click", this.onClickDocument);
       if (!this.selectBox.classList.contains("select-active")) {
+        if(document.querySelectorAll(".custom-select.select-active").length > 0) {
+          document.querySelectorAll(".custom-select.select-active").forEach((item)=>{
+            item.classList.remove("select-active");
+            item.querySelector(".option-list").classList.remove("fade-in");
+          });
+        }
         this.selectBox.classList.add("select-active");
         this.selectOptions.classList.add("fade-in");
-        // setTimeout(() => {
-        //   this.selectOptions.addEventListener("transitionend", ()=> {
-        //     console.log("option showing");
-        //   });
-        // }, 0);
+      }else{
+        this.hide();
       }
     },
 
