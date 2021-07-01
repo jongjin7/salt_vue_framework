@@ -13,9 +13,18 @@
   &:hover { @content; }
 }
 
+@mixin focus-button($color:null) {
+  @include focus{
+    box-shadow: 0 0 0 2px rgba($color, 0.2);
+  }
+}
+
 @mixin focus() {
   &:focus {
-    box-shadow: 0 0 0 2px rgba(black, 0.15);
+    @content;
+  }
+  &:focus-visible{
+    outline: none;
   }
 }
 
@@ -24,7 +33,6 @@
   &:focus {
     @content;
   }
-  @include focus;
 }
 
 @mixin plain-hover-focus() {
@@ -33,7 +41,6 @@
   &:focus {
     @content;
   }
-  @include focus;
 }
 
 @mixin hover-focus-active() {
@@ -42,22 +49,11 @@
   &:active {
     @content;
   }
-  @include focus;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// @hover Color
+// @generator
 
-@mixin hover-color($type){
-  $text-color: white, black;
-  @each $key, $color in $theme-colors{
-      &.btn-#{ $key }{
-        @include hover-focus-active() {
-          @if($type == outline){
-            border-color: $color;
-          }
-        }
-      }
-  }
-}
+
+

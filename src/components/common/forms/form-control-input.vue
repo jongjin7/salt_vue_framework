@@ -1,7 +1,7 @@
 <template>
 <fragment>
-    <label :for="`${labelFor}-${new Date().valueOf()}`">{{ label }}</label>
-    <input :type="type" @keyup="onKeyup" v-model="inputModel" :id="`${labelFor}-${new Date().valueOf()}`" :placeholder="placeholder" autocomplete="off" class="form-control">
+    <label :for="labelFor">{{ label }}</label>
+    <input :type="type" @keyup="onKeyup" v-model="inputModel" :id="labelFor" :placeholder="placeholder" autocomplete="off" class="form-control">
 </fragment>
 </template>
 

@@ -1,0 +1,49 @@
+// 버튼 믹스인
+@mixin button-outline($color, $key) {
+  &.btn-outline {
+    $tmp-color: null;
+    $tmp-bg-color: null;
+    $tmp-border-color: null;
+    @if ($key == default) {
+      $tmp-bg-color: $gray-300;
+      $tmp-border-color: $gray-500;
+      $tmp-color: $gray-1000;
+    }@else if ($key == primary) {
+      $tmp-color: $color;
+      $tmp-bg-color: $primary-100;
+      $tmp-border-color: $color;
+    } @else if ($key == secondary) {
+      $tmp-color: $color;
+      $tmp-bg-color: lighten($color,45);
+      $tmp-border-color: $color;
+    } @else {
+      $tmp-color: $color;
+      $tmp-bg-color: lighten($color,40);
+      $tmp-border-color: $color;
+    }
+
+    border-color: $tmp-border-color;
+    background-color: $tmp-bg-color;
+    color: $tmp-color;
+
+
+    @include hover-focus-active{
+      $tmp-color: $color;
+      @if ($key == default) {
+        $tmp-bg-color: $gray-600;
+        $tmp-border-color: $gray-800;
+      } @else if ($key == primary) {
+        $tmp-color: $white;
+        $tmp-bg-color: $primary-200;
+      } @else {
+        $tmp-color: $white;
+        $tmp-bg-color: lighten($color, 30);
+        $tmp-border-color: $color;
+      }
+
+      border-color: $tmp-border-color;
+      background-color: $tmp-bg-color;
+      color: $tmp-color;
+    }
+  }
+}

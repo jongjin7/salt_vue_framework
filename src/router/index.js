@@ -53,6 +53,11 @@ export const routerMap = [
         component: () => import("@/publishing/common/form.vue"),
       },
       {
+        path: "myform",
+        name: "my-form-base",
+        component: () => import("@/publishing/common/myForm.vue"),
+      },
+      {
         path: "table",
         name: "table-base",
         component: () => import("@/publishing/common/table.vue"),

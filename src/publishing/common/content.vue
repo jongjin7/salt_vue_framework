@@ -7,9 +7,9 @@
           <div class="content">
             <h3>White & Black</h3>
             <ul class="color-list" style="margin-bottom:8px">
-              <li v-for="(color, index) in new Array(11)" :key="index" :class="{dark: index > 4}">
+              <li v-for="(color, index) in new Array(12)" :key="index" :class="{dark: index > 4}">
                 <span class="chip"
-                      :class="`bg-${ index > 0 && index <= 9 ? `gray-${index*100}` : (index === 0? 'white' :'black') }`"></span>
+                      :class="`bg-${ index > 0 && index <= 10 ? `gray-${index*100}` : (index === 0? 'white' :'black') }`"></span>
                 <span class="info-style">
                   <span class="class-name"></span>
                   <span class="color-value"></span>
@@ -127,7 +127,7 @@
                 </span>
               </li>
               <li class="dark">
-                <span class="chip bg-info"></span>
+                <span class="chip bg-support-primary"></span>
                 <span class="info-style">
                   <span class="class-name"></span>
                   <span class="color-value"></span>

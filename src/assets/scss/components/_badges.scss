@@ -1,0 +1,76 @@
+.badge{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 64px;
+  padding:2px 12px;
+  margin: 2px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height:1;
+
+  .txt + .s-icon,
+  .s-icon + .txt{
+    margin-left: 4px;
+  }
+  .txt{
+    vertical-align: middle;
+  }
+
+  // 색상 정의
+  &.default{
+    background-color: $primary-100;
+    color: $primary;
+  }
+
+  &.primary{
+    background-color: $primary;
+    color: white;
+  }
+
+  &.danger{
+    background-color: $danger;
+    color: white;
+  }
+
+  &.success{
+    background-color: $secondary;
+    color: white;
+  }
+
+  &.size{
+    &-xs{
+      height: 16px;
+      font-size: 10px;
+    }
+    &-sm{
+      height: 20px;
+      font-size: 12px;
+    }
+    &-md{
+      height: 24px;
+      font-size: 14px;
+    }
+  }
+
+
+  // extend
+  &.has-icon {
+    padding-right: $button-x-padding / 2;
+
+    .icon-left + .text {
+      margin-left: 10px;
+    }
+
+    .text + .icon-right {
+      margin-left: 10px;
+    }
+
+    .s-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+}

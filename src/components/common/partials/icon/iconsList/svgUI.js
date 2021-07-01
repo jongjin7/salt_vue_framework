@@ -1,4 +1,43 @@
 export default {
+  minus: {
+    viewBox: "0 0 11.5 1.5",
+    code: `<g transform="translate(0.7 0.75)">
+        <g transform="translate(0.05 0)">
+            <line x2="10" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+    </g>`,
+  },
+  plus: {
+    viewBox: "0 0 12 12",
+    code: `<g transform="translate(1.071 0.75)">
+        <g transform="translate(-0.321)">
+            <line x2="10" transform="translate(0 5)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="1.5"/>
+            <line y2="10" transform="translate(5)" fill="none" stroke="#fff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="1.5"/>
+        </g>
+    </g>`,
+  },
+  pencil: {
+    viewBox: "0 0 24 24",
+    code: `<g transform="translate(2.408 2)">
+        <path d="M125.746,1.123a2.943,2.943,0,0,0-4.162,0L109.916,12.791a.654.654,0,0,0-.168.288l-1.534,5.539a.654.654,0,0,0,.8.8l5.539-1.535a.654.654,0,0,0,.288-.168L126.514,6.052a2.946,2.946,0,0,0,0-4.162Zm-14.4,12.093,9.549-9.549,3.08,3.08L114.421,16.3Zm-.615,1.234,2.46,2.461-3.4.943Zm14.863-9.323-.694.694-3.08-3.08.694-.694a1.635,1.635,0,0,1,2.312,0l.768.767A1.637,1.637,0,0,1,125.589,5.127Zm0,0"
+              transform="translate(-108.19 -0.261)" fill="#fff"/>
+    </g>
+    <rect width="24" height="24" transform="translate(0)" fill="none"/>`,
+  },
+  help: {
+    viewBox: "0 0 16 16",
+    code: `<g transform="translate(-824 -296)">
+        <g transform="translate(826 298)" fill="gray" stroke="#686868" stroke-width="1">
+            <circle cx="6" cy="6" r="6" stroke="none"/>
+            <circle cx="6" cy="6" r="5.5" fill="none"/>
+        </g>
+        <rect width="16" height="16" transform="translate(824 296)" fill="none"/>
+        <path d="M1.572-6.781h.582C2.025-7.909,3.318-8.333,3.318-9.389a1.229,1.229,0,0,0-1.344-1.279A1.794,1.794,0,0,0,.6-10.007l.374.345a1.225,1.225,0,0,1,.927-.46.727.727,0,0,1,.776.776C2.678-8.491,1.407-8.031,1.572-6.781ZM1.881-5.1a.476.476,0,0,0,.481-.5.488.488,0,0,0-.481-.51.487.487,0,0,0-.474.51A.475.475,0,0,0,1.881-5.1Z"
+              transform="translate(830.04 311.884)" fill="#fff" stroke="#fff" stroke-width="0.3"/>
+    </g>`,
+  },
   arrow: {
     viewBox: "0 0 22 12",
     code: `

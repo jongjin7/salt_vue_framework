@@ -18,6 +18,9 @@ export default {
       type: String,
       default: "button",
     },
+    disabled:{
+      type: Boolean,
+    },
     icon: {
       type: [String, Object],
     },
@@ -65,7 +68,8 @@ export default {
   },
   render(createElement) {
     let isLink = (this.type === "link") ? true : false;
-    let btnAttrs = isLink ? { href : this.href, } : { type: this.type === "toggle" ? "button" : this.type, };
+    let btnAttrs = isLink ? { href: this.href, } : { type: this.type === "toggle" ? "button" : this.type, };
+    btnAttrs = { disabled: this.disabled, ...btnAttrs, };
     let btnColor = this.color ? ` btn-${this.color}` : (!isLink ? " btn-default" : "");
     let btnPill = this.pill ? " btn-pill" : "";
     let btnRounded = this.rounded ? " btn-rounded" : "";
@@ -74,8 +78,9 @@ export default {
     let btnOutline = this.outline ? " btn-outline" : "";
     let btnHasIcon = this.icon ? " btn-has-icon" : "";
     let btnIconType = this.onlyIcon ? " btn-only-icon" : "";
+    let btnDisabled = this.disabled ? " disabled" : "";
     return createElement(isLink ? "a" : "button", {
-      class: `btn${this.onlyIcon ? "" : btnColor}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnHasIcon}${btnIconType}${!btnCircle ? " item-size-" + this.size : ""}`,
+      class: `btn${btnColor}${btnDisabled}${btnPill}${btnRounded}${btnSquared}${btnCircle}${btnOutline}${btnHasIcon}${btnIconType}${` item-size-${this.size}`}`,
       attrs: btnAttrs,
       on:{
         click: this.onClick,

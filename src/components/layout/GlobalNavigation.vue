@@ -2,7 +2,7 @@
   <header class="side-container">
     <div class="inner-wrap">
       <div class="site-logo">
-        <s-button icon="storm" only-icon title="storm">Storm</s-button>
+        <s-button type="link" href="/" icon="storm" only-icon title="storm">Storm</s-button>
       </div>
 
       <div class="nav-title">
@@ -78,6 +78,10 @@ export default {
                   {
                     text:"Form 컴포넌트",
                     link:"form-base",
+                  },
+                  {
+                    text:"내가 만드는 폼",
+                    link:"my-form-base",
                   },
                   {
                     text:"테이블 컴포넌트",

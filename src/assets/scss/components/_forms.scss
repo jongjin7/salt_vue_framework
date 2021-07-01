@@ -1,10 +1,28 @@
 .form-group{
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 
-  label,
-  .col-form-label,
-  .form-label{
+  &.size-lg{
+    .form-control:not(.custom-radio):not(.custom-checkbox), .custom-select{
+      height: 40px;
+    }
+  }
+
+  & > label,
+  .form-label
+  .col-form-label{
     display: block;
+    font-size: 12px;
+  }
+
+  .form-control:not(.custom-radio):not(.custom-checkbox), .custom-select{
+    height: 32px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid $gray-400;
+
+    @include focus{
+      border-color: $gray-500;
+    }
   }
 
   .form-text:last-of-type{
@@ -24,12 +42,28 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      label,
+      & > label,
+      .form-label,
       .col-form-label{
-        display: inline-block;
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+        min-width: 112px;
+        height: 40px;
+
         &+div{
           display: inline-block;
         }
+      }
+      .custom-control{
+        &:not(.custom-radio):not(.custom-checkbox){
+
+        }
+      }
+
+
+      .form-control{
+
       }
     }
   }
@@ -41,6 +75,17 @@
     }
   }
 
+}
+
+///////////////////////////////////////////////////////////////////
+// * custom input field
+.form-group{
+  label{
+
+  }
+  .form-control{
+
+  }
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -69,6 +114,7 @@
     }
 
     @include hover-focus(){
+      background-color: transparent;
     }
   }
   .option-list{
@@ -273,6 +319,53 @@
     }
   }
 
+  //switch
+  &.custom-switch{
+    padding-left: 0;
+    .custom-control-label{
+      width: 48px; height: 24px;
+      border-radius: 28px;
+      background-color: $gray-700;
+      transition: background-color .15s ease-in-out;
+      span{
+        display: none;
+      }
+
+      &:before{
+        position: absolute; left:8px; top:5px;
+        padding-left: 17px;
+        border:none !important;
+        background-color: transparent !important;
+        content:'OFF';
+        font-size: 10px;
+        color: white;
+        transition: background-color .15s ease-in-out;
+      }
+      &:after{
+        top: 2px;
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+        transition: left .15s ease-in-out;
+      }
+    }
+
+    .custom-control-input:checked{
+      & + .custom-control-label{
+        background-color: red;
+        &:before{
+          padding-left: 0;
+          content:'ON';
+        }
+        &:after{
+          left: 26px;
+        }
+      }
+    }
+  }
+
   .was-validated .custom-control-input:valid ~ .custom-control-label:before,
   .custom-control-input.is-valid ~ .custom-control-label::before {
   }
@@ -284,12 +377,12 @@
 
   .was-validated .custom-control-input:invalid ~ .custom-control-label:before,
   .custom-control-input.is-invalid ~ .custom-control-label:before {
-    border-color: $warning;
+    border-color: $danger;
   }
 
   .was-validated .custom-control-input:invalid ~ .custom-control-label,
   .custom-control-input.is-invalid ~ .custom-control-label {
-    color: $warning;
+    color: $danger;
   }
 
 
@@ -312,7 +405,7 @@
 }
 
 .invalid-feedback{
-  color: $warning;
+  color: $danger;
 }
 
 .is-invalid ~ .invalid-feedback,

@@ -1,0 +1,27 @@
+// 아이템 높이
+@for $i from 1 through length($breakpoints-unit) {
+  $arr-item-height: map-merge((
+          #{nth($breakpoints-unit, $i)}: nth($button-height, $i)
+  ), $arr-item-height);
+
+  .item-size-#{nth($breakpoints-unit, $i)} {
+    height: nth($button-height, $i);
+
+    &.btn {
+      font-size: nth($font-size, if($i < 4, if($i < 2, 2, 3), 4));
+
+      &.btn-circle {
+        width: nth($button-height, $i);
+        height: nth($button-height, $i);
+      }
+    }
+
+    &.badge {
+      //font-size: setFontSize($font-size, $i);
+    }
+  }
+}
+
+@function setFontSize($font-size, $i){
+  @return nth($font-size, if($i < 4, if($i<2, 2, 3), 4));
+}

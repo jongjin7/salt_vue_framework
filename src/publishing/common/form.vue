@@ -63,6 +63,7 @@
                 >
                 </b-form-input>
               </b-form-group>
+
             </div>
 
             <h3>체크박스 / 라디오 버튼</h3>
@@ -91,7 +92,7 @@
                 </b-form-checkbox>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 16px;">
                 <span class="form-label">라디오 그룹 가로형(기본)</span>
                 <b-form-radio-group
                     v-model="myData.radio.selected"
@@ -99,7 +100,7 @@
                 ></b-form-radio-group>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 16px;">
                 <span class="form-label">체크박스 그룹 가로형(기본)</span>
                 <b-form-checkbox-group
                     v-model="myData.checkbox.selected"
@@ -107,7 +108,7 @@
                 ></b-form-checkbox-group>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 16px;">
                 <span class="form-label">라디오 그룹 세로형</span>
                 <b-form-radio-group
                     v-model="myData.radio.selected"
@@ -116,12 +117,21 @@
                 ></b-form-radio-group>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" style="margin-top: 16px;">
                 <span class="form-label">체크박스 그룹 세로형</span>
                 <b-form-checkbox-group
                     v-model="myData.checkbox.selected"
                     :options="myData.checkbox.options"
                     stacked
+                ></b-form-checkbox-group>
+              </div>
+
+              <div class="form-group" style="margin-top: 16px;">
+                <span class="form-label">스위치(라디오 변형)</span>
+                <b-form-checkbox-group
+                    v-model="myData.checkbox.selected_sw"
+                    :options="myData.checkbox.options"
+                    switches
                 ></b-form-checkbox-group>
               </div>
             </div>
@@ -237,6 +247,39 @@
                 </v-date-picker>
               </div>
             </div>
+
+            <h3>Large Type</h3>
+            <div class="d-grid grid-col-2">
+              <b-form-group
+                  class="size-lg"
+                  valid-feedback="validate 성공적일때 출력" label="이름" label-for="field-label-name"
+                            description="설명글을 출력합시다.">
+                <b-form-input
+                    id="field-label-name"
+                    type="text"
+                    v-model="myData.field_model.item1"
+                    autocomplete="off"
+                    placeholder="나의 이름"
+                    :state="true"
+                >
+                </b-form-input>
+              </b-form-group>
+
+              <b-form-group
+                  class="size-lg"
+                  invalid-feedback="validate 실패일때 출력" label="너의 이름" label-for="field-label-name-2"
+                            description="">
+                <b-form-input
+                    id="field-label-name-2"
+                    type="text"
+                    v-model="myData.field_model.item1"
+                    autocomplete="off"
+                    placeholder="나의 이름"
+                    :state="false"
+                >
+                </b-form-input>
+              </b-form-group>
+            </div>
           </div>
         </div>
       </div>
@@ -274,6 +317,34 @@
                 <b-form-group label="인라인 셀렉트" label-for="inline-system-select-label">
                   <b-form-select v-model="myData.select.selected"
                                  :options="myData.select.plainOption" id="inline-system-select-label"></b-form-select>
+                </b-form-group>
+              </div>
+
+              <div class="form-inline-group form-label-inline" style="margin-top:8px">
+                <b-form-group
+                    class="size-lg"
+                    label="이름" label-for="s-field-label-name">
+                  <b-form-input
+                      id="s-field-label-name"
+                      type="text"
+                      v-model="myData.field_model.item1"
+                      autocomplete="off"
+                      placeholder="나의 이름"
+                  >
+                  </b-form-input>
+                </b-form-group>
+
+                <b-form-group
+                    class="size-lg"
+                    label="너의 이름" label-for="s-field-label-name-2">
+                  <b-form-input
+                      id="s-field-label-name-2"
+                      type="text"
+                      v-model="myData.field_model.item1"
+                      autocomplete="off"
+                      placeholder="나의 이름"
+                  >
+                  </b-form-input>
                 </b-form-group>
               </div>
             </div>
@@ -353,7 +424,7 @@ export default {
           item4: "disabled 속성 적용",
         },
         radio: {
-          selected: "first",
+          selected: [],
           options: [
             { text: "옵션#1", value: "1", },
             { text: "옵션#2", value: "2", },
@@ -362,7 +433,8 @@ export default {
           ],
         },
         checkbox: {
-          selected: [],
+          selected: ["apple"],
+          selected_sw: ["orange"],
           options: [
             { text: "Orange", value: "orange", },
             { text: "Apple", value: "apple", },

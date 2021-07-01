@@ -1,6 +1,5 @@
 .table {
   border-collapse: collapse;
-  color: $default;
   width:100%;
   thead,
   tbody {
@@ -152,7 +151,6 @@
       border-radius: 5px;
 
       &:focus {
-        border-color: $apply;
       }
     }
 
