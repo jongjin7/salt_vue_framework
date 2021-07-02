@@ -1,6 +1,6 @@
 <template>
 <div class="form-group" :class="optionalClass">
-  <slot :myData ="mydata"></slot>
+  <slot></slot>
 
   <p class="form-desc" v-if="description">
     <small>{{ description }}</small>
@@ -24,10 +24,6 @@ export default {
     },
     labelFor:{
       type: String,
-    },
-    mydata:{
-      gap:1,
-      bap:2,
     },
 
   },

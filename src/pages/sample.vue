@@ -1,7 +1,7 @@
 <template>
   <div class="page-body-contents">
     <!-- 실제 컨텐츠 생성 페이지 -->
-    샘플내용입니다.
+    개발용 샘플내용입니다.
   </div>
 </template>
 <script>

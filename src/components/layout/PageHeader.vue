@@ -18,9 +18,6 @@
               <s-button title="내정보 수정" icon="fill_person" circle only-icon class="user"></s-button>
             </li>
           </ul>
-              <s-custom-select class="abc" @onChange ="changeLanguage" :options="[{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', },{text:'영어', value:'en'}]"></s-custom-select>
-              <s-custom-select class="abc" @onChange ="changeLanguage" size="lg" :options="[{text:'한국어', value:'kr', selected: true},{text:'일본어', value:'jp', },{text:'영어', value:'en'}]"></s-custom-select>
-              <s-custom-select class="abc jongjin" @onChange ="changeLanguage" size="lg" :options="[{text:'한국어', value:'kr',},{text:'일본어', value:'jp', selected: true },{text:'영어', value:'en'}]"></s-custom-select>
         </div>
       </div>
       <!-- 추가적 컨텐츠 -->

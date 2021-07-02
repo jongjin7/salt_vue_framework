@@ -14,13 +14,23 @@
   display: grid;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
 .text {
   &-left {
     text-align: left;
   }
+
   &-center {
     text-align: center;
   }
+
   &-right {
     text-align: right;
   }
@@ -38,3 +48,21 @@
   white-space: nowrap;
   border: 0;
 }
+
+// 여백
+$gap: () !default;
+$gap: (
+        0:0,
+        1: 0.25rem,
+        2: 0.5rem,
+        3: 0.75rem,
+        4: 1rem,
+        5: 1.25rem,
+        6: 1.5rem,
+        7: 1.75rem,
+        8: 2rem,
+        9: 3rem,
+        10: 4rem,
+        11: 6rem,
+        12: 8rem,
+);

@@ -15,6 +15,7 @@
             </div>
 
             <h3>기본 입력필드</h3>
+            <h4>기본</h4>
             <div class="d-grid grid-col-2">
               <b-form-group valid-feedback="validate 성공적일때 출력" label="이름" label-for="field-label-name"
                             description="설명글을 출력합시다.">
@@ -63,7 +64,34 @@
                 >
                 </b-form-input>
               </b-form-group>
+            </div>
+            <h4 style="margin-top:12px;">인라인형</h4>
+            <div class="d-grid grid-col-2">
+              <div class="form-label-inline">
+                <b-form-group label="이름" label-for="field-label-name" description="">
+                  <b-form-input
+                      id="field-label-name-21"
+                      type="text"
+                      v-model="myData.field_model.item1"
+                      autocomplete="off"
+                      placeholder="나의 이름"
+                      :state="true"
+                  >
+                  </b-form-input>
+                </b-form-group>
 
+                <b-form-group label="너의 이름" label-for="field-label-name-2" description="">
+                  <b-form-input
+                      id="field-label-name-22"
+                      type="text"
+                      v-model="myData.field_model.item1"
+                      autocomplete="off"
+                      placeholder="나의 이름"
+                      :state="false"
+                  >
+                  </b-form-input>
+                </b-form-group>
+              </div>
             </div>
 
             <h3>체크박스 / 라디오 버튼</h3>
@@ -235,12 +263,14 @@
                           :value="inputValue.start"
                           v-on="inputEvents.start"
                           class="form-control"
+                          style="width: 200px;"
                       />
                       ~
                       <input
                           :value="inputValue.end"
                           v-on="inputEvents.end"
                           class="form-control"
+                          style="width: 200px;"
                       />
                     </div>
                   </template>
@@ -253,7 +283,7 @@
               <b-form-group
                   class="size-lg"
                   valid-feedback="validate 성공적일때 출력" label="이름" label-for="field-label-name"
-                            description="설명글을 출력합시다.">
+                  description="설명글을 출력합시다.">
                 <b-form-input
                     id="field-label-name"
                     type="text"
@@ -268,7 +298,7 @@
               <b-form-group
                   class="size-lg"
                   invalid-feedback="validate 실패일때 출력" label="너의 이름" label-for="field-label-name-2"
-                            description="">
+                  description="">
                 <b-form-input
                     id="field-label-name-2"
                     type="text"
@@ -333,7 +363,6 @@
                   >
                   </b-form-input>
                 </b-form-group>
-
                 <b-form-group
                     class="size-lg"
                     label="너의 이름" label-for="s-field-label-name-2">
@@ -383,7 +412,7 @@
                 </b-form-input>
               </b-form-group>
               <b-form-group label="시스템 셀렉트 싱글" label-for="system-select-nolabel" label-sr-only>
-                <b-form-select :state="true" v-model="myData.select.selected"
+                <b-form-select :state="null" v-model="myData.select.selected"
                                :options="myData.select.plainOption" id="system-select-nolabel"></b-form-select>
               </b-form-group>
             </div>

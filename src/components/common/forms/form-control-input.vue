@@ -1,7 +1,7 @@
 <template>
 <fragment>
-    <label :for="labelFor">{{ label }}</label>
     <input :type="type" @keyup="onKeyup" v-model="inputModel" :id="labelFor" :placeholder="placeholder" autocomplete="off" class="form-control">
+    <label :for="labelFor" class="form-label"><span class="text">{{ label }}</span></label>
 </fragment>
 </template>
 

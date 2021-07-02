@@ -15,17 +15,10 @@ import "expose-loader?$!expose-loader?jQuery!jquery";
 import VCalendar from "v-calendar";
 Vue.use(VCalendar);
 
-import VeeValidate from "vee-validate";
-import language from "vee-validate/dist/locale/ko";
-Vue.use(VeeValidate, {
-  inject: true,
-  locale: "ko",
-  dictionary: {
-    ko: language,
-  },
-  fieldsBagName: "veeFields",
-  errorBagName: "veeErrors",
-});
+// validator
+import { ValidationProvider, extend } from "vee-validate";
+Vue.component("ValidationProvider", ValidationProvider);
+
 // Vue.use(VueLoading);
 // Vue.use(VueToast);
 
@@ -36,6 +29,7 @@ import "@/components/common/forms/formComponents";
 Vue.config.productionTip = false;
 
 // style
+import "vue-multiselect/dist/vue-multiselect.min.css";
 import "@/assets/scss/saltlux_common.scss";
 import "@/assets/scss/site_contents.scss";
 

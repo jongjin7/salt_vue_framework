@@ -94,6 +94,10 @@ export default {
                   {
                     text:"팝업 컴포넌트",
                     link:"boot-popup",
+                  },
+                  {
+                    text:"상세화면 템플릿",
+                    link:"detail_template",
                   }
                 ],
               },

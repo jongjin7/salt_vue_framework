@@ -73,9 +73,9 @@ export const routerMap = [
         component: () => import("@/publishing/common/Popups.vue"),
       },
       {
-        path: "other",
-        name: "other",
-        component: () => import("@/publishing/pages/BasicContent.vue"),
+        path: "detail_template",
+        name: "detail_template",
+        component: () => import("@/publishing/layout/TemplateDetail.vue"),
       },
     ],
   },
