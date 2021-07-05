@@ -1,4 +1,37 @@
+.control-group{
+  padding-bottom: 16px !important;
+  .lft-cont{
+    display: flex;
+    align-items: center;
+  }
+  .rgt-cont{
+    display: flex;
+    align-items: center;
+  }
+
+  &.stacked{
+    .lft-cont, .rgt-cont{
+      width: 100%;
+    }
+    .rgt-cont{
+      margin-top: 28px;
+    }
+  }
+}
 .detail-title-area{
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
+  margin-bottom: 14px;
+  color: $gray-1000;
+  background-color: pink;
+  .btn-wrap{
+
+  }
+}
+
+.sec-page{
+  &:not(:first-child){
+    margin-top: 40px;
+  }
 }

@@ -155,19 +155,16 @@
   display: flex;
   align-items: flex-start; // so the close btn always stays on the upper right corner
   justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
-  height: 87px;
-  padding: 38px 38px 0;
-
-  h2 {
-    font-size: 26px;
-  }
+  padding: 40px 40px 0;
 
   .btn-close {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 30px;
+    top: 32px;
     margin:0;
-    padding: 34px;
+    padding: 10px;
+    min-width: auto;
+    background-color: transparent !important;
   }
 }
 
@@ -178,11 +175,8 @@
   // Enable `flex-grow: 1` so that the body take up as much space as possible
   // when there should be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
+  min-height: 200px;
   padding: $modal-inner-padding;
-
-  .pop-content-body {
-    min-height: 200px;
-  }
 }
 
 // Footer (for actions)
@@ -191,12 +185,11 @@
   flex-wrap: wrap;
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
-  padding: 0 48px 33px;
+  padding: 0 40px 40px;
+  margin-right: -8px;
 
-  .btn {
-    &:not(:first-child) {
-      margin-left: 10px;
-    }
+  .btn{
+    margin: 0 8px;
   }
 }
 

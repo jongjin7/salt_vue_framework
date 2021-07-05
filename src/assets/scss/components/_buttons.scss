@@ -32,6 +32,10 @@
   &:not(:disabled):not(.disabled) {
     cursor: pointer;
   }
+
+  &.btn-close{
+    margin: 0;
+  }
 }
 
 // extend
@@ -87,13 +91,6 @@
   background-color: $gray-300;
   border-color: $gray-100;
   color: $gray-900;
-
-  @include hover-focus() {
-    border-color: $gray-700;
-    background-color: $gray-500;
-    color: white;
-  }
-;
 }
 
 
@@ -191,6 +188,11 @@
 .btn-wrap {
   display: flex;
   align-items: center;
+  margin-left:-8px;
+  margin-right:-8px;
+  .btn{
+    margin:0 8px;
+  }
 }
 
 .btn-group {
@@ -208,6 +210,8 @@
         $tmp-color: null;
         @if ($key == primary) {
           $tmp-color: $support-primary;
+        } @else if ($key == light) {
+          border-color: $gray-500;
         } @else if ($key == dark) {
           $tmp-color: $gray-1000;
         } @else {

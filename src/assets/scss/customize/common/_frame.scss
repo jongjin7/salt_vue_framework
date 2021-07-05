@@ -58,15 +58,15 @@
 
       .page-header {
         position: relative;
-        position: sticky;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 50;
+        //position: sticky;
+        //left: 0;
+        //right: 0;
+        //top: 0;
+        //z-index: 50;
         background-color: $body-bg;
-        //backdrop-filter: blur(20px);
         min-height: $page-header-height;
         padding: 8px #{$main-container-gap} 0;
+        color: $gray-1000;
 
         .row{
           justify-content: space-between;
@@ -171,6 +171,7 @@
         min-height: calc(100% - #{ $page-header-height + 77px + 32px });
 
         &-contents {
+          & > .control-group,
           & > section {
             padding: 0 #{$main-container-gap};
           }

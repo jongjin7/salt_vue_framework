@@ -15,7 +15,7 @@
 }
 
 .b-sidebar-backdrop {
-  position: fixed !important;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
@@ -27,12 +27,13 @@
 .b-sidebar {
   display: flex;
   flex-direction: column;
-  position: fixed !important;
+  position: fixed;
   top: 0;
-  height: 100vh;
   width: $b-sidebar-width;
-  max-width: 100% !important;
-  margin: 0 !important;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
   outline: 0;
   transform: translateX(0);
 
@@ -69,6 +70,25 @@
     }
   }
 
+  .b-sidebar-header,
+  .pop-content-header{
+    padding: 40px 40px 20px;
+
+    h2{
+      line-height: 1;
+    }
+
+    .btn-close {
+      position: absolute;
+      right: 30px;
+      top: 32px;
+      margin:0;
+      padding: 10px;
+      min-width: auto;
+      background-color: transparent !important;
+    }
+  }
+
   > .b-sidebar-header {
     display: flex;
     flex-direction: row;
@@ -81,67 +101,32 @@
         flex-direction: row-reverse;
       }
     }
-
-    .close {
-
-    }
   }
 
   > .b-sidebar-body {
     flex-grow: 1;
     height: 100%;
-    padding: 80px 52px 40px;
+    padding: 0;
     overflow-y: auto;
 
     .pop-content-header {
-      .title, h2 {
-        font-size: 30px;
-        font-weight: 500;
-        line-height: 1;
-      }
 
-      .btn-close {
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 30px 40px;
-
-        .vs-icon {
-          width: 20px;
-          height: 20px;
-        }
-      }
     }
-    .pop-content-body {
-      padding-top: 42px;
 
-      h3 {
-        font-size: 18px;
-        & + .table {
-          margin-top: 18px;
-        }
-      }
+  }
 
-      .form-group + h3 {
-        margin-top: 27px;
-      }
-    }
-    .pop-content-footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-top: 30px;
-
-      .btn {
-        &:not(:first-child) {
-          margin-left: 10px;
-        }
-      }
+  .b-sidebar-footer,
+  .pop-content-footer{
+    padding: 28px 40px;
+    .btn{
+      margin: 0 8px;
     }
   }
 
-  > .b-sidebar-footer {
-    flex-grow: 0;
+  &-right{
+    .b-sidebar-footer{
+      justify-content: flex-end;
+    }
   }
 }
 

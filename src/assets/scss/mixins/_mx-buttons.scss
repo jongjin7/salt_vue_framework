@@ -30,6 +30,7 @@
     @include hover-focus-active{
       $tmp-color: $color;
       @if ($key == default) {
+        $tmp-color: white;
         $tmp-bg-color: $gray-600;
         $tmp-border-color: $gray-800;
       } @else if ($key == primary) {

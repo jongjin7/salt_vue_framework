@@ -215,13 +215,14 @@
 
             <h3>캘린더 플러그인</h3>
             <div class="alert">
-              <p><b>도큐먼트: </b><a target="_blank" href="https://vcalendar.io/">V-Calendar https://vcalendar.io</a>
+              <!-- <p><b>도큐먼트: </b><a target="_blank" href="https://vcalendar.io/">V-Calendar https://vcalendar.io</a>-->
+              <p><b>도큐먼트: </b><a target="_blank" href="https://innologica.github.io/vue2-daterange-picker">레인지 캘린더 레퍼런스 사이트</a>
               </p>
             </div>
             <div class="d-grid grid-col-2">
               <div class="form-group">
                 <span class="form-label">캘린더</span>
-                <v-date-picker v-model="calendarSelectedDate" mode="dateTime" is24hr>
+                <!-- <v-date-picker v-model="calendarSelectedDate" mode="dateTime" is24hr>
                   <template #default="{ inputValue, inputEvents }">
                     <input
                         class="form-control focus:outline-none focus:border-blue-300"
@@ -229,7 +230,7 @@
                         v-on="inputEvents"
                     />
                   </template>
-                </v-date-picker>
+                </v-date-picker>-->
               </div>
 
               <div class="form-group">

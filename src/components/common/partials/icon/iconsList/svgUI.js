@@ -86,4 +86,13 @@ export default {
           <path d="M0,19V16.625c0-2.613,4.275-4.751,9.5-4.751S19,14.012,19,16.625V19ZM4.749,4.751A4.75,4.75,0,1,1,9.5,9.5,4.75,4.75,0,0,1,4.749,4.751Z" transform="translate(-0.11 0.204)" fill="#A0A0A0" />
         </g>`,
   },
+  thin_cross: {
+    viewBox: "0 0 8.821 8.822",
+    code: `<g transform="translate(4.311 -2.897) rotate(45)">
+          <g transform="translate(0 0)">
+            <line x2="10.193" transform="translate(0 5.097)" fill="none" stroke="#8f8f8f" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+            <line y2="10.193" transform="translate(5.38 0)" fill="none" stroke="#8f8f8f" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+          </g>
+        </g>`,
+  },
 };

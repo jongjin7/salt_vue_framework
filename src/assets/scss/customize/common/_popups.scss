@@ -1,0 +1,45 @@
+.b-sidebar{
+  .b-sidebar-header,
+  .pop-content-header{
+    padding: 40px 48px 28px;
+    h2{
+      color: #292929;
+    }
+
+    .btn-close{
+      width: 44px;
+      height: 44px;
+    }
+  }
+  .b-sidebar-header{
+
+  }
+
+  .b-sidebar-body{
+    padding-bottom: 28px;
+    .pop-content-header{
+
+    }
+
+    .pop-content-body{
+      padding: 0 48px 28px;
+
+      .form-group{
+        margin-top: 64px;
+      }
+    }
+  }
+
+  .b-sidebar-footer,
+  .pop-content-footer{
+    padding: 0 48px 0 48px;
+  }
+}
+
+.modal{
+  &-header{
+    h2{
+      color: #292929;
+    }
+  }
+}

@@ -12,8 +12,13 @@ Vue.prototype.$eventBus = EventBus;
 
 import "expose-loader?$!expose-loader?jQuery!jquery";
 // calendar
-import VCalendar from "v-calendar";
-Vue.use(VCalendar);
+// import VCalendar from "v-calendar";
+// Vue.use(VCalendar);
+
+import DateRangePicker from "vue2-daterange-picker";
+// you need to import the CSS manually
+import "vue2-daterange-picker/dist/vue2-daterange-picker.css";
+Vue.component("date-range-picker", DateRangePicker);
 
 // validator
 import { ValidationProvider, extend } from "vee-validate";
