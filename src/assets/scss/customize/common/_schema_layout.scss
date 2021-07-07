@@ -1,0 +1,127 @@
+.schema-layout {
+  display: flex;
+  border: 1px solid $gray-400;
+  margin-top: 6px;
+  background-color: white;
+
+  @include border-radius($border-radius-sm);
+
+  .ly-lft {
+    flex: 0 0 184px;
+    min-height: 100px;
+    border-right: 1px solid $gray-400;
+
+    .nav-sch {
+      position: relative;
+      margin: 32px 0 0 16px;
+
+      &:before {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $gray-400;
+        content: '';
+      }
+
+      .nav-list {
+        width: 100%;
+      }
+
+      .depth-1 {
+        &:not(:last-child) {
+          margin-bottom: 70px;
+        }
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 4px;
+        &:not(.on):hover{
+          color: $dark;
+        }
+
+        &:before {
+          display: block;
+          position: absolute;
+          left: -1px;
+          top: 0;
+          width: 2px;
+          height: 100%;
+          content: '';
+          transition: background-color 0.15s ease-out;
+          @include hdLine(left, true);
+        }
+      }
+
+      .depth-1-link {
+        height: 32px;
+        padding-left: 16px;
+        transition: background-color 0.15s ease-out;
+
+        &.on {
+          background-color: $primary-100;
+          color: $primary;
+
+          &:before {
+            background-color: $primary;
+          }
+        }
+      }
+
+      .sub-menu-wrap {
+        margin-top: 8px;
+
+        .depth-2 {
+          position: relative;
+          margin-left: 24px;
+
+          &:before {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background-color: $gray-400;
+            content: '';
+          }
+
+          .depth-2-link {
+            height: 24px;
+            padding-left: 16px;
+
+            &.on {
+              background-color: $secondary-100;
+              color: $secondary;
+
+              &:before {
+                background-color: $secondary;
+              }
+            }
+          }
+        }
+      }
+
+
+    }
+  }
+
+  .ly-rgt {
+    & > .inner-wrap {
+      padding: 32px 16px;
+
+      .title-action-area {
+        align-items: center;
+      }
+    }
+  }
+
+  .tab-content {
+    padding-top: 6px;
+  }
+}

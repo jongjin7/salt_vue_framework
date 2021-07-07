@@ -7,16 +7,16 @@ export const routerMap = [
   {
     path: "/",
     name: "main",
-    // redirect: "/publishing",
-    redirect: "sample",
-    component: () => import("@/publishing/layout/BasicLayout.vue"),
-    children: [
-      {
-        path: "sample",
-        name: "sample",
-        component: () => import("@/pages/sample.vue"),
-      },
-    ],
+    redirect: "/publishing",
+    // redirect: "sample",
+    // component: () => import("@/publishing/layout/BasicLayout.vue"),
+    // children: [
+    //   {
+    //     path: "sample",
+    //     name: "sample",
+    //     component: () => import("@/pages/sample.vue"),
+    //   },
+    // ],
   },
   {
     path: "*",
@@ -76,6 +76,11 @@ export const routerMap = [
         path: "detail_template",
         name: "detail_template",
         component: () => import("@/publishing/layout/TemplateDetail.vue"),
+      },
+      {
+        path: "Schema",
+        name: "Schema_layout",
+        component: () => import("@/publishing/layout/SchemaLayout.vue"),
       },
     ],
   },

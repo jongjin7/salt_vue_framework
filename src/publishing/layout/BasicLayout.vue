@@ -1,8 +1,8 @@
 <template>
  <comp-frame>
-   <template #page-header>
-    <!-- 헤더에 추가되는 컨텐츠 -->
-   </template>
+   <!-- 헤더에 추가되는 컨텐츠가 존재하는 경우 -->
+   <template #page-header></template>
+
  </comp-frame>
 </template>
 <script>

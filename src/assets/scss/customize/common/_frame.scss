@@ -90,7 +90,7 @@
               border:1px solid $gray-400;
               background: white;
               border-radius: 20px;
-              color:$gray-600;
+              color:$gray-700;
             }
 
             .info-holder{
@@ -108,6 +108,7 @@
               .btn-select {
                 width: 136px;
                 padding-left: 8px;
+                font-size: 14px;
 
                 .icon-left {
                   width: 24px;
@@ -174,6 +175,10 @@
           & > .control-group,
           & > section {
             padding: 0 #{$main-container-gap};
+
+            .content{
+              width: 100%;
+            }
           }
         }
       }

@@ -61,22 +61,11 @@
       </div>
     </div>
 
-    <div class="control-group stack" style="margin-top:8px">
-      <div class="container">
-        <div class="row">
-          <div class="lft-cont">
-
-          </div>
-          <div class="rgt-cont"></div>
-        </div>
-      </div>
-    </div>
-
     <section>
       <div class="container sec-page">
         <div class="row">
           <div class="content">
-            <div class="detail-title-area">
+            <div class="title-action-area">
               <div class="lft-cont">
                 <h3>기본형 테이블</h3>
               </div>
@@ -121,7 +110,7 @@
       <div class="container sec-page">
         <div class="row">
           <div class="content">
-            <div class="detail-title-area">
+            <div class="title-action-area">
               <div class="lft-cont">
                 <h3>기본형 테이블</h3>
               </div>

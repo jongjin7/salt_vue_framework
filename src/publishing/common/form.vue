@@ -216,78 +216,115 @@
             <h3>캘린더 플러그인</h3>
             <div class="alert">
               <!-- <p><b>도큐먼트: </b><a target="_blank" href="https://vcalendar.io/">V-Calendar https://vcalendar.io</a>-->
-              <p><b>도큐먼트: </b><a target="_blank" href="https://innologica.github.io/vue2-daterange-picker">레인지 캘린더 레퍼런스 사이트</a>
+              <p><b>도큐먼트: </b><a target="_blank" href="https://innologica.github.io/vue2-daterange-picker">레인지 캘린더 레퍼런스
+                사이트</a>
               </p>
             </div>
+            <!--            <div class="d-grid grid-col-2">
+                          <div class="form-group">
+                            <span class="form-label">캘린더</span>
+                             <v-date-picker v-model="calendarSelectedDate" mode="dateTime" is24hr>
+                              <template #default="{ inputValue, inputEvents }">
+                                <input
+                                    class="form-control focus:outline-none focus:border-blue-300"
+                                    :value="inputValue"
+                                    v-on="inputEvents"
+                                />
+                              </template>
+                            </v-date-picker>
+                          </div>
+
+                          <div class="form-group">
+                            <span class="form-label">특수한 캘린더</span>
+                            <div>
+                              <div v-if="mode !== 'date'">
+                                <div class="custom-control custom-control-inline custom-radio">
+                                  <input type="radio" class="custom-control-input" value="" v-model="timezone">
+                                  <label class="custom-control-label">Local</label>
+                                </div>
+                                <div class="custom-control custom-control-inline custom-radio">
+                                  <input type="radio" class="custom-control-input" value="utc" v-model="timezone">
+                                  <label class="custom-control-label">UTC</label>
+                                </div>
+                              </div>
+                              <v-date-picker mode="time" v-model="calendarSelectedDate" :timezone="timezone"/>
+                              <div class="flex items-baseline mt-2">
+                                <span class="text-gray-600 font-semibold tracking-wide">Date (ISO):</span>
+                                <span class="text-gray-800 ml-2">{{ calendarSelectedDate.toISOString() }}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>-->
             <div class="d-grid grid-col-2">
               <div class="form-group">
-                <span class="form-label">캘린더</span>
-                <!-- <v-date-picker v-model="calendarSelectedDate" mode="dateTime" is24hr>
-                  <template #default="{ inputValue, inputEvents }">
-                    <input
-                        class="form-control focus:outline-none focus:border-blue-300"
-                        :value="inputValue"
-                        v-on="inputEvents"
-                    />
-                  </template>
-                </v-date-picker>-->
+                <span class="form-label">기간 캘린더 Type1</span>
+                <!--                <v-date-picker v-model="range" is-range>
+                                  <template v-slot="{ inputValue, inputEvents }">
+                                    <div class="flex justify-center items-center">
+                                      <input
+                                          :value="inputValue.start"
+                                          v-on="inputEvents.start"
+                                          class="form-control"
+                                          style="width: 200px;"
+                                      />
+                                      ~
+                                      <input
+                                          :value="inputValue.end"
+                                          v-on="inputEvents.end"
+                                          class="form-control"
+                                          style="width: 200px;"
+                                      />
+                                    </div>
+                                  </template>
+                                </v-date-picker>-->
+
+                <date-range-picker
+                    :date-format="dateFormat"
+                    :locale-data="{
+                      firstDay: 0,
+                      format: 'yyyy/mm/dd',
+                      applyLabel: '적용',
+                      cancelLabel: '취소',
+                      }"
+                    v-model="myData.calendarSelectedDate"
+                >
+                </date-range-picker>
               </div>
 
               <div class="form-group">
-                <span class="form-label">특수한 캘린더</span>
-                <div>
-                  <div v-if="mode !== 'date'">
-                    <div class="custom-control custom-control-inline custom-radio">
-                      <input type="radio" class="custom-control-input" value="" v-model="timezone">
-                      <label class="custom-control-label">Local</label>
-                    </div>
-                    <div class="custom-control custom-control-inline custom-radio">
-                      <input type="radio" class="custom-control-input" value="utc" v-model="timezone">
-                      <label class="custom-control-label">UTC</label>
-                    </div>
-                  </div>
-                  <v-date-picker mode="time" v-model="calendarSelectedDate" :timezone="timezone"/>
-                  <div class="flex items-baseline mt-2">
-                    <span class="text-gray-600 font-semibold tracking-wide">Date (ISO):</span>
-                    <span class="text-gray-800 ml-2">{{ calendarSelectedDate.toISOString() }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-grid">
-              <div class="form-group">
-                <span class="form-label">기간 캘린더</span>
-                <v-date-picker v-model="range" is-range>
-                  <template v-slot="{ inputValue, inputEvents }">
-                    <div class="flex justify-center items-center">
-                      <input
-                          :value="inputValue.start"
-                          v-on="inputEvents.start"
-                          class="form-control"
-                          style="width: 200px;"
-                      />
-                      ~
-                      <input
-                          :value="inputValue.end"
-                          v-on="inputEvents.end"
-                          class="form-control"
-                          style="width: 200px;"
-                      />
-                    </div>
-                  </template>
-                </v-date-picker>
+                <span class="form-label">기간 캘린더 Type2</span>
+                <date-range-picker
+                    :date-format="dateFormat"
+                    auto-apply
+                    :locale-data="{format: 'yyyy/mm/dd',}"
+                    :ranges="false"
+                    single-date-picker
+                    v-model="myData.calendarSelectedDateSingle1"
+                >
+                </date-range-picker>
+                ~
+                <date-range-picker
+                    :date-format="dateFormat"
+                    auto-apply
+                    :locale-data="{format: 'yyyy/mm/dd',}"
+                    :ranges="false"
+                    single-date-picker
+                    @update="showTime(this)"
+                    v-model="myData.calendarSelectedDateSingle1"
+                >
+                </date-range-picker>
               </div>
             </div>
 
             <h3>Large Type</h3>
             <div class="d-grid grid-col-2">
               <b-form-group
-                  class="size-lg"
                   valid-feedback="validate 성공적일때 출력" label="이름" label-for="field-label-name"
                   description="설명글을 출력합시다.">
                 <b-form-input
                     id="field-label-name"
                     type="text"
+                    class="size-lg"
                     v-model="myData.field_model.item1"
                     autocomplete="off"
                     placeholder="나의 이름"
@@ -297,12 +334,12 @@
               </b-form-group>
 
               <b-form-group
-                  class="size-lg"
                   invalid-feedback="validate 실패일때 출력" label="너의 이름" label-for="field-label-name-2"
                   description="">
                 <b-form-input
                     id="field-label-name-2"
                     type="text"
+                    class="size-lg"
                     v-model="myData.field_model.item1"
                     autocomplete="off"
                     placeholder="나의 이름"
@@ -440,6 +477,9 @@ export default {
     Multiselect,
   },
   mixins: [tocLink],
+  watch:{
+
+  },
   data() {
     return {
       frameData: {
@@ -447,6 +487,18 @@ export default {
         tocData: [],
       },
       myData: {
+        calendarSelectedDate: {
+          startDate: "2021-6-26",
+          endDate: "2021-7-2",
+        },
+        calendarSelectedDateSingle1: {
+          startDate: null,
+          endDate: null,
+        },
+        calendarSelectedDateSingle2: {
+          startDate: null,
+          endDate: null,
+        },
         field_model: {
           item1: "홍길동",
           item2: "required 속성 적용",
@@ -508,6 +560,15 @@ export default {
 
   },
   methods: {
+    showTime() {
+      console.log(this);
+    },
+    dateFormat(classes, date) {
+      if (!classes.disabled) {
+        classes.disabled = date.getTime() < new Date();
+      }
+      return classes;
+    },
     onSubmit() {
       console.log("onSubmit==>", JSON.stringify(this.myData));
     },

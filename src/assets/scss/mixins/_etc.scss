@@ -9,12 +9,12 @@
 
 // --- hd line --------------------------------------------------------------------
 
-@mixin hdLine($property){
+@mixin hdLine($property, $minus:false){
   @include hdpi(1.5){
-    #{$property}: 0.667px;
+    #{$property}: if($minus, -0.667px, 0.667px);
   }
   @include hdpi(2){
-    #{$property}: 1px;
+    #{$property}: if($minus, -1px, 1px);
   }
 }
 

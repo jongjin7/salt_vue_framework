@@ -48,14 +48,18 @@
               </thead>
               <tbody>
               <tr>
-                <td><b-form-checkbox class="none-label"></b-form-checkbox></td>
+                <td>
+                  <b-form-checkbox class="none-label"></b-form-checkbox>
+                </td>
                 <td class="text-left">셀 목록 내용#1</td>
                 <td>셀 목록 내용#2</td>
                 <td>셀 목록 내용#3</td>
                 <td>셀 목록 내용#4</td>
               </tr>
               <tr>
-                <td><b-form-radio class="none-label"></b-form-radio></td>
+                <td>
+                  <b-form-radio class="none-label"></b-form-radio>
+                </td>
                 <td class="text-left">셀 목록 내용#1</td>
                 <td>셀 목록 내용#2</td>
                 <td>셀 목록 내용#3</td>
@@ -73,13 +77,15 @@
           <h2>2. 상세페이지</h2>
           <div class="content">
             <h3>목록(dl태그)</h3>
-            <dl class="table table-datatable dl-detail">
+            <dl class="table table-grid dl-detail">
+              <dt>와이드컬럼</dt>
+              <dd class="wide-column">#내용출력_셀은 짝수출력</dd>
               <dt>서비스 아이디</dt>
               <dd>#내용출력_셀은 짝수출력</dd>
               <dt>모델명</dt>
               <dd>#내용출력_셀은 짝수출력</dd>
               <dt>이름</dt>
-              <dd><input value="유저1" type="text" class="form-control" /></dd>
+              <dd><input value="유저1" type="text" class="form-control"/></dd>
               <dt>권한</dt>
               <dd>
                 <b-form-select :state="true" v-model="myData.select.selected"
@@ -99,21 +105,62 @@
               <dt>데이터셋</dt>
               <dd class="wide-column">
                 <div>
-                  <router-link to="/" class="btn-box"><s-badge icon="global">링크버튼</s-badge></router-link>
-                  <router-link to="/" class="btn-box"><s-badge icon="global">링크버튼</s-badge></router-link>
-                  <router-link to="/" class="btn-box"><s-badge icon="global">링크버튼</s-badge></router-link>
-                  <router-link to="/" class="btn-box"><s-badge icon="global">링크버튼</s-badge></router-link>
+                  <s-button class="outline" color="primary" size="sm" icon="global">링크버튼</s-button>
+                  <s-button class="outline" color="secondary" size="sm" icon="global">링크버튼</s-button>
+                  <s-button class="outline" color="dark" size="sm" icon="global">링크버튼</s-button>
                 </div>
               </dd>
               <dt>등록자</dt>
-              <dd>#내용출력_셀은 짝수출력</dd>
-              <dt></dt>
-              <dd></dd>
+              <dd class="wide-column">#내용출력_셀은 짝수출력</dd>
+              <dt>코드 하이라이트</dt>
+              <dd class="wide-column">
+                <div class="code-area">
+                  <!-- Code sample -->
+<pre class="language-webmanifest"><code  class="language-webmanifest">{
+"data": {
+    "labels": [
+        "foo",
+        "bar"
+    ],
+    "series": [
+        [ 0, 1, 2, 3 ],
+        [ 0, -4, -8, -12 ]
+    ]
+},
+// we even support comments
+"error": null,
+"status": "Ok"
+}
+</code></pre>
+
+<pre class="language-js line-numbers"><code>import Vue from 'vue'
+import VuePrism from 'vue-prism'
+Vue.use(VuePrism)
+
+import 'prismjs/themes/prism.css'
+</code></pre>
+
+<pre class="language-java  line-numbers"><code>// 일반적인 들여쓰기
+someMethod(int anArg, Object anotherArg, String yetAnotherArg, Object andStillAnother)
+{ ... }
+// 너무 멀리 들여쓰는 것을 피하기 위해 8개의 빈 칸으로 들여쓰기
+private static synchronized horkingLongMethodName(
+int anArg, Object anotherArg, String yetAnotherArg, Object andStillAnother)
+{ ... }
+</code></pre>
+
+<pre class="language-css"><code>.my-class {
+  background-color: red;
+  margin: 0;
+}
+</code></pre>
+                  <!-- // Code sample -->
+                </div>
+              </dd>
             </dl>
 
-
             <h3>데이터 그리드</h3>
-            <table role="grid" class="table table-datatable table-grid text-center">
+            <table role="grid" class="table table-datatable text-center">
               <thead>
               <tr>
                 <th>학습 데이터 이름</th>
@@ -142,7 +189,8 @@
                 <strong>1003</strong>
                 <span>건</span>
               </div>
-              <b-pagination pills align="center" :hide-goto-end-buttons="true" v-model="currentPage" :total-rows="100"></b-pagination>
+              <b-pagination pills align="center" :hide-goto-end-buttons="true" v-model="currentPage"
+                            :total-rows="100"></b-pagination>
             </div>
           </div>
         </div>
@@ -164,9 +212,9 @@ export default {
         tocData: [],
       },
 
-      currentPage:1,
+      currentPage: 1,
 
-      myData:{
+      myData: {
         select: {
           selected: null,
           options: [

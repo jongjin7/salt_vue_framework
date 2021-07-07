@@ -1,12 +1,9 @@
 .table {
   border-collapse: collapse;
   width:100%;
-  border-radius: 4px;
   thead,
   tbody {
-    tr{
-      background-color: white;
-    }
+    position: relative;
     th,
     td {
       border-top: none;
@@ -34,12 +31,20 @@
     }
   }
 
+  tbody{
+    th,td{
+      background-color: white;
+    }
+  }
+
   &-hover {
     tbody {
       tr:not(.none-data) {
         &:hover {
-          color: $default;
-          background-color: #fafbfc;
+          th, td {
+            color: $default;
+            background-color: #fafbfc;
+          }
         }
         &.none-data:hover {
           background-color: transparent;
@@ -69,26 +74,68 @@
       }
     }
     thead {
-
+      position: relative;
+      &:before{
+        display: block;
+        position: absolute; left:0; top:0;
+        width: 100%; height: calc(100% - 8px);
+        border-radius: $border-radius;
+        background: $gray-300;
+        border: 1px solid $gray-400;
+        content:'';
+      }
       tr {
-        background-color: $gray-300;
-
         th {
+          position: relative;
+          z-index: 1;
           font-size: 16px;
           color: $gray-1000;
+          padding-bottom: 12px;
         }
       }
     }
     tbody {
+      position: relative;
+      &:before{
+        display: block;
+        position: absolute; left:0; top:0;
+        z-index: 10;
+        width: 100%; height: 100%;
+        border-radius: $border-radius;
+        pointer-events: none;
+        border: 1px solid $gray-400;
+        content:'';
+      }
       tr {
-        th,
-        td {
-          border-bottom: 1px solid $gray-400;
+        border-bottom: 1px solid $gray-400;
+        @include hdLine(border-width);
+
+        &:first-child{
+          th,td{
+            &:first-child{
+              border-top-left-radius: $border-radius;
+            }
+            &:last-child{
+              border-top-right-radius: $border-radius;
+            }
+          }
+        }
+        &:last-child{
+          border-bottom: none;
+          th,td{
+            &:first-child{
+              border-bottom-left-radius: $border-radius;
+            }
+            &:last-child{
+              border-bottom-right-radius: $border-radius;
+            }
+          }
         }
 
         th {
           font-weight: 500;
         }
+
         td {
           .text-link {
             .txt {
@@ -153,17 +200,6 @@
       }
     }
 
-    // 포함되는 셀렉트 박스
-    .custom-select,
-    .form-control {
-      font-size: 13px;
-      border-color: $secondary;
-      border-radius: 5px;
-
-      &:focus {
-      }
-    }
-
     &.table-detail {
       border-top: 1px solid $light-gray;
       tr {
@@ -182,42 +218,55 @@
         }
       }
     }
+  }
 
+  &-grid {
     &.dl-detail {
       display: flex;
       flex-wrap: wrap;
-      border-top: 1px solid $light-gray;
+      box-shadow: 0 0 1px $gray-700;
+      @include border-radius($border-radius);
+
       & > dt,
       & > dd {
         display: flex;
         align-items: center;
-        min-height: 52px;
-        padding: 4px 18px;
-        border-bottom: 1px solid $light-gray;
+        min-height: 48px;
+        padding: 4px 16px;
+        border-top: 1px solid $gray-400;
+
+        &:nth-of-type(1),
+        &:nth-of-type(2){
+          border-top: none;
+        }
       }
 
       & > dt {
-        width: 20%;
-        background-color: #f5f6f9;
+        position: relative;
         justify-content: center;
-        font-size: 15px;
-        font-weight: 500;
+        width: 20%;
+        background-color: $gray-300;
+        color: $dark-gray;
+        overflow:hidden;
+
+        &:first-child + .wide-column{
+          & + dt, & + dt + dd{
+            border-top: 1px solid $gray-400;
+          }
+        }
       }
 
       & > dd {
         width: 30%;
         text-align: left;
-        font-size: 13px;
-        font-weight: 400;
+        font-size: 14px;
 
         &.wide-column {
           width: 80%;
         }
       }
     }
-  }
 
-  &-grid {
     tr {
       th,
       td {

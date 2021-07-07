@@ -44,8 +44,8 @@ $danger: #FF2727;
 $danger-100: #ffe0e0;
 
 $default: $gray-800;
-$light-gray: $gray-200;
-$dark-gray: $gray-900;
+$light: $gray-200;
+$dark: $gray-1000;
 
 $theme-colors: map-merge(
                 $theme-colors,
@@ -72,8 +72,8 @@ $theme-colors: map-merge(
                         "gray-800":$gray-800,
                         "gray-900":$gray-900,
                         "gray-1000":$gray-1000,
-                        "light":$gray-100,
-                        "dark":$gray-900,
+                        "light":$light,
+                        "dark":$dark,
                         "default": $default,
                 )
 );
@@ -84,5 +84,10 @@ $body-bg: $gray-200;
 //버튼 정의
 $border-radius: 4px;
 $button-x-padding: 16px;
+
+// Border Radius
+$border-radius: 4px;
+$border-radius-lg: 8px;
+
 
 

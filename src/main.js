@@ -38,6 +38,11 @@ import "vue-multiselect/dist/vue-multiselect.min.css";
 import "@/assets/scss/saltlux_common.scss";
 import "@/assets/scss/site_contents.scss";
 
+// prism
+import VuePrism from "./utils/Plugin.prism.js";
+Vue.use(VuePrism);
+import "./assets/vendors/prism/prism.css";
+
 new Vue({
   render: (h) => h(App),
   router,

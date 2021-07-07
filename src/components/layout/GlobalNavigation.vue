@@ -98,6 +98,10 @@ export default {
                   {
                     text:"상세화면 템플릿",
                     link:"detail_template",
+                  },
+                  {
+                    text:"스키마 레이아웃",
+                    link:"Schema_layout",
                   }
                 ],
               },

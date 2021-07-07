@@ -43,10 +43,16 @@ p{
   margin:0;
 }
 
+dt,
 b,
 .bold,
 strong {
-  font-weight: 500;
+  font-weight: $font-weight-bold;
+}
+
+pre {
+  max-height: 30em;
+  overflow: auto;
 }
 
 i, em{
